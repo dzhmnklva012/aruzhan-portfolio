@@ -1,19 +1,5 @@
 /* ============ Aruzhan — Portfolio (xhulia.com-style) ============ */
 :root {
-  --bg: #fbfaf8;
-  --bg-2: #f3f1ec;
-  --ink: #17150f;
-  --soft: #6c685e;
-  --line: #e7e3da;
-  --accent: #e8552f;
-  --accent-soft: #fbe7df;
-  --card: #ffffff;
-  --nav-bg: rgba(251, 250, 248, .72);
-  --hint-bg: rgba(255, 255, 255, .75);
-  --radius: 18px;
-  --maxw: 1080px;
-}
-:root[data-theme="dark"] {
   --bg: #14130f;
   --bg-2: #1d1b16;
   --ink: #f4f1ea;
@@ -24,12 +10,8 @@
   --card: #1c1a15;
   --nav-bg: rgba(20, 19, 15, .72);
   --hint-bg: rgba(0, 0, 0, .45);
-}
-/* smooth theme cross-fade */
-body, nav, .svc, .qcard, .psr-card, .panel, .shot, .proj-thumb, .stat, .stat-grid,
-.cta-band, .cs-icon, .cs-chip, .foot-icons a, .drag-badge, .btn, .cs-btn, .tag,
-.benefits span, .about-socials a, .theme-toggle, .work-card, .contact-box {
-  transition: background-color .35s ease, color .35s ease, border-color .35s ease;
+  --radius: 18px;
+  --maxw: 1080px;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -78,8 +60,8 @@ header.hero { position: relative; padding: 138px 0 8px; text-align: center; }
 /* falling-pill tray (below the hero copy, so pills never overlap text) */
 .pill-tray-label { margin-top: 34px; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--soft); font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 9px; }
 .pill-tray-label .grab { font-size: 14px; }
-.pill-field { position: relative; height: 300px; margin-top: 14px; overflow: hidden; }
-@media (max-width: 720px) { .pill-field { height: 340px; } }
+.pill-field { position: relative; height: 260px; margin-top: 18px; overflow: hidden; }
+@media (max-width: 720px) { .pill-field { height: 320px; } }
 .pill { position: absolute; pointer-events: auto; display: inline-flex; align-items: center; gap: 8px; font-size: 12.5px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #1e1a14; padding: 10px 16px; border-radius: 999px; cursor: grab; white-space: nowrap; user-select: none; will-change: transform; box-shadow: 0 10px 26px -14px rgba(40,30,15,.5); opacity: 0; }
 .pill:active { cursor: grabbing; }
 .pill.dragging { z-index: 60 !important; }
@@ -291,13 +273,11 @@ footer { padding: 96px 0 40px; }
 /* gentle pulse on project link arrow */
 .proj-link:hover { color: var(--accent); }
 
-/* theme toggle */
-.theme-toggle { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; display: grid; place-items: center; font-size: 15px; line-height: 1; }
-.theme-toggle:hover { border-color: var(--ink); }
-.theme-toggle .ti-sun { display: none; }
-.theme-toggle .ti-moon { display: block; }
-:root[data-theme="dark"] .theme-toggle .ti-sun { display: block; }
-:root[data-theme="dark"] .theme-toggle .ti-moon { display: none; }
+/* language switcher */
+.lang-switch { display: inline-flex; align-items: center; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+.lang-switch button { border: 0; background: transparent; color: var(--soft); font: inherit; font-size: 12.5px; font-weight: 600; letter-spacing: .04em; padding: 6px 11px; cursor: pointer; transition: background .2s, color .2s; }
+.lang-switch button:hover { color: var(--ink); }
+.lang-switch button.active { background: var(--ink); color: var(--bg); }
 
 /* trusted-by strip */
 .trusted { padding: 44px 0 8px; text-align: center; }

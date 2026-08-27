@@ -15,12 +15,11 @@ addEventListener('scroll', () => {
 
 /* magnetic hover for buttons */
 function magnetic(el, strength = 0.28) {
+  if (el.dataset.mag) return; el.dataset.mag = '1';
   el.classList.add('magnetic');
   el.addEventListener('mousemove', e => {
     const r = el.getBoundingClientRect();
-    const x = e.clientX - (r.left + r.width / 2);
-    const y = e.clientY - (r.top + r.height / 2);
-    el.style.transform = `translate(${x * strength}px, ${y * strength}px)`;
+    el.style.transform = `translate(${(e.clientX - (r.left + r.width / 2)) * strength}px, ${(e.clientY - (r.top + r.height / 2)) * strength}px)`;
   });
   el.addEventListener('mouseleave', () => { el.style.transform = ''; });
 }
@@ -30,9 +29,9 @@ function enableMagnetic() {
 }
 
 /* subtle 3D tilt on project thumbnails */
-function enableTilt() {
+function enableTilt(scope) {
   if (!canHover) return;
-  document.querySelectorAll('.proj-thumb').forEach(t => {
+  (scope || document).querySelectorAll('.proj-thumb').forEach(t => {
     t.addEventListener('mousemove', e => {
       const r = t.getBoundingClientRect();
       const px = (e.clientX - r.left) / r.width - 0.5;
@@ -49,7 +48,7 @@ const io = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-/* count-up for impact stats (fires once when scrolled into view) */
+/* count-up for impact stats */
 function countUp(el) {
   const to = parseFloat(el.dataset.to || '0');
   const dec = parseInt(el.dataset.dec || '0', 10);
@@ -61,8 +60,7 @@ function countUp(el) {
   function frame(ts) {
     if (start === null) start = ts;
     const p = Math.min((ts - start) / dur, 1);
-    const eased = 1 - Math.pow(1 - p, 3);
-    el.innerHTML = wrap(to * eased);
+    el.innerHTML = wrap(to * (1 - Math.pow(1 - p, 3)));
     if (p < 1) requestAnimationFrame(frame); else el.innerHTML = wrap(to);
   }
   requestAnimationFrame(frame);
@@ -72,19 +70,106 @@ const countIO = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 document.querySelectorAll('.num').forEach(el => countIO.observe(el));
 
-/* theme toggle (persisted) */
-const themeBtn = document.getElementById('themeToggle');
-if (themeBtn) themeBtn.addEventListener('click', () => {
-  const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-  document.documentElement.dataset.theme = next;
-  try { localStorage.setItem('theme', next); } catch (e) {}
-});
+/* ============ i18n (EN / RU) ============ */
+const I18N = {
+  en: {
+    'nav.work': 'Work', 'nav.playground': 'Playground', 'nav.about': 'About', 'nav.cv': 'CV ↗',
+    'hero.hello': 'Hello, I\'m Aruzhan',
+    'hero.h1': 'I turn complex products into experiences that feel <em>effortless</em>.',
+    'hero.current': 'Currently designing <b>complex B2B workflows</b> and a <b>multi-brand design system</b>.',
+    'hero.trayLabel': 'How I spend my days — drag them around',
+    'projects.head': 'Projects', 'trusted.label': 'Trusted by teams at',
+    'impact.eyebrow': 'By the numbers', 'stat.years': 'Years designing', 'stat.products': 'Products shipped',
+    'stat.faster': 'Faster workflows, avg.', 'stat.satis': 'Team satisfaction',
+    'quotes.eyebrow': 'Kind words', 'quotes.head': 'What people say about working with me',
+    'q1': 'Aruzhan turns messy, ambiguous problems into interfaces that just make sense. Our team shipped faster and argued less.',
+    'q1.role': 'Head of Product, Northwind',
+    'q2': 'She doesn\'t just design screens — she thinks in systems and outcomes. Our activation numbers moved because of her work.',
+    'q2.role': 'Founder, Lumen Pay',
+    'q3': 'The most reliable design partner I\'ve worked with — thoughtful, fast, and genuinely obsessed with the details users feel.',
+    'q3.role': 'Eng Lead, Atlas',
+    'services.eyebrow': 'How I can help', 'services.head': 'Ways we can work together',
+    'svc1.t': 'Product &amp; UX design', 'svc1.d': 'End-to-end design for web and mobile — from discovery and flows to polished, shippable UI that engineers love.', 'svc1.tag': 'Full-time or contract',
+    'svc2.t': 'Design systems', 'svc2.d': 'Scalable token-and-component systems with documentation your team will actually use — fewer debates, faster delivery.', 'svc2.tag': 'Project-based',
+    'svc3.t': 'Design partner &amp; audits', 'svc3.d': 'A senior set of eyes on your product — UX audits, rapid prototyping, and hands-on collaboration with your team.', 'svc3.tag': 'Retainer / advisory',
+    'cta.h3': 'Have a role or project in mind?', 'cta.p': 'I\'m open to full-time roles and select freelance work in 2026. Let\'s find 20 minutes to talk.', 'cta.btn': 'Book an intro call',
+    'foot.msg': 'Let\'s connect.<br>I\'m always down for a chat.', 'foot.built': 'Built with love &amp; a little code',
+    'about.h1': 'It\'s Aruzhan. But you read it like <em>"ah-roo-zhan"</em>.', 'about.sub': 'Looks harder than it actually is — thank you, mom and dad.',
+    'about.p1': 'I\'m an end-to-end <b>Product Designer</b> with 6 years of experience across agency, in-house, and the occasional freelance project.',
+    'about.p2': 'I\'ve worked on websites, SaaS platforms, mobile apps, dashboards, and design systems. I usually sit somewhere between <em>UX logic and UI craft</em> — I like figuring out how things should work, what\'s making them confusing, and how to turn that into something clear and usable.',
+    'about.p3': 'In my current role I work mostly on <b>complex B2B tools</b> — dense workflows, edge cases, regulations and trade-offs. These products are often treated as "just functional", but I think they deserve the same care, clarity, and visual polish as any consumer-facing app.',
+    'about.p4': 'My process usually starts with asking <em>a lot of questions</em>. I\'d rather understand the real problem (and the constraints around it) before pushing a single pixel — good design is mostly good decisions made early.',
+    'about.p5': 'When I\'m not designing, you\'ll usually find me drawing, planning my next trip, keeping up with celebrity drama (my guilty pleasure), or trying a new creative hobby — not always successfully.',
+    'about.whatido': 'What I do', 'about.tools': 'Tools',
+    'about.sk1': 'Product &amp; UX Design', 'about.lv1': 'Lead', 'about.sk2': 'Design Systems', 'about.lv2': 'Expert',
+    'about.sk3': 'Prototyping &amp; Motion', 'about.lv3': 'Advanced', 'about.sk4': 'User Research', 'about.lv4': 'Proficient',
+    'about.sk5': 'Frontend (HTML/CSS)', 'about.lv5': 'Comfortable',
+    'pg.h1': 'Experiments, <em>off the clock</em>.', 'pg.p': 'Loose explorations, color studies, and interface ideas that didn\'t fit anywhere else. Grab a piece and drag it around — it\'s a playground, after all.', 'pg.hint': '✋ Drag the pieces around',
+    'cs.back': '← All work', 'cs.intro': 'Intro', 'cs.role': 'Role', 'cs.status': 'Status', 'cs.type': 'Type',
+    'cs.problems': 'Problems', 'cs.solution': 'Solution', 'cs.results': 'Results', 'cs.gallery': 'Screenshot gallery',
+    'cs.next': 'Next up', 'cs.viewcase': 'View case study', 'drag': 'Drag'
+  },
+  ru: {
+    'nav.work': 'Работы', 'nav.playground': 'Эксперименты', 'nav.about': 'Обо мне', 'nav.cv': 'Резюме ↗',
+    'hero.hello': 'Привет, я Аружан',
+    'hero.h1': 'Я превращаю сложные продукты в опыт, который ощущается <em>лёгким</em>.',
+    'hero.current': 'Сейчас проектирую <b>сложные B2B-процессы</b> и <b>мультибрендовую дизайн-систему</b>.',
+    'hero.trayLabel': 'Чем я занимаюсь — перетаскивайте',
+    'projects.head': 'Проекты', 'trusted.label': 'Мне доверяют команды из',
+    'impact.eyebrow': 'В цифрах', 'stat.years': 'Лет в дизайне', 'stat.products': 'Выпущенных продуктов',
+    'stat.faster': 'Ускорение процессов, в ср.', 'stat.satis': 'Оценка команд',
+    'quotes.eyebrow': 'Отзывы', 'quotes.head': 'Что говорят о работе со мной',
+    'q1': 'Аружан превращает запутанные, неоднозначные задачи в интерфейсы, которые просто понятны. Наша команда стала выпускать быстрее и спорить меньше.',
+    'q1.role': 'Руководитель продукта, Northwind',
+    'q2': 'Она не просто рисует экраны — она мыслит системами и результатами. Наши показатели активации выросли благодаря её работе.',
+    'q2.role': 'Основатель, Lumen Pay',
+    'q3': 'Самый надёжный дизайн-партнёр, с которым я работал — вдумчивая, быстрая и по-настоящему одержимая деталями, которые чувствуют пользователи.',
+    'q3.role': 'Тимлид разработки, Atlas',
+    'services.eyebrow': 'Чем могу помочь', 'services.head': 'Форматы работы',
+    'svc1.t': 'Продуктовый и UX-дизайн', 'svc1.d': 'Дизайн веб- и мобильных продуктов под ключ — от исследования и сценариев до отполированного интерфейса, который любят разработчики.', 'svc1.tag': 'В штат или контракт',
+    'svc2.t': 'Дизайн-системы', 'svc2.d': 'Масштабируемые системы токенов и компонентов с документацией, которой команда действительно пользуется — меньше споров, быстрее релизы.', 'svc2.tag': 'Проектно',
+    'svc3.t': 'Дизайн-партнёр и аудиты', 'svc3.d': 'Взгляд senior-дизайнера на ваш продукт — UX-аудиты, быстрое прототипирование и совместная работа с командой.', 'svc3.tag': 'Ретейнер / консалтинг',
+    'cta.h3': 'Есть вакансия или проект?', 'cta.p': 'Открыта для работы в штате и избранных фриланс-проектов в 2026. Давайте найдём 20 минут поговорить.', 'cta.btn': 'Назначить звонок',
+    'foot.msg': 'Давайте на связь.<br>Всегда рада поговорить.', 'foot.built': 'Сделано с любовью и немного кодом',
+    'about.h1': 'Это Аружан. Читается как <em>«а-ру-жан»</em>.', 'about.sub': 'Выглядит сложнее, чем есть — спасибо маме и папе.',
+    'about.p1': 'Я продуктовый дизайнер полного цикла с 6-летним опытом в агентствах, в штате и на отдельных фриланс-проектах.',
+    'about.p2': 'Я работала над сайтами, SaaS-платформами, мобильными приложениями, дашбордами и дизайн-системами. Обычно я где-то между <em>UX-логикой и UI-ремеслом</em> — люблю разбираться, как всё должно работать, что сбивает с толку и как превратить это в понятное и удобное.',
+    'about.p3': 'Сейчас я в основном работаю над <b>сложными B2B-инструментами</b> — плотные сценарии, крайние случаи, регуляторика и компромиссы. Такие продукты часто считают «просто функциональными», но я уверена, что они заслуживают той же заботы, ясности и визуальной проработки, что и любое потребительское приложение.',
+    'about.p4': 'Мой процесс обычно начинается с <em>множества вопросов</em>. Я предпочитаю понять настоящую задачу (и её ограничения), прежде чем двигать хоть один пиксель — хороший дизайн это в основном хорошие решения, принятые рано.',
+    'about.p5': 'Когда я не занимаюсь дизайном, я обычно рисую, планирую следующее путешествие, слежу за жизнью знаменитостей (моя маленькая слабость) или пробую новое творческое хобби — не всегда успешно.',
+    'about.whatido': 'Что я делаю', 'about.tools': 'Инструменты',
+    'about.sk1': 'Продуктовый и UX-дизайн', 'about.lv1': 'Лид', 'about.sk2': 'Дизайн-системы', 'about.lv2': 'Эксперт',
+    'about.sk3': 'Прототипы и анимация', 'about.lv3': 'Продвинуто', 'about.sk4': 'Исследования', 'about.lv4': 'Уверенно',
+    'about.sk5': 'Фронтенд (HTML/CSS)', 'about.lv5': 'Комфортно',
+    'pg.h1': 'Эксперименты <em>в свободное время</em>.', 'pg.p': 'Свободные исследования, цветовые этюды и идеи интерфейсов, которым не нашлось места. Возьмите элемент и потяните — это же лаборатория.', 'pg.hint': '✋ Перетаскивайте элементы',
+    'cs.back': '← Все работы', 'cs.intro': 'Вступление', 'cs.role': 'Роль', 'cs.status': 'Статус', 'cs.type': 'Тип',
+    'cs.problems': 'Проблемы', 'cs.solution': 'Решение', 'cs.results': 'Результаты', 'cs.gallery': 'Галерея скриншотов',
+    'cs.next': 'Далее', 'cs.viewcase': 'Смотреть кейс', 'drag': 'Тяни'
+  }
+};
 
-/* intro overlay — plays once per session on the landing page */
+let lang = (function () { try { return localStorage.getItem('lang') === 'ru' ? 'ru' : 'en'; } catch (e) { return 'en'; } })();
+function t(key) { return (I18N[lang] && I18N[lang][key]) || I18N.en[key] || key; }
+const langHandlers = [];
+let firstApply = true;
+
+function applyLang(l) {
+  lang = (l === 'ru') ? 'ru' : 'en';
+  try { localStorage.setItem('lang', lang); } catch (e) {}
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const s = I18N[lang][el.getAttribute('data-i18n')];
+    if (s != null) el.innerHTML = s;
+  });
+  document.querySelectorAll('.lang-switch button').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  langHandlers.forEach(fn => fn());
+  firstApply = false;
+}
+
+/* ---------- intro overlay (landing, once per session) ---------- */
 const intro = document.getElementById('intro');
 if (intro) {
-  const reduceIntro = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduceIntro || document.documentElement.classList.contains('no-intro')) {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches || document.documentElement.classList.contains('no-intro')) {
     intro.remove();
   } else {
     intro.classList.add('play');
@@ -93,7 +178,7 @@ if (intro) {
   }
 }
 
-/* ---------- WORK: case studies (shared by landing + case-study pages) ---------- */
+/* ---------- WORK: case studies (EN base + RU overrides) ---------- */
 const caseStudies = [
   {
     id: 'atlas', name: 'Atlas', kind: 'Design System', yr: '2025—26', accent: '#2faa5e', icon: '🧩',
@@ -101,13 +186,8 @@ const caseStudies = [
     benefits: ['Fewer debates', 'Faster delivery', 'Dev-rated 4.8/5', 'Shared UX standards'],
     gallery: ['grid', 'dashboard', 'grid', 'cards', 'grid'],
     title: 'Building one system that ended the UI debates',
-    role: ['Lead Product Designer', 'Design Systems'],
-    status: ['Shipped', '2025—26'],
-    type: ['Design System', 'Tokens', 'Docs'],
-    intro: [
-      'Atlas is a multi-brand design system serving four product teams. Before it existed, every squad rebuilt the same components — and argued about each one in review.',
-      'I owned it end-to-end: the token layer, the component library, the documentation, and the rollout.'
-    ],
+    role: ['Lead Product Designer', 'Design Systems'], status: ['Shipped', '2025—26'], type: ['Design System', 'Tokens', 'Docs'],
+    intro: ['Atlas is a multi-brand design system serving four product teams. Before it existed, every squad rebuilt the same components — and argued about each one in review.', 'I owned it end-to-end: the token layer, the component library, the documentation, and the rollout.'],
     problems: 'Three brands, four teams, and no shared language. Components drifted, accessibility was inconsistent, and design reviews turned into colour-and-spacing debates instead of product conversations.',
     solution: 'I defined a token layer of 200+ decisions across three brands, built 60 production-ready components with usage docs, and ran adoption workshops so engineers could ship without re-asking the same questions.',
     results: 'Debates dropped and delivery sped up. Developers rated the system 4.8/5 for speed and clarity, and shared UX standards now hold across every squad.'
@@ -118,13 +198,8 @@ const caseStudies = [
     benefits: ['38% faster tasks', '6 tools → 1', '2,000+ daily users', 'Clearer hierarchy'],
     gallery: ['dashboard', 'dashboard', 'cards', 'grid', 'dashboard'],
     title: 'Redesigning a dense operations dashboard from the ground up',
-    role: ['Sole Product Designer', 'UX + UI'],
-    status: ['Shipped', '2025'],
-    type: ['B2B', 'Dashboard', 'Enterprise'],
-    intro: [
-      'Northwind runs freight operations for mid-size logistics firms. Dispatchers lived in six different tools and a wall of spreadsheets.',
-      'I led the redesign that consolidated the workflow into a single, trustworthy operations console.'
-    ],
+    role: ['Sole Product Designer', 'UX + UI'], status: ['Shipped', '2025'], type: ['B2B', 'Dashboard', 'Enterprise'],
+    intro: ['Northwind runs freight operations for mid-size logistics firms. Dispatchers lived in six different tools and a wall of spreadsheets.', 'I led the redesign that consolidated the workflow into a single, trustworthy operations console.'],
     problems: 'Critical information was scattered across six tools. Dispatchers context-switched constantly, mistakes were costly, and onboarding a new operator took weeks.',
     solution: 'I mapped the real dispatcher workflow, prioritised a clear information hierarchy, and unified planning, tracking, and exceptions into one console with sensible defaults and fast keyboard paths.',
     results: 'Task completion got 38% faster, six tools collapsed into one, and the console now serves 2,000+ daily users with far less training overhead.'
@@ -135,13 +210,8 @@ const caseStudies = [
     benefits: ['+24% activation', '4.9 App Store', 'Habit-forming flows', 'End-to-end prototype'],
     gallery: ['phone', 'phone', 'cards', 'phone', 'grid'],
     title: 'Turning saving money into a habit people enjoy',
-    role: ['Product Designer', 'Prototyping'],
-    status: ['Concept → MVP', '2024'],
-    type: ['Mobile', 'Fintech', 'B2C'],
-    intro: [
-      'Lumen Pay helps people save automatically without thinking about it. The challenge was emotional as much as functional — saving feels like a chore.',
-      'I designed the end-to-end mobile experience and a clickable prototype used for the first investor round.'
-    ],
+    role: ['Product Designer', 'Prototyping'], status: ['Concept → MVP', '2024'], type: ['Mobile', 'Fintech', 'B2C'],
+    intro: ['Lumen Pay helps people save automatically without thinking about it. The challenge was emotional as much as functional — saving feels like a chore.', 'I designed the end-to-end mobile experience and a clickable prototype used for the first investor round.'],
     problems: 'Saving apps are full of friction and guilt. Users set up an account, never funded it, and churned within a week.',
     solution: 'I designed gentle, habit-forming flows: tiny automatic round-ups, playful progress, and zero-pressure goals — paired with a motion-led prototype that made the payoff feel immediate.',
     results: 'Week-one activation rose 24%, the prototype earned a 4.9 rating in early testing, and the flows became the backbone of the shipped MVP.'
@@ -152,18 +222,56 @@ const caseStudies = [
     benefits: ['3-tap checkout', '+18% basket size', 'Research-led IA', 'Marketplace viability'],
     gallery: ['cards', 'phone', 'cards', 'grid', 'phone'],
     title: 'Reimagining hyperlocal grocery around speed and trust',
-    role: ['Product Designer', 'UX Research'],
-    status: ['Shipped', '2023'],
-    type: ['E-commerce', 'Mobile', 'Marketplace'],
-    intro: [
-      'Verde Market connects neighbourhoods with local grocers for same-hour delivery. Early on, browsing was slow and trust was thin.',
-      'I led research and redesigned the browse-to-checkout journey for both shoppers and store partners.'
-    ],
+    role: ['Product Designer', 'UX Research'], status: ['Shipped', '2023'], type: ['E-commerce', 'Mobile', 'Marketplace'],
+    intro: ['Verde Market connects neighbourhoods with local grocers for same-hour delivery. Early on, browsing was slow and trust was thin.', 'I led research and redesigned the browse-to-checkout journey for both shoppers and store partners.'],
     problems: 'A confusing catalogue, a long checkout, and no signals of freshness or reliability made shoppers abandon their carts.',
     solution: 'I rebuilt the information architecture around how people actually shop, cut checkout to three taps, and added trust cues — store ratings, live ETAs, and substitution controls.',
     results: 'Checkout dropped to three taps, average basket size grew 18%, and the research-led IA gave the marketplace a viable, repeatable shopping loop.'
-  },
+  }
 ];
+const CS_RU = {
+  atlas: {
+    kind: 'Дизайн-система', subtitle: 'Дизайн-система, которая прекратила споры об интерфейсе и помогла 4 командам выпускать быстрее.',
+    benefits: ['Меньше споров', 'Быстрее релизы', 'Оценка 4.8/5', 'Общие UX-стандарты'],
+    title: 'Единая система, которая прекратила споры об интерфейсе',
+    role: ['Ведущий продуктовый дизайнер', 'Дизайн-системы'], status: ['Запущено', '2025—26'], type: ['Дизайн-система', 'Токены', 'Документация'],
+    intro: ['Atlas — мультибрендовая дизайн-система для четырёх продуктовых команд. До неё каждая команда пересобирала одни и те же компоненты и спорила о каждом на ревью.', 'Я вела её целиком: слой токенов, библиотеку компонентов, документацию и внедрение.'],
+    problems: 'Три бренда, четыре команды и никакого общего языка. Компоненты расходились, доступность была непоследовательной, а ревью превращались в споры о цвете и отступах вместо разговора о продукте.',
+    solution: 'Я задала слой из 200+ токенов для трёх брендов, собрала 60 готовых к продакшену компонентов с документацией и провела воркшопы по внедрению, чтобы разработчики выпускали, не задавая одни и те же вопросы.',
+    results: 'Споров стало меньше, релизы ускорились. Разработчики оценили систему на 4.8/5 за скорость и ясность, а общие UX-стандарты теперь действуют во всех командах.'
+  },
+  northwind: {
+    kind: 'B2B-логистика', subtitle: 'Плотный операционный дашборд превратила в инструмент, которому команды действительно доверяют.',
+    benefits: ['Задачи на 38% быстрее', '6 инструментов → 1', '2 000+ польз. в день', 'Понятная иерархия'],
+    title: 'Полный редизайн плотного операционного дашборда',
+    role: ['Единственный продуктовый дизайнер', 'UX + UI'], status: ['Запущено', '2025'], type: ['B2B', 'Дашборд', 'Enterprise'],
+    intro: ['Northwind ведёт грузовые операции для средних логистических компаний. Диспетчеры жили в шести разных инструментах и стене из таблиц.', 'Я возглавила редизайн, объединивший работу в одну надёжную операционную консоль.'],
+    problems: 'Критичная информация была разбросана по шести инструментам. Диспетчеры постоянно переключались, ошибки стоили дорого, а обучение нового оператора занимало недели.',
+    solution: 'Я разложила реальный процесс диспетчера, выстроила понятную иерархию информации и объединила планирование, отслеживание и исключения в одну консоль с разумными значениями по умолчанию и быстрыми клавишами.',
+    results: 'Задачи стали выполняться на 38% быстрее, шесть инструментов схлопнулись в один, а консолью теперь пользуются 2 000+ человек в день с гораздо меньшими затратами на обучение.'
+  },
+  lumen: {
+    kind: 'Потребительский финтех', subtitle: 'Сделала так, чтобы откладывать деньги было легко, а не рутиной, которую избегают.',
+    benefits: ['+24% активации', '4.9 в App Store', 'Формируют привычку', 'Прототип под ключ'],
+    title: 'Как превратить накопления в привычку, которая нравится',
+    role: ['Продуктовый дизайнер', 'Прототипирование'], status: ['Концепт → MVP', '2024'], type: ['Мобайл', 'Финтех', 'B2C'],
+    intro: ['Lumen Pay помогает откладывать автоматически, не задумываясь. Задача была скорее эмоциональной, чем функциональной — копить кажется рутиной.', 'Я спроектировала весь мобильный опыт и кликабельный прототип для первого инвестраунда.'],
+    problems: 'Приложения для накоплений полны трения и чувства вины. Люди заводили счёт, не пополняли его и уходили за неделю.',
+    solution: 'Я придумала мягкие, формирующие привычку сценарии: небольшие автоматические округления, игривый прогресс и цели без давления — вместе с прототипом на анимации, где выгода ощущается сразу.',
+    results: 'Активация первой недели выросла на 24%, прототип получил 4.9 в раннем тестировании, а сценарии легли в основу выпущенного MVP.'
+  },
+  verde: {
+    kind: 'E-commerce', subtitle: 'Переосмыслила гиперлокальный продуктовый маркетплейс вокруг скорости и доверия.',
+    benefits: ['Оформление в 3 тапа', '+18% средний чек', 'IA на исследованиях', 'Жизнеспособность'],
+    title: 'Переосмысление гиперлокальной доставки продуктов вокруг скорости и доверия',
+    role: ['Продуктовый дизайнер', 'UX-исследования'], status: ['Запущено', '2023'], type: ['E-commerce', 'Мобайл', 'Маркетплейс'],
+    intro: ['Verde Market связывает районы с местными магазинами для доставки за час. Поначалу навигация была медленной, а доверия не хватало.', 'Я вела исследования и переработала путь от просмотра до оформления и для покупателей, и для магазинов-партнёров.'],
+    problems: 'Запутанный каталог, долгое оформление и отсутствие сигналов свежести и надёжности заставляли покупателей бросать корзину.',
+    solution: 'Я перестроила информационную архитектуру вокруг того, как люди реально покупают, сократила оформление до трёх тапов и добавила сигналы доверия — рейтинги магазинов, живые ETA и управление заменами.',
+    results: 'Оформление сократилось до трёх тапов, средний чек вырос на 18%, а IA на основе исследований дал маркетплейсу жизнеспособный, повторяемый цикл покупок.'
+  }
+};
+function loc(p) { return (lang === 'ru' && CS_RU[p.id]) ? Object.assign({}, p, CS_RU[p.id]) : p; }
 
 function mock(kind, a) {
   if (kind === 'phone') return `
@@ -202,14 +310,10 @@ function mock(kind, a) {
       <polyline points="92,138 112,118 132,128 152,104 172,114 196,96" fill="none" stroke="${a}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>`;
 }
-
-/* tints a mock onto a soft card background */
 function shot(kind, accent, i) {
   const tints = [`${accent}10`, `${accent}1c`, `${accent}14`];
   return `<div class="shot" style="background:linear-gradient(135deg, ${tints[i % 3]}, ${accent}26)">${mock(kind, accent)}</div>`;
 }
-
-/* drag-to-scroll for a horizontal gallery, plus a cursor-following "Drag" badge */
 function enableDragScroll(g) {
   let down = false, startX = 0, sl = 0, moved = false;
   g.addEventListener('mousedown', e => { down = true; moved = false; g.classList.add('dragging'); startX = e.pageX; sl = g.scrollLeft; });
@@ -222,7 +326,7 @@ function attachDragBadge(wrap, g) {
   if (!canHover) return;
   const badge = document.createElement('div');
   badge.className = 'drag-badge';
-  badge.innerHTML = 'Drag <span>🖐</span>';
+  badge.innerHTML = `${t('drag')} <span>🖐</span>`;
   wrap.appendChild(badge);
   g.addEventListener('mouseenter', () => badge.classList.add('on'));
   g.addEventListener('mouseleave', () => badge.classList.remove('on'));
@@ -233,211 +337,182 @@ function attachDragBadge(wrap, g) {
   });
 }
 
+/* WORK list (landing) — re-renders on language change */
 const list = document.getElementById('workList');
 if (list) {
-  caseStudies.forEach((p) => {
-    const el = document.createElement('article');
-    el.className = 'proj reveal';
-    el.innerHTML = `
-      <div class="proj-head-row">
-        <div class="proj-meta"><span class="name">${p.name}</span><span class="kind">${p.kind}</span><span class="yr">${p.yr}</span></div>
-        <a class="cs-btn" href="casestudy.html?id=${p.id}">View case study <span>→</span></a>
-      </div>
-      <p class="subtitle">${p.subtitle}</p>
-      <div class="benefits">${p.benefits.map(b => `<span>${b}</span>`).join('')}</div>
-      <div class="gallery-wrap">
-        <div class="gallery">${p.gallery.map((k, i) => shot(k, p.accent, i)).join('')}</div>
-      </div>`;
-    list.appendChild(el);
-    io.observe(el);
-    const g = el.querySelector('.gallery');
-    enableDragScroll(g);
-    attachDragBadge(el.querySelector('.gallery-wrap'), g);
-  });
+  function renderProjects() {
+    const animate = firstApply;
+    list.innerHTML = '';
+    caseStudies.forEach((raw) => {
+      const p = loc(raw);
+      const el = document.createElement('article');
+      el.className = 'proj reveal' + (animate ? '' : ' in');
+      el.innerHTML = `
+        <div class="proj-head-row">
+          <div class="proj-meta"><span class="name">${raw.name}</span><span class="kind">${p.kind}</span><span class="yr">${raw.yr}</span></div>
+          <a class="cs-btn" href="casestudy.html?id=${raw.id}"><span>${t('cs.viewcase')}</span> <span>→</span></a>
+        </div>
+        <p class="subtitle">${p.subtitle}</p>
+        <div class="benefits">${p.benefits.map(b => `<span>${b}</span>`).join('')}</div>
+        <div class="gallery-wrap"><div class="gallery">${raw.gallery.map((k, i) => shot(k, raw.accent, i)).join('')}</div></div>`;
+      list.appendChild(el);
+      if (animate) io.observe(el);
+      const g = el.querySelector('.gallery');
+      enableDragScroll(g);
+      attachDragBadge(el.querySelector('.gallery-wrap'), g);
+    });
+    enableTilt(list);
+  }
+  langHandlers.push(renderProjects);
 }
 
-enableMagnetic();
-
-/* ---------- CASE STUDY page ---------- */
-const cs = document.getElementById('caseStudy');
-if (cs) {
+/* CASE STUDY page — re-renders on language change */
+const csEl = document.getElementById('caseStudy');
+if (csEl) {
   const id = new URLSearchParams(location.search).get('id');
-  const p = caseStudies.find(c => c.id === id) || caseStudies[0];
-  document.title = `${p.name} — Aruzhan`;
-  const chips = arr => arr.map(t => `<span class="cs-chip">${t}</span>`).join('');
-  cs.innerHTML = `
-    <a class="cs-back" href="index.html">← All work</a>
-    <div class="cs-icon" style="background:linear-gradient(135deg, ${p.accent}, ${p.accent}bb)">${p.icon}</div>
-    <p class="cs-eyebrow">${p.name} · ${p.kind} — ${p.yr}</p>
-    <h1 class="cs-title">${p.title}</h1>
-    <div class="cs-grid">
-      <div class="cs-intro">
-        <p class="cs-label">Intro</p>
-        ${p.intro.map(t => `<p>${t}</p>`).join('')}
+  const raw = caseStudies.find(c => c.id === id) || caseStudies[0];
+  const nextRaw = caseStudies[(caseStudies.findIndex(c => c.id === raw.id) + 1) % caseStudies.length];
+  function renderCaseStudy() {
+    const p = loc(raw);
+    document.title = `${raw.name} — Aruzhan`;
+    const chips = arr => arr.map(x => `<span class="cs-chip">${x}</span>`).join('');
+    csEl.innerHTML = `
+      <a class="cs-back" href="index.html">${t('cs.back')}</a>
+      <div class="cs-icon" style="background:linear-gradient(135deg, ${raw.accent}, ${raw.accent}bb)">${raw.icon}</div>
+      <p class="cs-eyebrow">${raw.name} · ${p.kind} — ${raw.yr}</p>
+      <h1 class="cs-title">${p.title}</h1>
+      <div class="cs-grid">
+        <div class="cs-intro"><p class="cs-label">${t('cs.intro')}</p>${p.intro.map(x => `<p>${x}</p>`).join('')}</div>
+        <div class="cs-meta">
+          <div class="cs-meta-block"><p class="cs-label">${t('cs.role')}</p><div class="cs-chips">${chips(p.role)}</div></div>
+          <div class="cs-meta-block"><p class="cs-label">${t('cs.status')}</p><div class="cs-chips">${chips(p.status)}</div></div>
+          <div class="cs-meta-block"><p class="cs-label">${t('cs.type')}</p><div class="cs-chips">${chips(p.type)}</div></div>
+        </div>
       </div>
-      <div class="cs-meta">
-        <div class="cs-meta-block"><p class="cs-label">Role</p><div class="cs-chips">${chips(p.role)}</div></div>
-        <div class="cs-meta-block"><p class="cs-label">Status</p><div class="cs-chips">${chips(p.status)}</div></div>
-        <div class="cs-meta-block"><p class="cs-label">Type</p><div class="cs-chips">${chips(p.type)}</div></div>
+      <div class="psr">
+        <div class="psr-card"><h3>${t('cs.problems')}</h3><p>${p.problems}</p></div>
+        <div class="psr-card"><h3>${t('cs.solution')}</h3><p>${p.solution}</p></div>
+        <div class="psr-card"><h3>${t('cs.results')}</h3><p>${p.results}</p></div>
       </div>
-    </div>
-    <div class="psr">
-      <div class="psr-card"><h3>Problems</h3><p>${p.problems}</p></div>
-      <div class="psr-card"><h3>Solution</h3><p>${p.solution}</p></div>
-      <div class="psr-card"><h3>Results</h3><p>${p.results}</p></div>
-    </div>
-    <div class="cs-gallery-label"><span>Screenshot gallery</span></div>
-    <div class="gallery-wrap">
-      <div class="gallery cs-shots">${[...p.gallery, ...p.gallery].map((k, i) => shot(k, p.accent, i)).join('')}</div>
-    </div>
-    <div class="cs-next">
-      <span>Next up</span>
-      <a href="casestudy.html?id=${caseStudies[(caseStudies.findIndex(c => c.id === p.id) + 1) % caseStudies.length].id}">
-        ${caseStudies[(caseStudies.findIndex(c => c.id === p.id) + 1) % caseStudies.length].name} →
-      </a>
-    </div>`;
-  cs.querySelectorAll('.reveal').forEach(el => io.observe(el));
-  const g = cs.querySelector('.gallery');
-  enableDragScroll(g);
-  attachDragBadge(cs.querySelector('.gallery-wrap'), g);
+      <div class="cs-gallery-label"><span>${t('cs.gallery')}</span></div>
+      <div class="gallery-wrap"><div class="gallery cs-shots">${[...raw.gallery, ...raw.gallery].map((k, i) => shot(k, raw.accent, i)).join('')}</div></div>
+      <div class="cs-next"><span>${t('cs.next')}</span><a href="casestudy.html?id=${nextRaw.id}">${nextRaw.name} →</a></div>`;
+    const g = csEl.querySelector('.gallery');
+    enableDragScroll(g);
+    attachDragBadge(csEl.querySelector('.gallery-wrap'), g);
+  }
+  langHandlers.push(renderCaseStudy);
 }
 
-/* ---------- HERO: skill pills that fall down & pile up (mini physics) ---------- */
+/* HERO: falling skill pills (mini physics) */
 const pillField = document.getElementById('pillField');
 if (pillField) {
   const pills = [
-    { t: 'Prototyping',     e: '🔁', c: '#ffd166' },
-    { t: 'User research',   e: '🔍', c: '#ff9fb2' },
-    { t: 'Pushing pixels',  e: '🎯', c: '#b9a3ff' },
-    { t: 'Killing modals',  e: '🗡️', c: '#8fdc9b' },
-    { t: 'Naming things',   e: '🏷️', c: '#7fb8ff' },
-    { t: 'Reducing clicks', e: '⚡', c: '#ffb27a' },
-    { t: 'Design tokens',   e: '🎨', c: '#76dcc9' },
-    { t: 'Sweating details',e: '💧', c: '#ff8f6b' },
-    { t: 'Asking “why?”',   e: '❓', c: '#f0b6ff' },
-    { t: 'Shipping it',     e: '🚀', c: '#ffe08a' },
+    { en: 'Prototyping', ru: 'Прототипы', e: '🔁', c: '#ffd166' },
+    { en: 'User research', ru: 'Исследования', e: '🔍', c: '#ff9fb2' },
+    { en: 'Pushing pixels', ru: 'Двигаю пиксели', e: '🎯', c: '#b9a3ff' },
+    { en: 'Killing modals', ru: 'Убираю модалки', e: '🗡️', c: '#8fdc9b' },
+    { en: 'Naming things', ru: 'Придумываю названия', e: '🏷️', c: '#7fb8ff' },
+    { en: 'Reducing clicks', ru: 'Меньше кликов', e: '⚡', c: '#ffb27a' },
+    { en: 'Design tokens', ru: 'Токены', e: '🎨', c: '#76dcc9' },
+    { en: 'Sweating details', ru: 'Детали', e: '💧', c: '#ff8f6b' },
+    { en: 'Asking “why?”', ru: 'Спрашиваю «зачем?»', e: '❓', c: '#f0b6ff' },
+    { en: 'Shipping it', ru: 'Релизы', e: '🚀', c: '#ffe08a' }
   ];
+  const label = i => `<span class="pi">${pills[i].e}</span>${lang === 'ru' ? pills[i].ru : pills[i].en}`;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const GRAV = 0.85, REST = 0.42, AIR = 0.995, GROUND = 0.86;
-  let bodies = [], raf = 0, zTop = 20, W = 0, H = 0;
+  // gentler physics: softer gravity, minimal bounce, a little air drag → smooth fall
+  const GRAV = 0.55, REST = 0.16, AIR = 0.99, GROUND = 0.9;
+  let bodies = [], raf = 0, zTop = 20, W = 0, H = 0, order = [];
 
   function build() {
     cancelAnimationFrame(raf);
     pillField.querySelectorAll('.pill').forEach(p => p.remove());
     bodies = [];
     W = pillField.clientWidth; H = pillField.clientHeight;
+    const cols = Math.max(2, Math.floor(W / 190));
+    // randomised drop order so it doesn't fall left-to-right every time
+    order = pills.map((_, i) => i);
+    for (let i = order.length - 1; i > 0; i--) { const j = (i * 7 + 3) % (i + 1); const tmp = order[i]; order[i] = order[j]; order[j] = tmp; }
     pills.forEach((p, i) => {
       const el = document.createElement('div');
       el.className = 'pill';
-      el.style.background = p.c;
-      el.style.left = '0'; el.style.top = '0'; el.style.opacity = '1';
-      el.innerHTML = `<span class="pi">${p.e}</span>${p.t}`;
+      el.style.background = p.c; el.style.left = '0'; el.style.top = '0'; el.style.opacity = '1';
+      el.innerHTML = label(i);
       pillField.appendChild(el);
       const w = el.offsetWidth, h = el.offsetHeight;
-      const col = i % Math.max(2, Math.floor(W / 190));
-      const cols = Math.max(2, Math.floor(W / 190));
-      // spread across the width, stacked well above the field so they fall in
+      const col = i % cols;
+      // all start just above the top of the tray (below the header) and fall in
       const x = Math.max(8, Math.min((col + 0.5) * (W / cols) - w / 2 + ((i * 37) % 40 - 20), W - w - 8));
-      const y = -h - (i % cols) * 26 - Math.floor(i / cols) * (H * 0.6) - 60;
-      const b = { el, w, h, x, y, vx: ((i % 2) ? -1 : 1) * (1 + (i % 3)), vy: 0, rot: 0, drag: false, held: false };
-      bodies.push(b);
-      addDrag(b);
-      render(b);
+      const y = -h - 20 - (i % 3) * 24;
+      // staggered release: each chip waits its turn (~130ms apart) before gravity kicks in
+      const wait = reduce ? 0 : order.indexOf(i) * 8;
+      const b = { el, w, h, x, y, vx: ((i % 2) ? -1 : 1) * (0.4 + (i % 3) * 0.4), vy: 0, rot: 0, held: false, wait };
+      bodies.push(b); addDrag(b); render(b);
     });
     if (reduce) { settleStatic(); return; }
     raf = requestAnimationFrame(step);
   }
-
   function render(b) { b.el.style.transform = `translate(${b.x}px,${b.y}px) rotate(${b.rot}deg)`; }
-
   function step() {
     for (const b of bodies) {
       if (b.held) continue;
+      if (b.wait > 0) { b.wait--; continue; }   // hold above the tray until its turn
       b.vy += GRAV; b.x += b.vx; b.y += b.vy; b.vx *= AIR;
       if (b.x < 0) { b.x = 0; b.vx = -b.vx * REST; }
       if (b.x + b.w > W) { b.x = W - b.w; b.vx = -b.vx * REST; }
-      if (b.y + b.h > H) { b.y = H - b.h; b.vy = -b.vy * REST; b.vx *= GROUND; if (Math.abs(b.vy) < 1.4) b.vy = 0; }
+      if (b.y + b.h > H) { b.y = H - b.h; b.vy = -b.vy * REST; b.vx *= GROUND; if (Math.abs(b.vy) < 1.0) b.vy = 0; }
     }
-    for (let i = 0; i < bodies.length; i++)
-      for (let j = i + 1; j < bodies.length; j++) collide(bodies[i], bodies[j]);
-    for (const b of bodies) {
-      const target = b.held ? Math.max(-18, Math.min(18, b.vx * 2)) : Math.max(-14, Math.min(14, b.vx * 1.6));
-      b.rot += (target - b.rot) * 0.12;
-      render(b);
-    }
+    for (let i = 0; i < bodies.length; i++) for (let j = i + 1; j < bodies.length; j++) collide(bodies[i], bodies[j]);
+    for (const b of bodies) { const tr = Math.max(-14, Math.min(14, b.vx * 1.6)); b.rot += (tr - b.rot) * 0.12; render(b); }
     raf = requestAnimationFrame(step);
   }
-
   function collide(a, b) {
+    if (a.wait > 0 || b.wait > 0) return;
     const ox = Math.min(a.x + a.w, b.x + b.w) - Math.max(a.x, b.x);
     const oy = Math.min(a.y + a.h, b.y + b.h) - Math.max(a.y, b.y);
     if (ox <= 0 || oy <= 0) return;
     if (ox < oy) {
       const dir = a.x < b.x ? -1 : 1;
-      if (a.held) { b.x -= dir * ox; b.vx = a.vx * .6; }
-      else if (b.held) { a.x += dir * ox; a.vx = b.vx * .6; }
-      else { a.x += dir * ox / 2; b.x -= dir * ox / 2; const t = a.vx; a.vx = b.vx * .5; b.vx = t * .5; }
+      if (a.held) { b.x -= dir * ox; b.vx = a.vx * .6; } else if (b.held) { a.x += dir * ox; a.vx = b.vx * .6; }
+      else { a.x += dir * ox / 2; b.x -= dir * ox / 2; const tv = a.vx; a.vx = b.vx * .5; b.vx = tv * .5; }
     } else {
       const dir = a.y < b.y ? -1 : 1;
-      if (a.held) { b.y -= dir * oy; b.vy = 0; }
-      else if (b.held) { a.y += dir * oy; a.vy = 0; }
+      if (a.held) { b.y -= dir * oy; b.vy = 0; } else if (b.held) { a.y += dir * oy; a.vy = 0; }
       else { a.y += dir * oy / 2; b.y -= dir * oy / 2; a.vy *= .5; b.vy *= .5; }
     }
   }
-
-  function settleStatic() {
-    // reduced-motion: lay pills along the floor without animating
-    let x = 10;
-    for (const b of bodies) {
-      if (x + b.w > W) x = 10;
-      b.x = x; b.y = H - b.h - 10; b.rot = 0; render(b);
-      x += b.w + 12;
-    }
-  }
-
+  function settleStatic() { let x = 10; for (const b of bodies) { if (x + b.w > W) x = 10; b.x = x; b.y = H - b.h - 10; b.rot = 0; render(b); x += b.w + 12; } }
   function addDrag(b) {
     const pt = e => e.touches ? e.touches[0] : e;
     let lx = 0, ly = 0, ox = 0, oy = 0;
-    const down = e => {
-      b.held = true; b.el.classList.add('dragging'); b.el.style.zIndex = ++zTop;
-      const r = pillField.getBoundingClientRect(), p = pt(e);
-      ox = p.clientX - r.left - b.x; oy = p.clientY - r.top - b.y;
-      lx = p.clientX; ly = p.clientY; e.preventDefault();
-    };
-    const move = e => {
-      if (!b.held) return;
-      const r = pillField.getBoundingClientRect(), p = pt(e);
-      b.x = Math.max(0, Math.min(p.clientX - r.left - ox, W - b.w));
-      b.y = Math.max(-b.h, Math.min(p.clientY - r.top - oy, H - b.h));
-      b.vx = p.clientX - lx; b.vy = p.clientY - ly; lx = p.clientX; ly = p.clientY;
-      if (reduce) render(b);
-    };
+    const down = e => { b.held = true; b.el.classList.add('dragging'); b.el.style.zIndex = ++zTop; const r = pillField.getBoundingClientRect(), p = pt(e); ox = p.clientX - r.left - b.x; oy = p.clientY - r.top - b.y; lx = p.clientX; ly = p.clientY; e.preventDefault(); };
+    const move = e => { if (!b.held) return; const r = pillField.getBoundingClientRect(), p = pt(e); b.x = Math.max(0, Math.min(p.clientX - r.left - ox, W - b.w)); b.y = Math.max(-b.h, Math.min(p.clientY - r.top - oy, H - b.h)); b.vx = p.clientX - lx; b.vy = p.clientY - ly; lx = p.clientX; ly = p.clientY; if (reduce) render(b); };
     const up = () => { if (b.held) { b.held = false; b.el.classList.remove('dragging'); } };
-    b.el.addEventListener('mousedown', down);
-    b.el.addEventListener('touchstart', down, { passive: false });
+    b.el.addEventListener('mousedown', down); b.el.addEventListener('touchstart', down, { passive: false });
     addEventListener('mousemove', move); addEventListener('touchmove', move, { passive: false });
     addEventListener('mouseup', up); addEventListener('touchend', up);
   }
-
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(build);
-  else build();
+  // update pill labels in place when language changes (no re-drop)
+  langHandlers.push(() => { bodies.forEach((b, i) => { b.el.innerHTML = label(i); }); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(build); else build();
   let prt; addEventListener('resize', () => { clearTimeout(prt); prt = setTimeout(build, 300); });
 }
 
-/* ---------- PLAYGROUND draggable chips ---------- */
+/* PLAYGROUND draggable chips — re-renders on language change */
 const canvas = document.getElementById('pgCanvas');
 if (canvas) {
   const pieces = [
-    { html: '<div class="k">Aa</div><div class="s">Inter — display</div>', x: 6, y: 24, cls: '' },
-    { html: '<span class="hexv">#E8552F</span>', x: 30, y: 14, cls: 'color', style: 'background:#e8552f' },
-    { html: '<span class="hexv">#2FAA5E</span>', x: 30, y: 56, cls: 'color', style: 'background:#2faa5e' },
-    { html: '<span class="hexv">#3F5BBB</span>', x: 47, y: 32, cls: 'color', style: 'background:#3f5bbb' },
-    { html: '✺', x: 64, y: 12, cls: 'emoji' },
-    { html: '◐', x: 80, y: 52, cls: 'emoji' },
-    { html: 'grid is good', x: 58, y: 64, cls: 'pill', style: 'background:#fbe7df;color:#e8552f' },
-    { html: 'ship it', x: 12, y: 66, cls: 'pill', style: 'background:#17150f;color:#fbfaf8' },
-    { html: '<div class="k">8pt</div><div class="s">spacing scale</div>', x: 72, y: 26, cls: '' },
-    { html: '<div class="k">↺</div><div class="s">motion: 240ms</div>', x: 44, y: 68, cls: '' },
+    { en: '<div class="k">Aa</div><div class="s">Inter — display</div>', ru: '<div class="k">Aa</div><div class="s">Inter — заголовки</div>', x: 6, y: 24, cls: '' },
+    { en: '<span class="hexv">#E8552F</span>', ru: '<span class="hexv">#E8552F</span>', x: 30, y: 14, cls: 'color', style: 'background:#e8552f' },
+    { en: '<span class="hexv">#2FAA5E</span>', ru: '<span class="hexv">#2FAA5E</span>', x: 30, y: 56, cls: 'color', style: 'background:#2faa5e' },
+    { en: '<span class="hexv">#3F5BBB</span>', ru: '<span class="hexv">#3F5BBB</span>', x: 47, y: 32, cls: 'color', style: 'background:#3f5bbb' },
+    { en: '✺', ru: '✺', x: 64, y: 12, cls: 'emoji' },
+    { en: '◐', ru: '◐', x: 80, y: 52, cls: 'emoji' },
+    { en: 'grid is good', ru: 'сетка — сила', x: 58, y: 64, cls: 'pill', style: 'background:#fbe7df;color:#e8552f' },
+    { en: 'ship it', ru: 'в релиз', x: 12, y: 66, cls: 'pill', style: 'background:#f4f1ea;color:#14130f' },
+    { en: '<div class="k">8pt</div><div class="s">spacing scale</div>', ru: '<div class="k">8pt</div><div class="s">шкала отступов</div>', x: 72, y: 26, cls: '' },
+    { en: '<div class="k">↺</div><div class="s">motion: 240ms</div>', ru: '<div class="k">↺</div><div class="s">анимация: 240ms</div>', x: 44, y: 68, cls: '' }
   ];
   let zTop = 10;
   function placeChips() {
@@ -447,24 +522,27 @@ if (canvas) {
       const c = document.createElement('div');
       c.className = 'chip ' + p.cls;
       if (p.style) c.setAttribute('style', p.style);
-      c.innerHTML = p.html;
+      c.innerHTML = lang === 'ru' ? p.ru : p.en;
       canvas.appendChild(c);
-      c.style.left = Math.min(p.x/100*W, W - c.offsetWidth - 8) + 'px';
-      c.style.top = Math.min(p.y/100*H, H - c.offsetHeight - 8) + 'px';
+      c.style.left = Math.min(p.x / 100 * W, W - c.offsetWidth - 8) + 'px';
+      c.style.top = Math.min(p.y / 100 * H, H - c.offsetHeight - 8) + 'px';
       makeDraggable(c);
     });
   }
   function makeDraggable(el) {
     let sx, sy, ox, oy, dragging = false;
-    const down = e => { dragging = true; el.classList.add('dragging'); el.style.zIndex = ++zTop; const pt = e.touches?e.touches[0]:e; sx=pt.clientX; sy=pt.clientY; ox=parseFloat(el.style.left); oy=parseFloat(el.style.top); e.preventDefault(); };
-    const move = e => { if(!dragging) return; const pt = e.touches?e.touches[0]:e; const W=canvas.clientWidth,H=canvas.clientHeight; let nx=ox+(pt.clientX-sx),ny=oy+(pt.clientY-sy); nx=Math.max(0,Math.min(nx,W-el.offsetWidth)); ny=Math.max(0,Math.min(ny,H-el.offsetHeight)); el.style.left=nx+'px'; el.style.top=ny+'px'; };
-    const up = () => { dragging=false; el.classList.remove('dragging'); };
-    el.addEventListener('mousedown', down);
-    el.addEventListener('touchstart', down, { passive:false });
-    addEventListener('mousemove', move);
-    addEventListener('touchmove', move, { passive:false });
+    const down = e => { dragging = true; el.classList.add('dragging'); el.style.zIndex = ++zTop; const pt = e.touches ? e.touches[0] : e; sx = pt.clientX; sy = pt.clientY; ox = parseFloat(el.style.left); oy = parseFloat(el.style.top); e.preventDefault(); };
+    const move = e => { if (!dragging) return; const pt = e.touches ? e.touches[0] : e; const W = canvas.clientWidth, H = canvas.clientHeight; let nx = ox + (pt.clientX - sx), ny = oy + (pt.clientY - sy); nx = Math.max(0, Math.min(nx, W - el.offsetWidth)); ny = Math.max(0, Math.min(ny, H - el.offsetHeight)); el.style.left = nx + 'px'; el.style.top = ny + 'px'; };
+    const up = () => { dragging = false; el.classList.remove('dragging'); };
+    el.addEventListener('mousedown', down); el.addEventListener('touchstart', down, { passive: false });
+    addEventListener('mousemove', move); addEventListener('touchmove', move, { passive: false });
     addEventListener('mouseup', up); addEventListener('touchend', up);
   }
-  placeChips();
+  langHandlers.push(placeChips);
   let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(placeChips, 200); });
 }
+
+/* ---------- wire language buttons + first render ---------- */
+document.querySelectorAll('.lang-switch button').forEach(b => b.addEventListener('click', () => applyLang(b.dataset.lang)));
+applyLang(lang);
+enableMagnetic();
