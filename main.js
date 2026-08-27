@@ -421,8 +421,8 @@ if (pillField) {
   ];
   const label = i => `<span class="pi">${pills[i].e}</span>${lang === 'ru' ? pills[i].ru : pills[i].en}`;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  // gentler physics: softer gravity, minimal bounce, a little air drag → smooth fall
-  const GRAV = 0.55, REST = 0.16, AIR = 0.99, GROUND = 0.9;
+  // slow, gentle physics: light gravity, capped fall speed, minimal bounce
+  const GRAV = 0.28, MAXV = 6, REST = 0.14, AIR = 0.99, GROUND = 0.9, STAGGER = 20;
   let bodies = [], raf = 0, zTop = 20, W = 0, H = 0, order = [];
 
   function build() {
@@ -445,9 +445,9 @@ if (pillField) {
       // all start just above the top of the tray (below the header) and fall in
       const x = Math.max(8, Math.min((col + 0.5) * (W / cols) - w / 2 + ((i * 37) % 40 - 20), W - w - 8));
       const y = -h - 20 - (i % 3) * 24;
-      // staggered release: each chip waits its turn (~130ms apart) before gravity kicks in
-      const wait = reduce ? 0 : order.indexOf(i) * 8;
-      const b = { el, w, h, x, y, vx: ((i % 2) ? -1 : 1) * (0.4 + (i % 3) * 0.4), vy: 0, rot: 0, held: false, wait };
+      // staggered release: each chip waits its turn before gravity kicks in
+      const wait = reduce ? 0 : order.indexOf(i) * STAGGER;
+      const b = { el, w, h, x, y, vx: ((i % 2) ? -1 : 1) * (0.15 + (i % 3) * 0.2), vy: 0, rot: 0, held: false, wait };
       bodies.push(b); addDrag(b); render(b);
     });
     if (reduce) { settleStatic(); return; }
@@ -458,7 +458,7 @@ if (pillField) {
     for (const b of bodies) {
       if (b.held) continue;
       if (b.wait > 0) { b.wait--; continue; }   // hold above the tray until its turn
-      b.vy += GRAV; b.x += b.vx; b.y += b.vy; b.vx *= AIR;
+      b.vy += GRAV; if (b.vy > MAXV) b.vy = MAXV; b.x += b.vx; b.y += b.vy; b.vx *= AIR;
       if (b.x < 0) { b.x = 0; b.vx = -b.vx * REST; }
       if (b.x + b.w > W) { b.x = W - b.w; b.vx = -b.vx * REST; }
       if (b.y + b.h > H) { b.y = H - b.h; b.vy = -b.vy * REST; b.vx *= GROUND; if (Math.abs(b.vy) < 1.0) b.vy = 0; }
