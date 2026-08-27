@@ -182,42 +182,42 @@ if (intro) {
 const caseStudies = [
   {
     id: 'aml', name: 'AML', kind: 'Compliance · Fintech', yr: '2025', accent: '#3f5bbb', icon: '🛡️',
-    url: 'https://www.figma.com/design/pEtO06T8ijJwgqwRN3fiiB/AML?m=auto&t=gfUl59IoFvZzj4sM-6',
+    url: '',
     subtitle: 'Anti-money-laundering platform — client screening, risk scoring, and case investigation.',
     benefits: ['Compliance', 'Risk scoring', 'Case workflows', 'Data-dense UI'],
     gallery: ['dashboard', 'grid', 'dashboard', 'cards', 'dashboard']
   },
   {
     id: 'speakup', name: 'Speak Up', kind: 'Ethics · HR', yr: '2025', accent: '#2faa5e', icon: '📣',
-    url: 'https://www.figma.com/design/HrdVcPZVDqs69nhWtvQ4nT/Speak-Up?m=auto&t=gfUl59IoFvZzj4sM-6',
+    url: '',
     subtitle: 'A safe whistleblowing and feedback platform for employees to raise concerns.',
     benefits: ['Whistleblowing', 'Trust & safety', 'Anonymous reports', 'Case tracking'],
     gallery: ['phone', 'cards', 'phone', 'grid', 'phone']
   },
   {
     id: 'ai-landings', name: 'AI Landings', kind: 'Landing · Marketing', yr: '2024', accent: '#e8552f', icon: '✨',
-    url: 'https://www.figma.com/design/ngxEpAVW7VpawtwgdkvBLf/Landings---AI?node-id=458-1328&t=mfGc7iqux56R0H0U-1',
+    url: '',
     subtitle: 'A set of marketing landing pages for an AI product suite.',
     benefits: ['Landing pages', 'Marketing', 'Conversion', 'Visual system'],
     gallery: ['cards', 'grid', 'cards', 'dashboard', 'cards']
   },
   {
     id: 'compliance', name: 'adata Compliance', kind: 'Landing', yr: '2025', accent: '#068DFF', icon: '✅',
-    url: '#',
+    url: '',
     subtitle: 'Landing page for adata\'s compliance suite — clear, trustworthy, product-led.',
     benefits: ['Landing', 'Product marketing', 'B2B', 'Brand'],
     gallery: ['dashboard', 'cards', 'grid', 'cards', 'dashboard']
   },
   {
     id: 'digital-office', name: 'Digital Office', kind: 'Enterprise product', yr: '2024—25', accent: '#d99a16', icon: '🗂️',
-    url: 'https://www.figma.com/design/hTpHxTvbdfXLFvTeFHlMKE/Digital-Office?m=auto&t=gfUl59IoFvZzj4sM-6',
+    url: '',
     subtitle: 'A digital workplace for tasks, documents, and team collaboration.',
     benefits: ['Enterprise', 'Task management', 'Dashboards', 'Design system'],
     gallery: ['dashboard', 'grid', 'dashboard', 'cards', 'grid']
   },
   {
     id: 'nisp', name: 'NISP', kind: 'Product', yr: '2024', accent: '#7c5cff', icon: '📊',
-    url: 'https://www.figma.com/design/OhWeWUmrF4uQBdBJipf2Y1/%D0%9D%D0%98%D0%A1%D0%9F?node-id=2800-24159&t=Hwx5Ndw95hAFBF1L-1',
+    url: '',
     subtitle: 'Product design for the NISP platform — data, workflows, and reporting.',
     benefits: ['Product', 'Data viz', 'Workflows', 'Reporting'],
     gallery: ['dashboard', 'dashboard', 'grid', 'cards', 'dashboard']
@@ -307,10 +307,9 @@ if (list) {
       const p = loc(raw);
       const el = document.createElement('article');
       el.className = 'proj reveal' + (animate ? '' : ' in');
-      const soon = !raw.url || raw.url === '#';
-      const btn = soon
-        ? `<a class="cs-btn soon" href="#" onclick="return false"><span>${t('cs.soon')}</span></a>`
-        : `<a class="cs-btn" href="${raw.url}" target="_blank" rel="noopener"><span>${t('cs.viewproj')}</span> <span>↗</span></a>`;
+      const btn = (raw.url && raw.url !== '#')
+        ? `<a class="cs-btn" href="${raw.url}" target="_blank" rel="noopener"><span>${t('cs.viewproj')}</span> <span>↗</span></a>`
+        : '';
       el.innerHTML = `
         <div class="proj-head-row">
           <div class="proj-meta"><span class="name">${raw.name}</span><span class="kind">${p.kind}</span><span class="yr">${raw.yr}</span></div>
