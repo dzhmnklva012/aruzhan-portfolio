@@ -107,7 +107,7 @@ const I18N = {
     'pg.h1': 'Experiments, <em>off the clock</em>.', 'pg.p': 'Loose explorations, color studies, and interface ideas that didn\'t fit anywhere else. Grab a piece and drag it around — it\'s a playground, after all.', 'pg.hint': '✋ Drag the pieces around',
     'cs.back': '← All work', 'cs.intro': 'Intro', 'cs.role': 'Role', 'cs.status': 'Status', 'cs.type': 'Type',
     'cs.problems': 'Problems', 'cs.solution': 'Solution', 'cs.results': 'Results', 'cs.gallery': 'Screenshot gallery',
-    'cs.next': 'Next up', 'cs.viewcase': 'View case study', 'drag': 'Drag'
+    'cs.next': 'Next up', 'cs.viewcase': 'View case study', 'cs.viewproj': 'View project', 'cs.soon': 'Coming soon', 'drag': 'Drag'
   },
   ru: {
     'nav.work': 'Работы', 'nav.playground': 'Эксперименты', 'nav.about': 'Обо мне', 'nav.cv': 'Резюме ↗',
@@ -144,7 +144,7 @@ const I18N = {
     'pg.h1': 'Эксперименты <em>в свободное время</em>.', 'pg.p': 'Свободные исследования, цветовые этюды и идеи интерфейсов, которым не нашлось места. Возьмите элемент и потяните — это же лаборатория.', 'pg.hint': '✋ Перетаскивайте элементы',
     'cs.back': '← Все работы', 'cs.intro': 'Вступление', 'cs.role': 'Роль', 'cs.status': 'Статус', 'cs.type': 'Тип',
     'cs.problems': 'Проблемы', 'cs.solution': 'Решение', 'cs.results': 'Результаты', 'cs.gallery': 'Галерея скриншотов',
-    'cs.next': 'Далее', 'cs.viewcase': 'Смотреть кейс', 'drag': 'Тяни'
+    'cs.next': 'Далее', 'cs.viewcase': 'Смотреть кейс', 'cs.viewproj': 'Смотреть проект', 'cs.soon': 'Скоро', 'drag': 'Тяни'
   }
 };
 
@@ -181,95 +181,55 @@ if (intro) {
 /* ---------- WORK: case studies (EN base + RU overrides) ---------- */
 const caseStudies = [
   {
-    id: 'atlas', name: 'Atlas', kind: 'Design System', yr: '2025—26', accent: '#2faa5e', icon: '🧩',
-    subtitle: 'A design system that stopped UI debates and helped 4 product teams ship faster.',
-    benefits: ['Fewer debates', 'Faster delivery', 'Dev-rated 4.8/5', 'Shared UX standards'],
-    gallery: ['grid', 'dashboard', 'grid', 'cards', 'grid'],
-    title: 'Building one system that ended the UI debates',
-    role: ['Lead Product Designer', 'Design Systems'], status: ['Shipped', '2025—26'], type: ['Design System', 'Tokens', 'Docs'],
-    intro: ['Atlas is a multi-brand design system serving four product teams. Before it existed, every squad rebuilt the same components — and argued about each one in review.', 'I owned it end-to-end: the token layer, the component library, the documentation, and the rollout.'],
-    problems: 'Three brands, four teams, and no shared language. Components drifted, accessibility was inconsistent, and design reviews turned into colour-and-spacing debates instead of product conversations.',
-    solution: 'I defined a token layer of 200+ decisions across three brands, built 60 production-ready components with usage docs, and ran adoption workshops so engineers could ship without re-asking the same questions.',
-    results: 'Debates dropped and delivery sped up. Developers rated the system 4.8/5 for speed and clarity, and shared UX standards now hold across every squad.'
+    id: 'aml', name: 'AML', kind: 'Compliance · Fintech', yr: '2025', accent: '#3f5bbb', icon: '🛡️',
+    url: 'https://www.figma.com/design/pEtO06T8ijJwgqwRN3fiiB/AML?m=auto&t=gfUl59IoFvZzj4sM-6',
+    subtitle: 'Anti-money-laundering platform — client screening, risk scoring, and case investigation.',
+    benefits: ['Compliance', 'Risk scoring', 'Case workflows', 'Data-dense UI'],
+    gallery: ['dashboard', 'grid', 'dashboard', 'cards', 'dashboard']
   },
   {
-    id: 'northwind', name: 'Northwind', kind: 'B2B Logistics', yr: '2025', accent: '#e8552f', icon: '🚚',
-    subtitle: 'Turning a dense operations dashboard into a tool teams actually trust.',
-    benefits: ['38% faster tasks', '6 tools → 1', '2,000+ daily users', 'Clearer hierarchy'],
-    gallery: ['dashboard', 'dashboard', 'cards', 'grid', 'dashboard'],
-    title: 'Redesigning a dense operations dashboard from the ground up',
-    role: ['Sole Product Designer', 'UX + UI'], status: ['Shipped', '2025'], type: ['B2B', 'Dashboard', 'Enterprise'],
-    intro: ['Northwind runs freight operations for mid-size logistics firms. Dispatchers lived in six different tools and a wall of spreadsheets.', 'I led the redesign that consolidated the workflow into a single, trustworthy operations console.'],
-    problems: 'Critical information was scattered across six tools. Dispatchers context-switched constantly, mistakes were costly, and onboarding a new operator took weeks.',
-    solution: 'I mapped the real dispatcher workflow, prioritised a clear information hierarchy, and unified planning, tracking, and exceptions into one console with sensible defaults and fast keyboard paths.',
-    results: 'Task completion got 38% faster, six tools collapsed into one, and the console now serves 2,000+ daily users with far less training overhead.'
+    id: 'speakup', name: 'Speak Up', kind: 'Ethics · HR', yr: '2025', accent: '#2faa5e', icon: '📣',
+    url: 'https://www.figma.com/design/HrdVcPZVDqs69nhWtvQ4nT/Speak-Up?m=auto&t=gfUl59IoFvZzj4sM-6',
+    subtitle: 'A safe whistleblowing and feedback platform for employees to raise concerns.',
+    benefits: ['Whistleblowing', 'Trust & safety', 'Anonymous reports', 'Case tracking'],
+    gallery: ['phone', 'cards', 'phone', 'grid', 'phone']
   },
   {
-    id: 'lumen', name: 'Lumen Pay', kind: 'Consumer Fintech', yr: '2024', accent: '#3f5bbb', icon: '💸',
-    subtitle: 'Making saving money feel effortless instead of a chore people avoid.',
-    benefits: ['+24% activation', '4.9 App Store', 'Habit-forming flows', 'End-to-end prototype'],
-    gallery: ['phone', 'phone', 'cards', 'phone', 'grid'],
-    title: 'Turning saving money into a habit people enjoy',
-    role: ['Product Designer', 'Prototyping'], status: ['Concept → MVP', '2024'], type: ['Mobile', 'Fintech', 'B2C'],
-    intro: ['Lumen Pay helps people save automatically without thinking about it. The challenge was emotional as much as functional — saving feels like a chore.', 'I designed the end-to-end mobile experience and a clickable prototype used for the first investor round.'],
-    problems: 'Saving apps are full of friction and guilt. Users set up an account, never funded it, and churned within a week.',
-    solution: 'I designed gentle, habit-forming flows: tiny automatic round-ups, playful progress, and zero-pressure goals — paired with a motion-led prototype that made the payoff feel immediate.',
-    results: 'Week-one activation rose 24%, the prototype earned a 4.9 rating in early testing, and the flows became the backbone of the shipped MVP.'
+    id: 'ai-landings', name: 'AI Landings', kind: 'Landing · Marketing', yr: '2024', accent: '#e8552f', icon: '✨',
+    url: 'https://www.figma.com/design/ngxEpAVW7VpawtwgdkvBLf/Landings---AI?node-id=458-1328&t=mfGc7iqux56R0H0U-1',
+    subtitle: 'A set of marketing landing pages for an AI product suite.',
+    benefits: ['Landing pages', 'Marketing', 'Conversion', 'Visual system'],
+    gallery: ['cards', 'grid', 'cards', 'dashboard', 'cards']
   },
   {
-    id: 'verde', name: 'Verde Market', kind: 'E-commerce', yr: '2023', accent: '#d99a16', icon: '🥬',
-    subtitle: 'Reimagining a hyperlocal grocery marketplace around speed and trust.',
-    benefits: ['3-tap checkout', '+18% basket size', 'Research-led IA', 'Marketplace viability'],
-    gallery: ['cards', 'phone', 'cards', 'grid', 'phone'],
-    title: 'Reimagining hyperlocal grocery around speed and trust',
-    role: ['Product Designer', 'UX Research'], status: ['Shipped', '2023'], type: ['E-commerce', 'Mobile', 'Marketplace'],
-    intro: ['Verde Market connects neighbourhoods with local grocers for same-hour delivery. Early on, browsing was slow and trust was thin.', 'I led research and redesigned the browse-to-checkout journey for both shoppers and store partners.'],
-    problems: 'A confusing catalogue, a long checkout, and no signals of freshness or reliability made shoppers abandon their carts.',
-    solution: 'I rebuilt the information architecture around how people actually shop, cut checkout to three taps, and added trust cues — store ratings, live ETAs, and substitution controls.',
-    results: 'Checkout dropped to three taps, average basket size grew 18%, and the research-led IA gave the marketplace a viable, repeatable shopping loop.'
+    id: 'compliance', name: 'adata Compliance', kind: 'Landing', yr: '2025', accent: '#068DFF', icon: '✅',
+    url: '#',
+    subtitle: 'Landing page for adata\'s compliance suite — clear, trustworthy, product-led.',
+    benefits: ['Landing', 'Product marketing', 'B2B', 'Brand'],
+    gallery: ['dashboard', 'cards', 'grid', 'cards', 'dashboard']
+  },
+  {
+    id: 'digital-office', name: 'Digital Office', kind: 'Enterprise product', yr: '2024—25', accent: '#d99a16', icon: '🗂️',
+    url: 'https://www.figma.com/design/hTpHxTvbdfXLFvTeFHlMKE/Digital-Office?m=auto&t=gfUl59IoFvZzj4sM-6',
+    subtitle: 'A digital workplace for tasks, documents, and team collaboration.',
+    benefits: ['Enterprise', 'Task management', 'Dashboards', 'Design system'],
+    gallery: ['dashboard', 'grid', 'dashboard', 'cards', 'grid']
+  },
+  {
+    id: 'nisp', name: 'NISP', kind: 'Product', yr: '2024', accent: '#7c5cff', icon: '📊',
+    url: 'https://www.figma.com/design/OhWeWUmrF4uQBdBJipf2Y1/%D0%9D%D0%98%D0%A1%D0%9F?node-id=2800-24159&t=Hwx5Ndw95hAFBF1L-1',
+    subtitle: 'Product design for the NISP platform — data, workflows, and reporting.',
+    benefits: ['Product', 'Data viz', 'Workflows', 'Reporting'],
+    gallery: ['dashboard', 'dashboard', 'grid', 'cards', 'dashboard']
   }
 ];
 const CS_RU = {
-  atlas: {
-    kind: 'Дизайн-система', subtitle: 'Дизайн-система, которая прекратила споры об интерфейсе и помогла 4 командам выпускать быстрее.',
-    benefits: ['Меньше споров', 'Быстрее релизы', 'Оценка 4.8/5', 'Общие UX-стандарты'],
-    title: 'Единая система, которая прекратила споры об интерфейсе',
-    role: ['Ведущий продуктовый дизайнер', 'Дизайн-системы'], status: ['Запущено', '2025—26'], type: ['Дизайн-система', 'Токены', 'Документация'],
-    intro: ['Atlas — мультибрендовая дизайн-система для четырёх продуктовых команд. До неё каждая команда пересобирала одни и те же компоненты и спорила о каждом на ревью.', 'Я вела её целиком: слой токенов, библиотеку компонентов, документацию и внедрение.'],
-    problems: 'Три бренда, четыре команды и никакого общего языка. Компоненты расходились, доступность была непоследовательной, а ревью превращались в споры о цвете и отступах вместо разговора о продукте.',
-    solution: 'Я задала слой из 200+ токенов для трёх брендов, собрала 60 готовых к продакшену компонентов с документацией и провела воркшопы по внедрению, чтобы разработчики выпускали, не задавая одни и те же вопросы.',
-    results: 'Споров стало меньше, релизы ускорились. Разработчики оценили систему на 4.8/5 за скорость и ясность, а общие UX-стандарты теперь действуют во всех командах.'
-  },
-  northwind: {
-    kind: 'B2B-логистика', subtitle: 'Плотный операционный дашборд превратила в инструмент, которому команды действительно доверяют.',
-    benefits: ['Задачи на 38% быстрее', '6 инструментов → 1', '2 000+ польз. в день', 'Понятная иерархия'],
-    title: 'Полный редизайн плотного операционного дашборда',
-    role: ['Единственный продуктовый дизайнер', 'UX + UI'], status: ['Запущено', '2025'], type: ['B2B', 'Дашборд', 'Enterprise'],
-    intro: ['Northwind ведёт грузовые операции для средних логистических компаний. Диспетчеры жили в шести разных инструментах и стене из таблиц.', 'Я возглавила редизайн, объединивший работу в одну надёжную операционную консоль.'],
-    problems: 'Критичная информация была разбросана по шести инструментам. Диспетчеры постоянно переключались, ошибки стоили дорого, а обучение нового оператора занимало недели.',
-    solution: 'Я разложила реальный процесс диспетчера, выстроила понятную иерархию информации и объединила планирование, отслеживание и исключения в одну консоль с разумными значениями по умолчанию и быстрыми клавишами.',
-    results: 'Задачи стали выполняться на 38% быстрее, шесть инструментов схлопнулись в один, а консолью теперь пользуются 2 000+ человек в день с гораздо меньшими затратами на обучение.'
-  },
-  lumen: {
-    kind: 'Потребительский финтех', subtitle: 'Сделала так, чтобы откладывать деньги было легко, а не рутиной, которую избегают.',
-    benefits: ['+24% активации', '4.9 в App Store', 'Формируют привычку', 'Прототип под ключ'],
-    title: 'Как превратить накопления в привычку, которая нравится',
-    role: ['Продуктовый дизайнер', 'Прототипирование'], status: ['Концепт → MVP', '2024'], type: ['Мобайл', 'Финтех', 'B2C'],
-    intro: ['Lumen Pay помогает откладывать автоматически, не задумываясь. Задача была скорее эмоциональной, чем функциональной — копить кажется рутиной.', 'Я спроектировала весь мобильный опыт и кликабельный прототип для первого инвестраунда.'],
-    problems: 'Приложения для накоплений полны трения и чувства вины. Люди заводили счёт, не пополняли его и уходили за неделю.',
-    solution: 'Я придумала мягкие, формирующие привычку сценарии: небольшие автоматические округления, игривый прогресс и цели без давления — вместе с прототипом на анимации, где выгода ощущается сразу.',
-    results: 'Активация первой недели выросла на 24%, прототип получил 4.9 в раннем тестировании, а сценарии легли в основу выпущенного MVP.'
-  },
-  verde: {
-    kind: 'E-commerce', subtitle: 'Переосмыслила гиперлокальный продуктовый маркетплейс вокруг скорости и доверия.',
-    benefits: ['Оформление в 3 тапа', '+18% средний чек', 'IA на исследованиях', 'Жизнеспособность'],
-    title: 'Переосмысление гиперлокальной доставки продуктов вокруг скорости и доверия',
-    role: ['Продуктовый дизайнер', 'UX-исследования'], status: ['Запущено', '2023'], type: ['E-commerce', 'Мобайл', 'Маркетплейс'],
-    intro: ['Verde Market связывает районы с местными магазинами для доставки за час. Поначалу навигация была медленной, а доверия не хватало.', 'Я вела исследования и переработала путь от просмотра до оформления и для покупателей, и для магазинов-партнёров.'],
-    problems: 'Запутанный каталог, долгое оформление и отсутствие сигналов свежести и надёжности заставляли покупателей бросать корзину.',
-    solution: 'Я перестроила информационную архитектуру вокруг того, как люди реально покупают, сократила оформление до трёх тапов и добавила сигналы доверия — рейтинги магазинов, живые ETA и управление заменами.',
-    results: 'Оформление сократилось до трёх тапов, средний чек вырос на 18%, а IA на основе исследований дал маркетплейсу жизнеспособный, повторяемый цикл покупок.'
-  }
+  aml: { kind: 'Комплаенс · Финтех', subtitle: 'Платформа противодействия отмыванию денег — скрининг клиентов, риск-скоринг и расследование кейсов.', benefits: ['Комплаенс', 'Риск-скоринг', 'Кейс-процессы', 'Плотный UI'] },
+  speakup: { kind: 'Этика · HR', subtitle: 'Безопасная платформа для обращений сотрудников и обратной связи.', benefits: ['Обращения', 'Доверие', 'Анонимность', 'Учёт кейсов'] },
+  'ai-landings': { kind: 'Лендинг · Маркетинг', subtitle: 'Серия маркетинговых лендингов для линейки AI-продуктов.', benefits: ['Лендинги', 'Маркетинг', 'Конверсия', 'Визуальная система'] },
+  compliance: { kind: 'Лендинг', subtitle: 'Лендинг комплаенс-продукта adata — ясный и вызывающий доверие.', benefits: ['Лендинг', 'Продуктовый маркетинг', 'B2B', 'Бренд'] },
+  'digital-office': { kind: 'Корпоративный продукт', subtitle: 'Цифровой офис для задач, документов и командной работы.', benefits: ['Enterprise', 'Задачи', 'Дашборды', 'Дизайн-система'] },
+  nisp: { kind: 'Продукт', subtitle: 'Дизайн платформы НИСП — данные, процессы и отчётность.', benefits: ['Продукт', 'Визуализация', 'Процессы', 'Отчётность'] }
 };
 function loc(p) { return (lang === 'ru' && CS_RU[p.id]) ? Object.assign({}, p, CS_RU[p.id]) : p; }
 
@@ -347,10 +307,14 @@ if (list) {
       const p = loc(raw);
       const el = document.createElement('article');
       el.className = 'proj reveal' + (animate ? '' : ' in');
+      const soon = !raw.url || raw.url === '#';
+      const btn = soon
+        ? `<a class="cs-btn soon" href="#" onclick="return false"><span>${t('cs.soon')}</span></a>`
+        : `<a class="cs-btn" href="${raw.url}" target="_blank" rel="noopener"><span>${t('cs.viewproj')}</span> <span>↗</span></a>`;
       el.innerHTML = `
         <div class="proj-head-row">
           <div class="proj-meta"><span class="name">${raw.name}</span><span class="kind">${p.kind}</span><span class="yr">${raw.yr}</span></div>
-          <a class="cs-btn" href="casestudy.html?id=${raw.id}"><span>${t('cs.viewcase')}</span> <span>→</span></a>
+          ${btn}
         </div>
         <p class="subtitle">${p.subtitle}</p>
         <div class="benefits">${p.benefits.map(b => `<span>${b}</span>`).join('')}</div>
@@ -375,24 +339,18 @@ if (csEl) {
   function renderCaseStudy() {
     const p = loc(raw);
     document.title = `${raw.name} — Aruzhan`;
-    const chips = arr => arr.map(x => `<span class="cs-chip">${x}</span>`).join('');
+    const chips = arr => (arr || []).map(x => `<span class="cs-chip">${x}</span>`).join('');
+    const paras = arr => (arr || []).map(x => `<p>${x}</p>`).join('');
     csEl.innerHTML = `
       <a class="cs-back" href="index.html">${t('cs.back')}</a>
       <div class="cs-icon" style="background:linear-gradient(135deg, ${raw.accent}, ${raw.accent}bb)">${raw.icon}</div>
       <p class="cs-eyebrow">${raw.name} · ${p.kind} — ${raw.yr}</p>
-      <h1 class="cs-title">${p.title}</h1>
+      <h1 class="cs-title">${p.title || p.subtitle}</h1>
       <div class="cs-grid">
-        <div class="cs-intro"><p class="cs-label">${t('cs.intro')}</p>${p.intro.map(x => `<p>${x}</p>`).join('')}</div>
+        <div class="cs-intro"><p class="cs-label">${t('cs.intro')}</p>${paras(p.intro) || `<p>${p.subtitle}</p>`}</div>
         <div class="cs-meta">
-          <div class="cs-meta-block"><p class="cs-label">${t('cs.role')}</p><div class="cs-chips">${chips(p.role)}</div></div>
-          <div class="cs-meta-block"><p class="cs-label">${t('cs.status')}</p><div class="cs-chips">${chips(p.status)}</div></div>
-          <div class="cs-meta-block"><p class="cs-label">${t('cs.type')}</p><div class="cs-chips">${chips(p.type)}</div></div>
+          <div class="cs-meta-block"><p class="cs-label">${t('cs.type')}</p><div class="cs-chips">${chips(p.benefits)}</div></div>
         </div>
-      </div>
-      <div class="psr">
-        <div class="psr-card"><h3>${t('cs.problems')}</h3><p>${p.problems}</p></div>
-        <div class="psr-card"><h3>${t('cs.solution')}</h3><p>${p.solution}</p></div>
-        <div class="psr-card"><h3>${t('cs.results')}</h3><p>${p.results}</p></div>
       </div>
       <div class="cs-gallery-label"><span>${t('cs.gallery')}</span></div>
       <div class="gallery-wrap"><div class="gallery cs-shots">${[...raw.gallery, ...raw.gallery].map((k, i) => shot(k, raw.accent, i)).join('')}</div></div>
