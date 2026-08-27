@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aruzhan — Product & UX Designer</title>
+<meta name="description" content="Aruzhan — Product Designer turning complex products into experiences that feel effortless." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;if(sessionStorage.getItem('introSeen'))document.documentElement.classList.add('no-intro');}catch(e){}})();</script>
+</head>
+<body>
+
+<div class="intro" id="intro"><span class="intro-name">Aruzhan<span class="dot">.</span></span></div>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">Aruzhan<span class="dot">.</span></a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Work</a>
+      <a href="playground.html">Playground</a>
+      <a href="about.html">About</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><span class="ti-moon">☾</span><span class="ti-sun">☀</span></button>
+      <a href="#" class="cv">CV ↗</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <p class="hello reveal">
+        <span class="avatar">
+          <svg viewBox="0 0 440 440" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Aruzhan">
+            <rect width="440" height="440" fill="#fbe7df"/>
+            <path d="M112 230 C112 130 160 84 220 84 C280 84 328 130 328 230 C328 300 318 360 312 400 L128 400 C122 360 112 300 112 230 Z" fill="#2b2620"/>
+            <rect x="196" y="270" width="48" height="80" rx="22" fill="#f3cdb5"/>
+            <path d="M118 440 C118 360 162 326 220 326 C278 326 322 360 322 440 Z" fill="#e8552f"/>
+            <ellipse cx="220" cy="208" rx="76" ry="84" fill="#f6d3bf"/>
+            <circle cx="146" cy="216" r="13" fill="#f3cdb5"/><circle cx="294" cy="216" r="13" fill="#f3cdb5"/>
+            <path d="M146 176 C150 118 200 102 222 102 C250 102 298 122 298 186 C298 186 278 156 248 152 C246 136 238 130 222 130 C206 130 196 138 192 154 C176 156 158 164 146 176 Z" fill="#2b2620"/>
+            <path d="M178 186 Q192 178 206 185" stroke="#2b2620" stroke-width="4" stroke-linecap="round"/>
+            <path d="M236 185 Q250 178 264 186" stroke="#2b2620" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="192" cy="204" r="6.5" fill="#2b2620"/><circle cx="250" cy="204" r="6.5" fill="#2b2620"/>
+            <path d="M198 242 Q221 260 244 242" stroke="#2b2620" stroke-width="4.5" stroke-linecap="round"/>
+            <ellipse cx="178" cy="232" rx="11" ry="6.5" fill="#e8552f" opacity=".28"/>
+            <ellipse cx="262" cy="232" rx="11" ry="6.5" fill="#e8552f" opacity=".28"/>
+          </svg>
+        </span>
+        Hello, I'm Aruzhan<span class="dot" style="color:var(--accent)">.</span>
+      </p>
+      <h1 class="reveal">I turn complex products into experiences that feel <em>effortless</em>.</h1>
+      <p class="current reveal">Currently designing <b>complex B2B workflows</b> and a <b>multi-brand design system</b>.</p>
+      <p class="pill-tray-label reveal"><span class="grab">✋</span> How I spend my days — drag them around</p>
+    </div>
+  </div>
+  <div class="pill-field" id="pillField"></div>
+</header>
+
+<main class="wrap">
+  <div class="trusted reveal">
+    <span class="trusted-label">Trusted by teams at</span>
+    <div class="logos">
+      <span>Northwind</span><span>Lumen</span><span>Verde</span><span>Atlas Labs</span><span>Kepler</span><span>Meridian</span>
+    </div>
+  </div>
+
+  <section class="projects">
+    <div class="proj-head reveal">Projects <span>( 2023 — 26 )</span></div>
+    <div class="work-list" id="workList"></div>
+  </section>
+
+  <!-- IMPACT STATS -->
+  <section class="impact">
+    <div class="eyebrow reveal">By the numbers</div>
+    <div class="stat-grid reveal">
+      <div class="stat"><div class="num" data-to="6" data-suffix="+">0</div><div class="lbl">Years designing</div></div>
+      <div class="stat"><div class="num" data-to="40" data-suffix="+">0</div><div class="lbl">Products shipped</div></div>
+      <div class="stat"><div class="num" data-to="38" data-suffix="%">0</div><div class="lbl">Faster workflows, avg.</div></div>
+      <div class="stat"><div class="num" data-to="4.8" data-dec="1" data-suffix="/5">0</div><div class="lbl">Team satisfaction</div></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="quotes">
+    <div class="section-head reveal">
+      <div class="eyebrow">Kind words</div>
+      <h2 class="sec-h">What people say about working with me</h2>
+    </div>
+    <div class="quote-grid">
+      <blockquote class="qcard reveal">
+        <div class="mark">“</div>
+        <p>Aruzhan turns messy, ambiguous problems into interfaces that just make sense. Our team shipped faster and argued less.</p>
+        <div class="who"><span class="ava" style="background:#e8552f">PN</span><div><b>Priya Nair</b><span>Head of Product, Northwind</span></div></div>
+      </blockquote>
+      <blockquote class="qcard reveal">
+        <div class="mark">“</div>
+        <p>She doesn't just design screens — she thinks in systems and outcomes. Our activation numbers moved because of her work.</p>
+        <div class="who"><span class="ava" style="background:#3f5bbb">DO</span><div><b>Daniel Ortega</b><span>Founder, Lumen Pay</span></div></div>
+      </blockquote>
+      <blockquote class="qcard reveal">
+        <div class="mark">“</div>
+        <p>The most reliable design partner I've worked with — thoughtful, fast, and genuinely obsessed with the details users feel.</p>
+        <div class="who"><span class="ava" style="background:#2faa5e">ML</span><div><b>Mei Lin</b><span>Eng Lead, Atlas</span></div></div>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- SERVICES + CTA -->
+  <section class="services">
+    <div class="section-head reveal">
+      <div class="eyebrow">How I can help</div>
+      <h2 class="sec-h">Ways we can work together</h2>
+    </div>
+    <div class="svc-grid">
+      <div class="svc reveal">
+        <div class="svc-ic">✳</div>
+        <h3>Product &amp; UX design</h3>
+        <p>End-to-end design for web and mobile — from discovery and flows to polished, shippable UI that engineers love.</p>
+        <div class="svc-tag">Full-time or contract</div>
+      </div>
+      <div class="svc reveal">
+        <div class="svc-ic">◳</div>
+        <h3>Design systems</h3>
+        <p>Scalable token-and-component systems with documentation your team will actually use — fewer debates, faster delivery.</p>
+        <div class="svc-tag">Project-based</div>
+      </div>
+      <div class="svc reveal">
+        <div class="svc-ic">◇</div>
+        <h3>Design partner &amp; audits</h3>
+        <p>A senior set of eyes on your product — UX audits, rapid prototyping, and hands-on collaboration with your team.</p>
+        <div class="svc-tag">Retainer / advisory</div>
+      </div>
+    </div>
+    <div class="cta-band reveal">
+      <div>
+        <h3>Have a role or project in mind?</h3>
+        <p>I'm open to full-time roles and select freelance work in 2026. Let's find 20 minutes to talk.</p>
+      </div>
+      <a class="btn btn-accent" href="mailto:hello@aruzhan.design?subject=Let's%20work%20together">Book an intro call <span class="arrow">↗</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div class="foot-top reveal">
+    <div>
+      <div class="foot-eyes" aria-hidden="true">
+        <svg width="52" height="26" viewBox="0 0 52 26" fill="currentColor"><ellipse cx="13" cy="13" rx="7" ry="12"/><ellipse cx="39" cy="13" rx="7" ry="12"/></svg>
+      </div>
+      <p class="foot-msg">Let's connect.<br>I'm always down for a chat.</p>
+    </div>
+    <div class="foot-icons">
+      <a href="mailto:hello@aruzhan.design" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
+      <a href="#" aria-label="CV"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></a>
+      <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95s-2.08 1.4-2.08 2.85V21H9z"/></svg></a>
+    </div>
+  </div>
+  <div class="foot-name">Aruzhan<span class="dot" style="color:var(--accent)">.</span></div>
+  <div class="foot-bottom">
+    <span>© 2026 Aruzhan</span>
+    <span>Built with love & a little code</span>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
