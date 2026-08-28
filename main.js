@@ -359,7 +359,7 @@ const PSR = {
   }
 };
 const PREVIEW = {
-  'aml': ['shots/aml.png'],
+  'aml': ['shots/aml.png', 'shots/aml-1.png', 'shots/aml-2.png', 'shots/aml-3.png'],
   'speakup': ['shots/speakup.png'],
   'ai-landings': ['shots/ai-landings.png', 'shots/compliance.png'],
   'compliance': ['shots/compliance.png'],
@@ -369,6 +369,7 @@ const PREVIEW = {
 };
 const LOGOS = { 'digital-office': 'shots/logo-do.png', 'spk': 'shots/logo-ean.png' };
 const SCREENS = {
+  'aml': ['shots/aml-1.png', 'shots/aml-2.png', 'shots/aml-3.png'],
   'ai-landings': ['shots/compliance.png'],
   'nisp': ['shots/nisp-screens.png'],
   'digital-office': ['shots/do-messenger.png', 'shots/do-news.png', 'shots/do-knowledge.png', 'shots/do-compliance.png', 'shots/digital-office-screens.png'],
