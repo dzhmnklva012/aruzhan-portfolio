@@ -181,55 +181,139 @@ if (intro) {
 /* ---------- WORK: case studies (EN base + RU overrides) ---------- */
 const caseStudies = [
   {
-    id: 'aml', name: 'AML', kind: 'Compliance · Fintech', yr: '2025', accent: '#3f5bbb', icon: '🛡️',
-    url: '',
+    id: 'aml', name: 'AML', kind: 'Compliance · Fintech', yr: '2025', accent: '#3f5bbb', icon: '🛡️', url: '',
     subtitle: 'Anti-money-laundering platform — client screening, risk scoring, and case investigation.',
     benefits: ['Compliance', 'Risk scoring', 'Case workflows', 'Data-dense UI'],
-    gallery: ['dashboard', 'grid', 'dashboard', 'cards', 'dashboard']
+    gallery: ['dashboard', 'grid', 'dashboard', 'cards', 'dashboard'],
+    title: 'Designing an anti-money-laundering platform',
+    role: ['Product Designer', 'UX + UI'], status: ['In progress', '2025'], type: ['Compliance', 'Fintech', 'B2B'],
+    intro: [
+      'AML is a compliance platform that helps analysts screen clients, score risk, and investigate suspicious activity. The hard part is density — a lot of data, rules, and edge cases on every screen.',
+      'I own the end-to-end design: turning heavy regulatory logic into flows and interfaces analysts can move through quickly and confidently.'
+    ]
   },
   {
-    id: 'speakup', name: 'Speak Up', kind: 'Ethics · HR', yr: '2025', accent: '#2faa5e', icon: '📣',
-    url: '',
+    id: 'speakup', name: 'Speak Up', kind: 'Ethics · HR', yr: '2025', accent: '#2faa5e', icon: '📣', url: '',
     subtitle: 'A safe whistleblowing and feedback platform for employees to raise concerns.',
     benefits: ['Whistleblowing', 'Trust & safety', 'Anonymous reports', 'Case tracking'],
-    gallery: ['phone', 'cards', 'phone', 'grid', 'phone']
+    gallery: ['phone', 'cards', 'phone', 'grid', 'phone'],
+    title: 'A safe channel for people to speak up',
+    role: ['Product Designer', 'UX + UI'], status: ['In progress', '2025'], type: ['Ethics', 'HR', 'B2B'],
+    intro: [
+      'Speak Up lets employees report concerns and share feedback safely — anonymously when they need to. Trust is the whole product: people only use it if it feels private and fair.',
+      'I designed the reporting flows and the case side for reviewers, keeping the experience calm, clear, and reassuring at every step.'
+    ]
   },
   {
-    id: 'ai-landings', name: 'AI Landings', kind: 'Landing · Marketing', yr: '2024', accent: '#e8552f', icon: '✨',
-    url: '',
+    id: 'ai-landings', name: 'AI Landings', kind: 'Landing · Marketing', yr: '2024', accent: '#e8552f', icon: '✨', url: '',
     subtitle: 'A set of marketing landing pages for an AI product suite.',
     benefits: ['Landing pages', 'Marketing', 'Conversion', 'Visual system'],
-    gallery: ['cards', 'grid', 'cards', 'dashboard', 'cards']
+    gallery: ['cards', 'grid', 'cards', 'dashboard', 'cards'],
+    title: 'Marketing landings for an AI product line',
+    role: ['Product Designer', 'Visual Design'], status: ['Shipped', '2024'], type: ['Landing', 'Marketing', 'Web'],
+    intro: [
+      'A family of landing pages that explain an AI product simply and get people to try it. Each page has to sell a fairly abstract idea in a few scrolls.',
+      'I built a flexible visual system — sections, type, and components — so new landings ship fast while staying on-brand, in both light and dark.'
+    ]
   },
   {
-    id: 'compliance', name: 'adata Compliance', kind: 'Landing', yr: '2025', accent: '#068DFF', icon: '✅',
-    url: '',
+    id: 'compliance', name: 'adata Compliance', kind: 'Landing', yr: '2025', accent: '#068DFF', icon: '✅', url: '',
     subtitle: 'Landing page for adata\'s compliance suite — clear, trustworthy, product-led.',
     benefits: ['Landing', 'Product marketing', 'B2B', 'Brand'],
-    gallery: ['dashboard', 'cards', 'grid', 'cards', 'dashboard']
+    gallery: ['dashboard', 'cards', 'grid', 'cards', 'dashboard'],
+    title: 'A product-led landing for adata Compliance',
+    role: ['Product Designer', 'Visual Design'], status: ['Shipped', '2025'], type: ['Landing', 'B2B', 'Brand'],
+    intro: [
+      'The landing for adata\'s compliance suite has to make a dense, eleven-module product feel simple and trustworthy at a glance.',
+      'I structured the page around what teams actually need to know, and designed matching light and dark versions with clear trust cues and calls to action.'
+    ]
   },
   {
-    id: 'digital-office', name: 'Digital Office', kind: 'Enterprise product', yr: '2024—25', accent: '#d99a16', icon: '🗂️',
-    url: '',
+    id: 'digital-office', name: 'Digital Office', kind: 'Enterprise product', yr: '2024—25', accent: '#d99a16', icon: '🗂️', url: '',
     subtitle: 'A digital workplace for tasks, documents, and team collaboration.',
     benefits: ['Enterprise', 'Task management', 'Dashboards', 'Design system'],
-    gallery: ['dashboard', 'grid', 'dashboard', 'cards', 'grid']
+    gallery: ['dashboard', 'grid', 'dashboard', 'cards', 'grid'],
+    title: 'A digital workplace for everyday work',
+    role: ['Product Designer', 'Design System'], status: ['In progress', '2024—25'], type: ['Enterprise', 'Productivity', 'B2B'],
+    intro: [
+      'Digital Office brings tasks, documents, and team collaboration into one place, so people stop jumping between tools all day.',
+      'I work on the core flows and a reusable component set, keeping a dense enterprise product organised, consistent, and easy to learn.'
+    ]
   },
   {
-    id: 'nisp', name: 'NISP', kind: 'Product', yr: '2024', accent: '#7c5cff', icon: '📊',
-    url: '',
+    id: 'nisp', name: 'NISP', kind: 'Product', yr: '2024', accent: '#7c5cff', icon: '📊', url: '',
     subtitle: 'Product design for the NISP platform — data, workflows, and reporting.',
     benefits: ['Product', 'Data viz', 'Workflows', 'Reporting'],
-    gallery: ['dashboard', 'dashboard', 'grid', 'cards', 'dashboard']
+    gallery: ['dashboard', 'dashboard', 'grid', 'cards', 'dashboard'],
+    title: 'Designing the data-heavy NISP platform',
+    role: ['Product Designer', 'UX + UI'], status: ['Shipped', '2024'], type: ['Product', 'Data', 'Web'],
+    intro: [
+      'NISP is a data-heavy platform built around registries, maps, and multi-step applications — lists of zones and projects, guided submission flows, and detailed project pages.',
+      'I designed the end-to-end experience: making dense tables and maps readable, and turning long bureaucratic processes into clear, step-by-step flows.'
+    ]
   }
 ];
 const CS_RU = {
-  aml: { kind: 'Комплаенс · Финтех', subtitle: 'Платформа противодействия отмыванию денег — скрининг клиентов, риск-скоринг и расследование кейсов.', benefits: ['Комплаенс', 'Риск-скоринг', 'Кейс-процессы', 'Плотный UI'] },
-  speakup: { kind: 'Этика · HR', subtitle: 'Безопасная платформа для обращений сотрудников и обратной связи.', benefits: ['Обращения', 'Доверие', 'Анонимность', 'Учёт кейсов'] },
-  'ai-landings': { kind: 'Лендинг · Маркетинг', subtitle: 'Серия маркетинговых лендингов для линейки AI-продуктов.', benefits: ['Лендинги', 'Маркетинг', 'Конверсия', 'Визуальная система'] },
-  compliance: { kind: 'Лендинг', subtitle: 'Лендинг комплаенс-продукта adata — ясный и вызывающий доверие.', benefits: ['Лендинг', 'Продуктовый маркетинг', 'B2B', 'Бренд'] },
-  'digital-office': { kind: 'Корпоративный продукт', subtitle: 'Цифровой офис для задач, документов и командной работы.', benefits: ['Enterprise', 'Задачи', 'Дашборды', 'Дизайн-система'] },
-  nisp: { kind: 'Продукт', subtitle: 'Дизайн платформы НИСП — данные, процессы и отчётность.', benefits: ['Продукт', 'Визуализация', 'Процессы', 'Отчётность'] }
+  aml: {
+    kind: 'Комплаенс · Финтех', subtitle: 'Платформа противодействия отмыванию денег — скрининг клиентов, риск-скоринг и расследование кейсов.',
+    benefits: ['Комплаенс', 'Риск-скоринг', 'Кейс-процессы', 'Плотный UI'],
+    title: 'Дизайн платформы противодействия отмыванию денег',
+    role: ['Продуктовый дизайнер', 'UX + UI'], status: ['В работе', '2025'], type: ['Комплаенс', 'Финтех', 'B2B'],
+    intro: [
+      'AML — комплаенс-платформа, которая помогает аналитикам проверять клиентов, оценивать риск и расследовать подозрительную активность. Главная сложность — плотность: много данных, правил и крайних случаев на каждом экране.',
+      'Я веду дизайн целиком: превращаю тяжёлую регуляторную логику в сценарии и интерфейсы, по которым аналитик движется быстро и уверенно.'
+    ]
+  },
+  speakup: {
+    kind: 'Этика · HR', subtitle: 'Безопасная платформа для обращений сотрудников и обратной связи.',
+    benefits: ['Обращения', 'Доверие', 'Анонимность', 'Учёт кейсов'],
+    title: 'Безопасный канал, чтобы сотрудники могли высказаться',
+    role: ['Продуктовый дизайнер', 'UX + UI'], status: ['В работе', '2025'], type: ['Этика', 'HR', 'B2B'],
+    intro: [
+      'Speak Up позволяет сотрудникам безопасно сообщать о проблемах и делиться обратной связью — при необходимости анонимно. Доверие здесь и есть продукт: им пользуются, только если это ощущается приватно и честно.',
+      'Я спроектировала сценарии подачи обращений и сторону обработки для проверяющих, сохраняя спокойный, ясный и располагающий опыт на каждом шаге.'
+    ]
+  },
+  'ai-landings': {
+    kind: 'Лендинг · Маркетинг', subtitle: 'Серия маркетинговых лендингов для линейки AI-продуктов.',
+    benefits: ['Лендинги', 'Маркетинг', 'Конверсия', 'Визуальная система'],
+    title: 'Маркетинговые лендинги для линейки AI-продуктов',
+    role: ['Продуктовый дизайнер', 'Визуальный дизайн'], status: ['Запущено', '2024'], type: ['Лендинг', 'Маркетинг', 'Web'],
+    intro: [
+      'Семейство лендингов, которые просто объясняют AI-продукт и подводят к тому, чтобы его попробовали. Каждая страница должна продать довольно абстрактную идею за пару экранов.',
+      'Я собрала гибкую визуальную систему — секции, типографику и компоненты, — чтобы новые лендинги выходили быстро и оставались в стиле, в светлой и тёмной темах.'
+    ]
+  },
+  compliance: {
+    kind: 'Лендинг', subtitle: 'Лендинг комплаенс-продукта adata — ясный и вызывающий доверие.',
+    benefits: ['Лендинг', 'Продуктовый маркетинг', 'B2B', 'Бренд'],
+    title: 'Продуктовый лендинг для adata Compliance',
+    role: ['Продуктовый дизайнер', 'Визуальный дизайн'], status: ['Запущено', '2025'], type: ['Лендинг', 'B2B', 'Бренд'],
+    intro: [
+      'Лендинг комплаенс-продукта adata должен с первого взгляда делать плотный продукт из одиннадцати модулей простым и вызывающим доверие.',
+      'Я выстроила страницу вокруг того, что действительно важно командам, и сделала согласованные светлую и тёмную версии с понятными сигналами доверия и призывами к действию.'
+    ]
+  },
+  'digital-office': {
+    kind: 'Корпоративный продукт', subtitle: 'Цифровой офис для задач, документов и командной работы.',
+    benefits: ['Enterprise', 'Задачи', 'Дашборды', 'Дизайн-система'],
+    title: 'Цифровой офис для ежедневной работы',
+    role: ['Продуктовый дизайнер', 'Дизайн-система'], status: ['В работе', '2024—25'], type: ['Enterprise', 'Продуктивность', 'B2B'],
+    intro: [
+      'Digital Office объединяет задачи, документы и командную работу в одном месте, чтобы люди перестали весь день прыгать между инструментами.',
+      'Я работаю над ключевыми сценариями и переиспользуемым набором компонентов, удерживая плотный корпоративный продукт организованным, консистентным и понятным.'
+    ]
+  },
+  nisp: {
+    kind: 'Продукт', subtitle: 'Дизайн платформы НИСП — данные, процессы и отчётность.',
+    benefits: ['Продукт', 'Визуализация', 'Процессы', 'Отчётность'],
+    title: 'Дизайн платформы НИСП с плотными данными',
+    role: ['Продуктовый дизайнер', 'UX + UI'], status: ['Запущено', '2024'], type: ['Продукт', 'Данные', 'Web'],
+    intro: [
+      'НИСП — платформа с плотными данными: реестры, карты и многошаговые заявки — списки зон и проектов, пошаговая подача и подробные страницы проектов.',
+      'Я спроектировала опыт целиком: сделала плотные таблицы и карты читаемыми и превратила длинные бюрократические процессы в понятные пошаговые сценарии.'
+    ]
+  }
 };
 function loc(p) { return (lang === 'ru' && CS_RU[p.id]) ? Object.assign({}, p, CS_RU[p.id]) : p; }
 const SCREENS = {
@@ -349,7 +433,9 @@ if (csEl) {
       <div class="cs-grid">
         <div class="cs-intro"><p class="cs-label">${t('cs.intro')}</p>${paras(p.intro) || `<p>${p.subtitle}</p>`}</div>
         <div class="cs-meta">
-          <div class="cs-meta-block"><p class="cs-label">${t('cs.type')}</p><div class="cs-chips">${chips(p.benefits)}</div></div>
+          <div class="cs-meta-block"><p class="cs-label">${t('cs.role')}</p><div class="cs-chips">${chips(p.role || p.benefits)}</div></div>
+          <div class="cs-meta-block"><p class="cs-label">${t('cs.status')}</p><div class="cs-chips">${chips(p.status)}</div></div>
+          <div class="cs-meta-block"><p class="cs-label">${t('cs.type')}</p><div class="cs-chips">${chips(p.type || p.benefits)}</div></div>
         </div>
       </div>
       <div class="cs-cover"><img src="shots/${raw.id}.png" alt="${raw.name}" /></div>
