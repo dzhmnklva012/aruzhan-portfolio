@@ -317,12 +317,9 @@ if (list) {
         </div>
         <p class="subtitle">${p.subtitle}</p>
         <div class="benefits">${p.benefits.map(b => `<span>${b}</span>`).join('')}</div>
-        <div class="gallery-wrap"><div class="gallery">${raw.gallery.map((k, i) => shot(k, raw.accent, i)).join('')}</div></div>`;
+        <div class="proj-cover"><img src="shots/${raw.id}.png" alt="${raw.name}" loading="lazy" /></div>`;
       list.appendChild(el);
       if (animate) io.observe(el);
-      const g = el.querySelector('.gallery');
-      enableDragScroll(g);
-      attachDragBadge(el.querySelector('.gallery-wrap'), g);
     });
     enableTilt(list);
   }
