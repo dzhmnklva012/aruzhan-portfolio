@@ -106,7 +106,7 @@ const I18N = {
     'about.sk5': 'Frontend (HTML/CSS)', 'about.lv5': 'Comfortable',
     'pg.h1': 'Experiments, <em>off the clock</em>.', 'pg.p': 'Loose explorations, color studies, and interface ideas that didn\'t fit anywhere else. Grab a piece and drag it around — it\'s a playground, after all.', 'pg.hint': '✋ Drag the pieces around',
     'cs.back': '← All work', 'cs.intro': 'Intro', 'cs.role': 'Role', 'cs.status': 'Status', 'cs.type': 'Type',
-    'cs.problems': 'Problems', 'cs.solution': 'Solution', 'cs.results': 'Results', 'cs.gallery': 'Screenshot gallery',
+    'cs.problems': 'The challenge', 'cs.solution': 'The solution', 'cs.results': 'The outcome', 'cs.gallery': 'Screenshot gallery',
     'cs.next': 'Next up', 'cs.viewcase': 'View case study', 'cs.viewproj': 'View project', 'cs.soon': 'Coming soon', 'drag': 'Drag'
   },
   ru: {
@@ -143,7 +143,7 @@ const I18N = {
     'about.sk5': 'Фронтенд (HTML/CSS)', 'about.lv5': 'Комфортно',
     'pg.h1': 'Эксперименты <em>в свободное время</em>.', 'pg.p': 'Свободные исследования, цветовые этюды и идеи интерфейсов, которым не нашлось места. Возьмите элемент и потяните — это же лаборатория.', 'pg.hint': '✋ Перетаскивайте элементы',
     'cs.back': '← Все работы', 'cs.intro': 'Вступление', 'cs.role': 'Роль', 'cs.status': 'Статус', 'cs.type': 'Тип',
-    'cs.problems': 'Проблемы', 'cs.solution': 'Решение', 'cs.results': 'Результаты', 'cs.gallery': 'Галерея скриншотов',
+    'cs.problems': 'Задача', 'cs.solution': 'Решение', 'cs.results': 'Результат', 'cs.gallery': 'Галерея скриншотов',
     'cs.next': 'Далее', 'cs.viewcase': 'Смотреть кейс', 'cs.viewproj': 'Смотреть проект', 'cs.soon': 'Скоро', 'drag': 'Тяни'
   }
 };
@@ -316,6 +316,24 @@ const CS_RU = {
   }
 };
 function loc(p) { return (lang === 'ru' && CS_RU[p.id]) ? Object.assign({}, p, CS_RU[p.id]) : p; }
+const PSR = {
+  en: {
+    aml: { problem: 'Analysts had to make risk decisions from scattered, dense data — easy to miss a signal, slow to investigate.', solution: 'I mapped the review journey and designed clear screening, scoring, and case-investigation flows that surface the right information at each step.', result: 'Complex regulatory logic turned into interfaces analysts can move through quickly and confidently.' },
+    speakup: { problem: 'People won\'t report concerns unless the channel feels genuinely safe and private.', solution: 'I designed anonymous-first reporting flows and a clear reviewer side, keeping the tone calm and reassuring throughout.', result: 'A reporting experience that earns trust — simple for employees, structured for the teams handling cases.' },
+    'ai-landings': { problem: 'An abstract AI product is hard to explain and easy to scroll past.', solution: 'I built a flexible section-and-component system so each landing tells a clear story and converts, in light and dark.', result: 'New landings ship fast and stay on-brand, with a consistent, modern look across the suite.' },
+    compliance: { problem: 'An eleven-module compliance product risked feeling overwhelming on a single page.', solution: 'I structured the landing around what teams actually need to know, with trust cues and matching light and dark versions.', result: 'A clear, product-led page that makes a dense product feel approachable and credible.' },
+    'digital-office': { problem: 'Teams lost time switching between disconnected tools for tasks, documents, and communication.', solution: 'I designed the core flows and a reusable component set that bring everyday work into one consistent workspace.', result: 'A dense enterprise product that stays organised and easy to learn as it grows.' },
+    nisp: { problem: 'Registries, maps, and multi-step applications made the platform dense and hard to navigate.', solution: 'I made tables and maps readable and turned long bureaucratic processes into clear, guided step-by-step flows.', result: 'A data-heavy platform that feels structured and usable — from browsing registries to submitting an application.' }
+  },
+  ru: {
+    aml: { problem: 'Аналитикам приходилось принимать решения о риске по разрозненным, плотным данным — легко пропустить сигнал и долго расследовать.', solution: 'Я разложила путь проверки и спроектировала понятные сценарии скрининга, скоринга и расследования кейсов, которые показывают нужное на каждом шаге.', result: 'Сложная регуляторная логика превратилась в интерфейсы, по которым аналитик движется быстро и уверенно.' },
+    speakup: { problem: 'Люди не сообщают о проблемах, пока канал не ощущается по-настоящему безопасным и приватным.', solution: 'Я спроектировала сценарии с анонимностью по умолчанию и понятную сторону для проверяющих, сохраняя спокойный, располагающий тон.', result: 'Опыт обращений, который вызывает доверие — простой для сотрудников и структурированный для команд, обрабатывающих кейсы.' },
+    'ai-landings': { problem: 'Абстрактный AI-продукт сложно объяснить, и его легко пролистать.', solution: 'Я собрала гибкую систему секций и компонентов, чтобы каждый лендинг рассказывал ясную историю и конвертил — в светлой и тёмной теме.', result: 'Новые лендинги выходят быстро и остаются в стиле, с единым современным видом по всей линейке.' },
+    compliance: { problem: 'Продукт из одиннадцати модулей рисковал выглядеть перегруженным на одной странице.', solution: 'Я выстроила лендинг вокруг того, что важно командам, с сигналами доверия и согласованными светлой и тёмной версиями.', result: 'Ясная, продуктовая страница, которая делает плотный продукт понятным и вызывающим доверие.' },
+    'digital-office': { problem: 'Команды теряли время, переключаясь между разрозненными инструментами для задач, документов и общения.', solution: 'Я спроектировала ключевые сценарии и переиспользуемый набор компонентов, объединяющие ежедневную работу в одном пространстве.', result: 'Плотный корпоративный продукт, который остаётся организованным и понятным по мере роста.' },
+    nisp: { problem: 'Реестры, карты и многошаговые заявки делали платформу плотной и сложной в навигации.', solution: 'Я сделала таблицы и карты читаемыми и превратила длинные бюрократические процессы в понятные пошаговые сценарии.', result: 'Платформа с плотными данными, которая ощущается структурной и удобной — от просмотра реестров до подачи заявки.' }
+  }
+};
 const SCREENS = {
   'ai-landings': ['shots/compliance.png'],
   'nisp': ['shots/nisp-screens.png'],
@@ -438,6 +456,7 @@ if (csEl) {
           <div class="cs-meta-block"><p class="cs-label">${t('cs.type')}</p><div class="cs-chips">${chips(p.type || p.benefits)}</div></div>
         </div>
       </div>
+      ${(function(){var x=(PSR[lang]||PSR.en)[raw.id];return x?`<div class="psr"><div class="psr-card"><h3>${t('cs.problems')}</h3><p>${x.problem}</p></div><div class="psr-card"><h3>${t('cs.solution')}</h3><p>${x.solution}</p></div><div class="psr-card"><h3>${t('cs.results')}</h3><p>${x.result}</p></div></div>`:'';})()}
       <div class="cs-cover"><img src="shots/${raw.id}.png" alt="${raw.name}" /></div>
       ${(SCREENS[raw.id]||[]).length ? `<div class="cs-gallery-label"><span>${t('cs.gallery')}</span></div>` + (SCREENS[raw.id]).map(src => `<div class="cs-shot"><img src="${src}" alt="${raw.name}" loading="lazy" /></div>`).join('') : ''}
       <div class="cs-next"><span>${t('cs.next')}</span><a href="casestudy.html?id=${nextRaw.id}">${nextRaw.name} →</a></div>`;
