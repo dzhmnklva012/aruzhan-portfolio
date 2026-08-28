@@ -107,7 +107,8 @@ const I18N = {
     'pg.h1': 'Experiments, <em>off the clock</em>.', 'pg.p': 'Loose explorations, color studies, and interface ideas that didn\'t fit anywhere else. Grab a piece and drag it around — it\'s a playground, after all.', 'pg.hint': '✋ Drag the pieces around',
     'cs.back': '← All work', 'cs.intro': 'Intro', 'cs.role': 'Role', 'cs.status': 'Status', 'cs.type': 'Type',
     'cs.problems': 'The challenge', 'cs.solution': 'The solution', 'cs.results': 'The outcome', 'cs.gallery': 'Screenshot gallery',
-    'cs.next': 'Next up', 'cs.viewcase': 'View case study', 'cs.viewproj': 'View project', 'cs.soon': 'Coming soon', 'drag': 'Drag'
+    'cs.next': 'Next up', 'cs.viewcase': 'View case study', 'cs.viewproj': 'View project', 'cs.soon': 'Coming soon', 'drag': 'Drag',
+    spk: { problem: 'Checking a counterparty meant jumping between many separate registries and sources — slow, and easy to miss something.', solution: 'I designed a global search that unifies people, companies, filings, and trade data, with dossiers that pull it all together.', result: 'A fast, search-first way to run due diligence, in a calm dark UI built for long sessions.' }
   },
   ru: {
     'nav.work': 'Работы', 'nav.playground': 'Эксперименты', 'nav.about': 'Обо мне', 'nav.cv': 'Резюме ↗',
@@ -251,6 +252,18 @@ const caseStudies = [
       'NISP is a data-heavy platform built around registries, maps, and multi-step applications — lists of zones and projects, guided submission flows, and detailed project pages.',
       'I designed the end-to-end experience: making dense tables and maps readable, and turning long bureaucratic processes into clear, step-by-step flows.'
     ]
+  },
+  {
+    id: 'spk', name: 'СПК', kind: 'Analytics · B2G', yr: '2025', accent: '#38b6ff', icon: '🔎', url: '',
+    subtitle: 'An analytics platform for due diligence — global search across companies and people.',
+    benefits: ['Analytics', 'Global search', 'Dossiers', 'Data-dense UI'],
+    gallery: ['dashboard', 'grid', 'dashboard', 'cards', 'dashboard'],
+    title: 'An analytics platform for fast due diligence',
+    role: ['Product Designer', 'UX + UI'], status: ['Live demo', '2025'], type: ['Analytics', 'B2G', 'Web'],
+    intro: [
+      'The platform pulls scattered public data — registries, filings, procurement, foreign trade — into one place, so analysts can vet a company or a person in minutes instead of hours.',
+      'I designed the search-first experience and the dossier views, with matching light and dark themes for long analytical sessions.'
+    ]
   }
 ];
 const CS_RU = {
@@ -313,6 +326,16 @@ const CS_RU = {
       'НИСП — платформа с плотными данными: реестры, карты и многошаговые заявки — списки зон и проектов, пошаговая подача и подробные страницы проектов.',
       'Я спроектировала опыт целиком: сделала плотные таблицы и карты читаемыми и превратила длинные бюрократические процессы в понятные пошаговые сценарии.'
     ]
+  },
+  spk: {
+    kind: 'Аналитика · B2G', subtitle: 'Аналитическая платформа для проверки — глобальный поиск по компаниям и людям.',
+    benefits: ['Аналитика', 'Глобальный поиск', 'Досье', 'Плотный UI'],
+    title: 'Аналитическая платформа для быстрой проверки контрагентов',
+    role: ['Продуктовый дизайнер', 'UX + UI'], status: ['Демо', '2025'], type: ['Аналитика', 'B2G', 'Web'],
+    intro: [
+      'Платформа собирает разрозненные открытые данные — реестры, выписки, закупки, ВЭД — в одном месте, чтобы аналитик проверял компанию или человека за минуты, а не за часы.',
+      'Я спроектировала опыт «поиск в первую очередь» и экраны досье, со светлой и тёмной темами для долгих аналитических сессий.'
+    ]
   }
 };
 function loc(p) { return (lang === 'ru' && CS_RU[p.id]) ? Object.assign({}, p, CS_RU[p.id]) : p; }
@@ -331,13 +354,15 @@ const PSR = {
     'ai-landings': { problem: 'Абстрактный AI-продукт сложно объяснить, и его легко пролистать.', solution: 'Я собрала гибкую систему секций и компонентов, чтобы каждый лендинг рассказывал ясную историю и конвертил — в светлой и тёмной теме.', result: 'Новые лендинги выходят быстро и остаются в стиле, с единым современным видом по всей линейке.' },
     compliance: { problem: 'Продукт из одиннадцати модулей рисковал выглядеть перегруженным на одной странице.', solution: 'Я выстроила лендинг вокруг того, что важно командам, с сигналами доверия и согласованными светлой и тёмной версиями.', result: 'Ясная, продуктовая страница, которая делает плотный продукт понятным и вызывающим доверие.' },
     'digital-office': { problem: 'Команды теряли время, переключаясь между разрозненными инструментами для задач, документов и общения.', solution: 'Я спроектировала ключевые сценарии и переиспользуемый набор компонентов, объединяющие ежедневную работу в одном пространстве.', result: 'Плотный корпоративный продукт, который остаётся организованным и понятным по мере роста.' },
-    nisp: { problem: 'Реестры, карты и многошаговые заявки делали платформу плотной и сложной в навигации.', solution: 'Я сделала таблицы и карты читаемыми и превратила длинные бюрократические процессы в понятные пошаговые сценарии.', result: 'Платформа с плотными данными, которая ощущается структурной и удобной — от просмотра реестров до подачи заявки.' }
+    nisp: { problem: 'Реестры, карты и многошаговые заявки делали платформу плотной и сложной в навигации.', solution: 'Я сделала таблицы и карты читаемыми и превратила длинные бюрократические процессы в понятные пошаговые сценарии.', result: 'Платформа с плотными данными, которая ощущается структурной и удобной — от просмотра реестров до подачи заявки.' },
+    spk: { problem: 'Проверка контрагента означала прыжки между множеством отдельных реестров и источников — медленно и легко что-то упустить.', solution: 'Я спроектировала глобальный поиск, объединяющий людей, компании, выписки и данные о торговле, с досье, собирающими всё вместе.', result: 'Быстрый способ проверки через поиск, со спокойным тёмным интерфейсом для долгих сессий.' }
   }
 };
 const SCREENS = {
   'ai-landings': ['shots/compliance.png'],
   'nisp': ['shots/nisp-screens.png'],
-  'digital-office': ['shots/digital-office-screens.png']
+  'digital-office': ['shots/do-messenger.png', 'shots/digital-office-screens.png'],
+  'spk': ['shots/spk.png']
 };
 
 function mock(kind, a) {
