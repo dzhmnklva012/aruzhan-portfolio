@@ -182,7 +182,7 @@ if (intro) {
 /* ---------- WORK: case studies (EN base + RU overrides) ---------- */
 const caseStudies = [
   {
-    id: 'aml', name: 'AML', kind: 'Compliance · Fintech', yr: '2025', accent: '#3f5bbb', icon: '🛡️', url: '',
+    id: 'aml', name: 'Fintech AML', kind: 'Compliance · Fintech', yr: '2025', accent: '#3f5bbb', icon: '🛡️', url: '',
     subtitle: 'Anti-money-laundering platform — client screening, risk scoring, and case investigation.',
     benefits: ['Compliance', 'Risk scoring', 'Case workflows', 'Data-dense UI'],
     gallery: ['dashboard', 'grid', 'dashboard', 'cards', 'dashboard'],
@@ -194,7 +194,7 @@ const caseStudies = [
     ]
   },
   {
-    id: 'speakup', name: 'Speak Up', kind: 'Ethics · HR', yr: '2025', accent: '#2faa5e', icon: '📣', url: '',
+    id: 'speakup', name: 'Whistleblowing Platform', kind: 'Ethics · HR', yr: '2025', accent: '#2faa5e', icon: '📣', url: '',
     subtitle: 'A safe whistleblowing and feedback platform for employees to raise concerns.',
     benefits: ['Whistleblowing', 'Trust & safety', 'Anonymous reports', 'Case tracking'],
     gallery: ['phone', 'cards', 'phone', 'grid', 'phone'],
@@ -218,7 +218,7 @@ const caseStudies = [
     ]
   },
   {
-    id: 'compliance', name: 'adata Compliance', kind: 'Landing', yr: '2025', accent: '#068DFF', icon: '✅', url: '',
+    id: 'compliance', name: 'Compliance Suite', kind: 'Landing', yr: '2025', accent: '#068DFF', icon: '✅', url: '',
     subtitle: 'Landing page for adata\'s compliance suite — clear, trustworthy, product-led.',
     benefits: ['Landing', 'Product marketing', 'B2B', 'Brand'],
     gallery: ['dashboard', 'cards', 'grid', 'cards', 'dashboard'],
@@ -230,7 +230,7 @@ const caseStudies = [
     ]
   },
   {
-    id: 'digital-office', name: 'Digital Office', kind: 'Enterprise product', yr: '2024—25', accent: '#d99a16', icon: '🗂️', url: '',
+    id: 'digital-office', name: 'Digital Workplace', kind: 'Enterprise product', yr: '2024—25', accent: '#d99a16', icon: '🗂️', url: '',
     subtitle: 'A digital workplace for tasks, documents, and team collaboration.',
     benefits: ['Enterprise', 'Task management', 'Dashboards', 'Design system'],
     gallery: ['dashboard', 'grid', 'dashboard', 'cards', 'grid'],
@@ -243,7 +243,7 @@ const caseStudies = [
   },
 
   {
-    id: 'spk', name: 'E-Analytic', kind: 'Analytics · B2G', yr: '2025', accent: '#38b6ff', icon: '🔎', url: '',
+    id: 'spk', name: 'Anti-corruption Analytics', kind: 'Analytics · B2G', yr: '2025', accent: '#38b6ff', icon: '🔎', url: '',
     subtitle: 'An analytics platform for due diligence — global search across companies and people.',
     benefits: ['Analytics', 'Global search', 'Dossiers', 'Data-dense UI'],
     gallery: ['dashboard', 'grid', 'dashboard', 'cards', 'dashboard'],
