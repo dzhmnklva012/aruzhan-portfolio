@@ -305,11 +305,10 @@ if (list) {
     list.innerHTML = '';
     caseStudies.forEach((raw) => {
       const p = loc(raw);
-      const el = document.createElement('article');
-      el.className = 'proj reveal' + (animate ? '' : ' in');
-      const btn = (raw.url && raw.url !== '#')
-        ? `<a class="cs-btn" href="${raw.url}" target="_blank" rel="noopener"><span>${t('cs.viewproj')}</span> <span>↗</span></a>`
-        : '';
+      const el = document.createElement('a');
+      el.href = 'casestudy.html?id=' + raw.id;
+      el.className = 'proj proj-link-card reveal' + (animate ? '' : ' in');
+      const btn = `<span class="cs-btn"><span>${t('cs.viewcase')}</span> <span>→</span></span>`;
       el.innerHTML = `
         <div class="proj-head-row">
           <div class="proj-meta"><span class="name">${raw.name}</span><span class="kind">${p.kind}</span><span class="yr">${raw.yr}</span></div>
@@ -348,12 +347,10 @@ if (csEl) {
           <div class="cs-meta-block"><p class="cs-label">${t('cs.type')}</p><div class="cs-chips">${chips(p.benefits)}</div></div>
         </div>
       </div>
-      <div class="cs-gallery-label"><span>${t('cs.gallery')}</span></div>
-      <div class="gallery-wrap"><div class="gallery cs-shots">${[...raw.gallery, ...raw.gallery].map((k, i) => shot(k, raw.accent, i)).join('')}</div></div>
+      <div class="cs-cover"><img src="shots/${raw.id}.png" alt="${raw.name}" /></div>
       <div class="cs-next"><span>${t('cs.next')}</span><a href="casestudy.html?id=${nextRaw.id}">${nextRaw.name} →</a></div>`;
     const g = csEl.querySelector('.gallery');
-    enableDragScroll(g);
-    attachDragBadge(csEl.querySelector('.gallery-wrap'), g);
+    if (g) { enableDragScroll(g); attachDragBadge(csEl.querySelector('.gallery-wrap'), g); }
   }
   langHandlers.push(renderCaseStudy);
 }

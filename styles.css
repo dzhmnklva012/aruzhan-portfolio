@@ -309,3 +309,10 @@ footer { padding: 96px 0 40px; }
   .hero .tagline em .squiggle path { stroke-dashoffset: 0 !important; }
   .intro { display: none !important; }
 }
+
+/* clickable project card + case-study cover */
+.proj-link-card { display: block; color: inherit; text-decoration: none; cursor: pointer; }
+.proj-link-card .cs-btn { pointer-events: none; }
+.proj-link-card:hover .name { color: var(--accent); }
+.cs-cover { border-radius: var(--radius); border: 1px solid var(--line); overflow: hidden; margin-top: 8px; background: var(--bg-2); }
+.cs-cover img { width: 100%; height: auto; display: block; }
