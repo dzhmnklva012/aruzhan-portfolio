@@ -316,3 +316,7 @@ footer { padding: 96px 0 40px; }
 .proj-link-card:hover .name { color: var(--accent); }
 .cs-cover { border-radius: var(--radius); border: 1px solid var(--line); overflow: hidden; margin-top: 8px; background: var(--bg-2); }
 .cs-cover img { width: 100%; height: auto; display: block; }
+
+/* case-study real screen shots */
+.cs-shot { border-radius: var(--radius); border: 1px solid var(--line); overflow: hidden; margin-top: 16px; background: var(--bg-2); }
+.cs-shot img { width: 100%; height: auto; display: block; }

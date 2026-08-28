@@ -232,6 +232,11 @@ const CS_RU = {
   nisp: { kind: 'Продукт', subtitle: 'Дизайн платформы НИСП — данные, процессы и отчётность.', benefits: ['Продукт', 'Визуализация', 'Процессы', 'Отчётность'] }
 };
 function loc(p) { return (lang === 'ru' && CS_RU[p.id]) ? Object.assign({}, p, CS_RU[p.id]) : p; }
+const SCREENS = {
+  'ai-landings': ['shots/compliance.png'],
+  'nisp': ['shots/nisp-screens.png'],
+  'digital-office': ['shots/digital-office-screens.png']
+};
 
 function mock(kind, a) {
   if (kind === 'phone') return `
@@ -348,6 +353,7 @@ if (csEl) {
         </div>
       </div>
       <div class="cs-cover"><img src="shots/${raw.id}.png" alt="${raw.name}" /></div>
+      ${(SCREENS[raw.id]||[]).length ? `<div class="cs-gallery-label"><span>${t('cs.gallery')}</span></div>` + (SCREENS[raw.id]).map(src => `<div class="cs-shot"><img src="${src}" alt="${raw.name}" loading="lazy" /></div>`).join('') : ''}
       <div class="cs-next"><span>${t('cs.next')}</span><a href="casestudy.html?id=${nextRaw.id}">${nextRaw.name} →</a></div>`;
     const g = csEl.querySelector('.gallery');
     if (g) { enableDragScroll(g); attachDragBadge(csEl.querySelector('.gallery-wrap'), g); }
