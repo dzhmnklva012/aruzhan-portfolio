@@ -241,18 +241,7 @@ const caseStudies = [
       'I work on the core flows and a reusable component set, keeping a dense enterprise product organised, consistent, and easy to learn.'
     ]
   },
-  {
-    id: 'nisp', name: 'NISP', kind: 'Product', yr: '2024', accent: '#7c5cff', icon: '📊', url: '',
-    subtitle: 'Product design for the NISP platform — data, workflows, and reporting.',
-    benefits: ['Product', 'Data viz', 'Workflows', 'Reporting'],
-    gallery: ['dashboard', 'dashboard', 'grid', 'cards', 'dashboard'],
-    title: 'Designing the data-heavy NISP platform',
-    role: ['Product Designer', 'UX + UI'], status: ['Shipped', '2024'], type: ['Product', 'Data', 'Web'],
-    intro: [
-      'NISP is a data-heavy platform built around registries, maps, and multi-step applications — lists of zones and projects, guided submission flows, and detailed project pages.',
-      'I designed the end-to-end experience: making dense tables and maps readable, and turning long bureaucratic processes into clear, step-by-step flows.'
-    ]
-  },
+
   {
     id: 'spk', name: 'E-Analytic', kind: 'Analytics · B2G', yr: '2025', accent: '#38b6ff', icon: '🔎', url: '',
     subtitle: 'An analytics platform for due diligence — global search across companies and people.',
@@ -317,16 +306,7 @@ const CS_RU = {
       'Я работаю над ключевыми сценариями и переиспользуемым набором компонентов, удерживая плотный корпоративный продукт организованным, консистентным и понятным.'
     ]
   },
-  nisp: {
-    kind: 'Продукт', subtitle: 'Дизайн платформы НИСП — данные, процессы и отчётность.',
-    benefits: ['Продукт', 'Визуализация', 'Процессы', 'Отчётность'],
-    title: 'Дизайн платформы НИСП с плотными данными',
-    role: ['Продуктовый дизайнер', 'UX + UI'], status: ['Запущено', '2024'], type: ['Продукт', 'Данные', 'Web'],
-    intro: [
-      'НИСП — платформа с плотными данными: реестры, карты и многошаговые заявки — списки зон и проектов, пошаговая подача и подробные страницы проектов.',
-      'Я спроектировала опыт целиком: сделала плотные таблицы и карты читаемыми и превратила длинные бюрократические процессы в понятные пошаговые сценарии.'
-    ]
-  },
+
   spk: {
     kind: 'Аналитика · B2G', subtitle: 'Аналитическая платформа для проверки — глобальный поиск по компаниям и людям.',
     benefits: ['Аналитика', 'Глобальный поиск', 'Досье', 'Плотный UI'],
@@ -346,7 +326,6 @@ const PSR = {
     'ai-landings': { problem: 'An abstract AI product is hard to explain and easy to scroll past.', solution: 'I built a flexible section-and-component system so each landing tells a clear story and converts, in light and dark.', result: 'New landings ship fast and stay on-brand, with a consistent, modern look across the suite.' },
     compliance: { problem: 'An eleven-module compliance product risked feeling overwhelming on a single page.', solution: 'I structured the landing around what teams actually need to know, with trust cues and matching light and dark versions.', result: 'A clear, product-led page that makes a dense product feel approachable and credible.' },
     'digital-office': { problem: 'Teams lost time switching between disconnected tools for tasks, documents, and communication.', solution: 'I designed the core flows and a reusable component set that bring everyday work into one consistent workspace.', result: 'A dense enterprise product that stays organised and easy to learn as it grows.' },
-    nisp: { problem: 'Registries, maps, and multi-step applications made the platform dense and hard to navigate.', solution: 'I made tables and maps readable and turned long bureaucratic processes into clear, guided step-by-step flows.', result: 'A data-heavy platform that feels structured and usable — from browsing registries to submitting an application.' }
   },
   ru: {
     aml: { problem: 'Аналитикам приходилось принимать решения о риске по разрозненным, плотным данным — легко пропустить сигнал и долго расследовать.', solution: 'Я разложила путь проверки и спроектировала понятные сценарии скрининга, скоринга и расследования кейсов, которые показывают нужное на каждом шаге.', result: 'Сложная регуляторная логика превратилась в интерфейсы, по которым аналитик движется быстро и уверенно.' },
@@ -354,7 +333,6 @@ const PSR = {
     'ai-landings': { problem: 'Абстрактный AI-продукт сложно объяснить, и его легко пролистать.', solution: 'Я собрала гибкую систему секций и компонентов, чтобы каждый лендинг рассказывал ясную историю и конвертил — в светлой и тёмной теме.', result: 'Новые лендинги выходят быстро и остаются в стиле, с единым современным видом по всей линейке.' },
     compliance: { problem: 'Продукт из одиннадцати модулей рисковал выглядеть перегруженным на одной странице.', solution: 'Я выстроила лендинг вокруг того, что важно командам, с сигналами доверия и согласованными светлой и тёмной версиями.', result: 'Ясная, продуктовая страница, которая делает плотный продукт понятным и вызывающим доверие.' },
     'digital-office': { problem: 'Команды теряли время, переключаясь между разрозненными инструментами для задач, документов и общения.', solution: 'Я спроектировала ключевые сценарии и переиспользуемый набор компонентов, объединяющие ежедневную работу в одном пространстве.', result: 'Плотный корпоративный продукт, который остаётся организованным и понятным по мере роста.' },
-    nisp: { problem: 'Реестры, карты и многошаговые заявки делали платформу плотной и сложной в навигации.', solution: 'Я сделала таблицы и карты читаемыми и превратила длинные бюрократические процессы в понятные пошаговые сценарии.', result: 'Платформа с плотными данными, которая ощущается структурной и удобной — от просмотра реестров до подачи заявки.' },
     spk: { problem: 'Проверка контрагента означала прыжки между множеством отдельных реестров и источников — медленно и легко что-то упустить.', solution: 'Я спроектировала глобальный поиск, объединяющий людей, компании, выписки и данные о торговле, с досье, собирающими всё вместе.', result: 'Быстрый способ проверки через поиск, со спокойным тёмным интерфейсом для долгих сессий.' }
   }
 };
@@ -364,7 +342,6 @@ const PREVIEW = {
   'ai-landings': ['shots/ai-landings.png', 'shots/compliance.png'],
   'compliance': ['shots/compliance.png'],
   'digital-office': ['shots/do-messenger.png', 'shots/do-news.png', 'shots/do-knowledge.png', 'shots/do-compliance.png', 'shots/digital-office-screens.png'],
-  'nisp': ['shots/nisp.png', 'shots/nisp-screens.png'],
   'spk': ['shots/spk.png', 'shots/ean-dossier.png', 'shots/ean-zakupki.png', 'shots/ean-vypiski.png', 'shots/ean-esf.png', 'shots/ean-ved.png']
 };
 const LOGOS = { 'digital-office': 'shots/logo-do.png', 'spk': 'shots/logo-ean.png' };
@@ -372,7 +349,6 @@ const SCREENS = {
   'speakup': ['shots/speakup-landing.png', 'shots/speakup-admin2.png', 'shots/speakup-admin1.png', 'shots/speakup-kanban.png'],
   'aml': ['shots/aml-1.png', 'shots/aml-2.png', 'shots/aml-3.png'],
   'ai-landings': ['shots/compliance.png'],
-  'nisp': ['shots/nisp-screens.png'],
   'digital-office': ['shots/do-messenger.png', 'shots/do-news.png', 'shots/do-knowledge.png', 'shots/do-compliance.png', 'shots/digital-office-screens.png'],
   'spk': ['shots/ean-dossier.png', 'shots/ean-zakupki.png', 'shots/ean-vypiski.png', 'shots/ean-esf.png', 'shots/ean-ved.png']
 };
