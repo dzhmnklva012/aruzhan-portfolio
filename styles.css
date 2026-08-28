@@ -326,3 +326,8 @@ footer { padding: 96px 0 40px; }
 .proj-logo { width: 40px; height: 40px; border-radius: 11px; flex: none; box-shadow: 0 4px 12px -4px rgba(0,0,0,.5); }
 .cs-icon-img { background: none !important; padding: 0; overflow: hidden; }
 .cs-icon-img img { width: 100%; height: 100%; object-fit: cover; border-radius: 20px; }
+
+/* smaller multi-shot preview strip on project cards */
+.preview { gap: 14px; }
+.preview .pshot { flex: 0 0 auto; width: clamp(230px, 30vw, 330px); aspect-ratio: 16 / 10; border-radius: 14px; border: 1px solid var(--line); overflow: hidden; background: var(--bg-2); scroll-snap-align: start; }
+.preview .pshot img { width: 100%; height: 100%; object-fit: cover; object-position: top left; display: block; }

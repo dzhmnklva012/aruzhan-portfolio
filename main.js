@@ -358,12 +358,21 @@ const PSR = {
     spk: { problem: 'Проверка контрагента означала прыжки между множеством отдельных реестров и источников — медленно и легко что-то упустить.', solution: 'Я спроектировала глобальный поиск, объединяющий людей, компании, выписки и данные о торговле, с досье, собирающими всё вместе.', result: 'Быстрый способ проверки через поиск, со спокойным тёмным интерфейсом для долгих сессий.' }
   }
 };
+const PREVIEW = {
+  'aml': ['shots/aml.png'],
+  'speakup': ['shots/speakup.png'],
+  'ai-landings': ['shots/ai-landings.png', 'shots/compliance.png'],
+  'compliance': ['shots/compliance.png'],
+  'digital-office': ['shots/do-messenger.png', 'shots/do-news.png', 'shots/do-knowledge.png', 'shots/do-compliance.png', 'shots/digital-office-screens.png'],
+  'nisp': ['shots/nisp.png', 'shots/nisp-screens.png'],
+  'spk': ['shots/spk.png', 'shots/ean-dossier.png', 'shots/ean-zakupki.png', 'shots/ean-vypiski.png', 'shots/ean-esf.png', 'shots/ean-ved.png']
+};
 const LOGOS = { 'digital-office': 'shots/logo-do.png', 'spk': 'shots/logo-ean.png' };
 const SCREENS = {
   'ai-landings': ['shots/compliance.png'],
   'nisp': ['shots/nisp-screens.png'],
-  'digital-office': ['shots/do-messenger.png', 'shots/digital-office-screens.png'],
-  'spk': ['shots/ean-dossier.png', 'shots/ean-zakupki.png', 'shots/spk.png']
+  'digital-office': ['shots/do-messenger.png', 'shots/do-news.png', 'shots/do-knowledge.png', 'shots/do-compliance.png', 'shots/digital-office-screens.png'],
+  'spk': ['shots/ean-dossier.png', 'shots/ean-zakupki.png', 'shots/ean-vypiski.png', 'shots/ean-esf.png', 'shots/ean-ved.png']
 };
 
 function mock(kind, a) {
@@ -452,9 +461,11 @@ if (list) {
         </div>
         <p class="subtitle">${p.subtitle}</p>
         <div class="benefits">${p.benefits.map(b => `<span>${b}</span>`).join('')}</div>
-        <div class="proj-cover"><img src="shots/${raw.id}.png" alt="${raw.name}" loading="lazy" /></div>`;
+        <div class="gallery-wrap"><div class="gallery preview">${(PREVIEW[raw.id] || ['shots/'+raw.id+'.png']).map(src => `<div class="pshot"><img src="${src}" alt="${raw.name}" loading="lazy" /></div>`).join('')}</div></div>`;
       list.appendChild(el);
       if (animate) io.observe(el);
+      const g = el.querySelector('.gallery');
+      if (g) { enableDragScroll(g); attachDragBadge(el.querySelector('.gallery-wrap'), g); }
     });
     enableTilt(list);
   }
