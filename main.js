@@ -362,7 +362,7 @@ const SCREENS = {
   'ai-landings': ['shots/compliance.png'],
   'nisp': ['shots/nisp-screens.png'],
   'digital-office': ['shots/do-messenger.png', 'shots/digital-office-screens.png'],
-  'spk': ['shots/spk.png']
+  'spk': ['shots/ean-dossier.png', 'shots/ean-zakupki.png', 'shots/spk.png']
 };
 
 function mock(kind, a) {
