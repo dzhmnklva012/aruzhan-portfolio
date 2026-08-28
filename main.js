@@ -254,7 +254,7 @@ const caseStudies = [
     ]
   },
   {
-    id: 'spk', name: 'СПК', kind: 'Analytics · B2G', yr: '2025', accent: '#38b6ff', icon: '🔎', url: '',
+    id: 'spk', name: 'E-Analytic', kind: 'Analytics · B2G', yr: '2025', accent: '#38b6ff', icon: '🔎', url: '',
     subtitle: 'An analytics platform for due diligence — global search across companies and people.',
     benefits: ['Analytics', 'Global search', 'Dossiers', 'Data-dense UI'],
     gallery: ['dashboard', 'grid', 'dashboard', 'cards', 'dashboard'],
@@ -358,6 +358,7 @@ const PSR = {
     spk: { problem: 'Проверка контрагента означала прыжки между множеством отдельных реестров и источников — медленно и легко что-то упустить.', solution: 'Я спроектировала глобальный поиск, объединяющий людей, компании, выписки и данные о торговле, с досье, собирающими всё вместе.', result: 'Быстрый способ проверки через поиск, со спокойным тёмным интерфейсом для долгих сессий.' }
   }
 };
+const LOGOS = { 'digital-office': 'shots/logo-do.png', 'spk': 'shots/logo-ean.png' };
 const SCREENS = {
   'ai-landings': ['shots/compliance.png'],
   'nisp': ['shots/nisp-screens.png'],
@@ -443,7 +444,10 @@ if (list) {
       const btn = `<span class="cs-btn"><span>${t('cs.viewcase')}</span> <span>→</span></span>`;
       el.innerHTML = `
         <div class="proj-head-row">
-          <div class="proj-meta"><span class="name">${raw.name}</span><span class="kind">${p.kind}</span><span class="yr">${raw.yr}</span></div>
+          <div class="proj-head-left">
+            ${LOGOS[raw.id] ? `<img class="proj-logo" src="${LOGOS[raw.id]}" alt="" />` : ''}
+            <div class="proj-meta"><span class="name">${raw.name}</span><span class="kind">${p.kind}</span><span class="yr">${raw.yr}</span></div>
+          </div>
           ${btn}
         </div>
         <p class="subtitle">${p.subtitle}</p>
@@ -470,7 +474,7 @@ if (csEl) {
     const paras = arr => (arr || []).map(x => `<p>${x}</p>`).join('');
     csEl.innerHTML = `
       <a class="cs-back" href="index.html">${t('cs.back')}</a>
-      <div class="cs-icon" style="background:linear-gradient(135deg, ${raw.accent}, ${raw.accent}bb)">${raw.icon}</div>
+      ${LOGOS[raw.id] ? `<div class="cs-icon cs-icon-img"><img src="${LOGOS[raw.id]}" alt="${raw.name}" /></div>` : `<div class="cs-icon" style="background:linear-gradient(135deg, ${raw.accent}, ${raw.accent}bb)">${raw.icon}</div>`}
       <p class="cs-eyebrow">${raw.name} · ${p.kind} — ${raw.yr}</p>
       <h1 class="cs-title">${p.title || p.subtitle}</h1>
       <div class="cs-grid">
