@@ -182,7 +182,7 @@ if (intro) {
 /* ---------- WORK: case studies (EN base + RU overrides) ---------- */
 const caseStudies = [
   {
-    id: 'aml', name: 'Fintech AML', kind: 'Compliance · Fintech', yr: '2025', accent: '#3f5bbb', icon: '🛡️', url: '',
+    id: 'aml', name: 'Aegis', kind: 'Compliance · Fintech', yr: '2025', accent: '#3f5bbb', icon: '🛡️', url: '',
     subtitle: 'Anti-money-laundering platform — client screening, risk scoring, and case investigation.',
     benefits: ['Compliance', 'Risk scoring', 'Case workflows', 'Data-dense UI'],
     gallery: ['dashboard', 'grid', 'dashboard', 'cards', 'dashboard'],
@@ -194,7 +194,7 @@ const caseStudies = [
     ]
   },
   {
-    id: 'speakup', name: 'Whistleblowing Platform', kind: 'Ethics · HR', yr: '2025', accent: '#2faa5e', icon: '📣', url: '',
+    id: 'speakup', name: 'Candor', kind: 'Ethics · HR', yr: '2025', accent: '#2faa5e', icon: '📣', url: '',
     subtitle: 'A safe whistleblowing and feedback platform for employees to raise concerns.',
     benefits: ['Whistleblowing', 'Trust & safety', 'Anonymous reports', 'Case tracking'],
     gallery: ['phone', 'cards', 'phone', 'grid', 'phone'],
@@ -206,7 +206,7 @@ const caseStudies = [
     ]
   },
   {
-    id: 'ai-landings', name: 'AI Landings', kind: 'Landing · Marketing', yr: '2024', accent: '#e8552f', icon: '✨', url: '',
+    id: 'ai-landings', name: 'Prism', kind: 'Landing · Marketing', yr: '2024', accent: '#e8552f', icon: '✨', url: '',
     subtitle: 'A set of marketing landing pages for an AI product suite.',
     benefits: ['Landing pages', 'Marketing', 'Conversion', 'Visual system'],
     gallery: ['cards', 'grid', 'cards', 'dashboard', 'cards'],
@@ -218,19 +218,19 @@ const caseStudies = [
     ]
   },
   {
-    id: 'compliance', name: 'Compliance Suite', kind: 'Landing', yr: '2025', accent: '#068DFF', icon: '✅', url: '',
-    subtitle: 'Landing page for adata\'s compliance suite — clear, trustworthy, product-led.',
+    id: 'compliance', name: 'Verity', kind: 'Landing', yr: '2025', accent: '#068DFF', icon: '✅', url: '',
+    subtitle: 'Landing page for a compliance suite — clear, trustworthy, product-led.',
     benefits: ['Landing', 'Product marketing', 'B2B', 'Brand'],
     gallery: ['dashboard', 'cards', 'grid', 'cards', 'dashboard'],
-    title: 'A product-led landing for adata Compliance',
+    title: 'A product-led landing for a compliance suite',
     role: ['Product Designer', 'Visual Design'], status: ['Shipped', '2025'], type: ['Landing', 'B2B', 'Brand'],
     intro: [
-      'The landing for adata\'s compliance suite has to make a dense, eleven-module product feel simple and trustworthy at a glance.',
+      'The landing for a compliance suite has to make a dense, eleven-module product feel simple and trustworthy at a glance.',
       'I structured the page around what teams actually need to know, and designed matching light and dark versions with clear trust cues and calls to action.'
     ]
   },
   {
-    id: 'digital-office', name: 'Digital Workplace', kind: 'Enterprise product', yr: '2024—25', accent: '#d99a16', icon: '🗂️', url: '',
+    id: 'digital-office', name: 'Cadence', kind: 'Enterprise product', yr: '2024—25', accent: '#d99a16', icon: '🗂️', url: '',
     subtitle: 'A digital workplace for tasks, documents, and team collaboration.',
     benefits: ['Enterprise', 'Task management', 'Dashboards', 'Design system'],
     gallery: ['dashboard', 'grid', 'dashboard', 'cards', 'grid'],
@@ -243,7 +243,7 @@ const caseStudies = [
   },
 
   {
-    id: 'spk', name: 'Anti-corruption Analytics', kind: 'Analytics · B2G', yr: '2025', accent: '#38b6ff', icon: '🔎', url: '',
+    id: 'spk', name: 'Argus', kind: 'Analytics · B2G', yr: '2025', accent: '#38b6ff', icon: '🔎', url: '',
     subtitle: 'An analytics platform for due diligence — global search across companies and people.',
     benefits: ['Analytics', 'Global search', 'Dossiers', 'Data-dense UI'],
     gallery: ['dashboard', 'grid', 'dashboard', 'cards', 'dashboard'],
@@ -287,12 +287,12 @@ const CS_RU = {
     ]
   },
   compliance: {
-    kind: 'Лендинг', subtitle: 'Лендинг комплаенс-продукта adata — ясный и вызывающий доверие.',
+    kind: 'Лендинг', subtitle: 'Лендинг комплаенс-продукта — ясный и вызывающий доверие.',
     benefits: ['Лендинг', 'Продуктовый маркетинг', 'B2B', 'Бренд'],
-    title: 'Продуктовый лендинг для adata Compliance',
+    title: 'Продуктовый лендинг для a compliance suite',
     role: ['Продуктовый дизайнер', 'Визуальный дизайн'], status: ['Запущено', '2025'], type: ['Лендинг', 'B2B', 'Бренд'],
     intro: [
-      'Лендинг комплаенс-продукта adata должен с первого взгляда делать плотный продукт из одиннадцати модулей простым и вызывающим доверие.',
+      'Лендинг комплаенс-продукта должен с первого взгляда делать плотный продукт из одиннадцати модулей простым и вызывающим доверие.',
       'Я выстроила страницу вокруг того, что действительно важно командам, и сделала согласованные светлую и тёмную версии с понятными сигналами доверия и призывами к действию.'
     ]
   },
