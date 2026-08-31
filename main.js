@@ -336,6 +336,24 @@ const PSR = {
     spk: { problem: 'Проверка контрагента означала прыжки между множеством отдельных реестров и источников — медленно и легко что-то упустить.', solution: 'Я спроектировала глобальный поиск, объединяющий людей, компании, выписки и данные о торговле, с досье, собирающими всё вместе.', result: 'Быстрый способ проверки через поиск, со спокойным тёмным интерфейсом для долгих сессий.' }
   }
 };
+const MEANING = {
+  en: {
+    'aml': '<b>Aegis</b> — the shield of the gods · protection from financial-crime risk',
+    'speakup': '<b>Candor</b> — openness and honesty · a safe channel to speak up',
+    'ai-landings': '<b>Prism</b> — light split into a spectrum · landings that show an AI product from every angle',
+    'compliance': '<b>Verity</b> — truth · compliance you can trust',
+    'digital-office': '<b>Cadence</b> — a steady rhythm · the flow of everyday work',
+    'spk': '<b>Argus</b> — the hundred-eyed watchman · all-seeing anti-corruption oversight'
+  },
+  ru: {
+    'aml': '<b>Aegis</b> — эгида, щит богов · защита от рисков финансовых преступлений',
+    'speakup': '<b>Candor</b> — откровенность и честность · безопасный канал, чтобы высказаться',
+    'ai-landings': '<b>Prism</b> — призма, спектр · лендинги, раскрывающие AI-продукт со всех сторон',
+    'compliance': '<b>Verity</b> — истина · комплаенс, которому доверяют',
+    'digital-office': '<b>Cadence</b> — ровный ритм · поток ежедневной работы',
+    'spk': '<b>Argus</b> — стоокий страж · всевидящий антикоррупционный надзор'
+  }
+};
 const PREVIEW = {
   'aml': ['shots/aml.png', 'shots/aml-1.png', 'shots/aml-2.png', 'shots/aml-3.png'],
   'speakup': ['shots/speakup.png', 'shots/speakup-landing.png', 'shots/speakup-admin2.png', 'shots/speakup-admin1.png', 'shots/speakup-kanban.png'],
@@ -437,6 +455,7 @@ if (list) {
           </div>
           ${btn}
         </div>
+        ${(MEANING[lang]||MEANING.en)[raw.id] ? `<p class="proj-meaning">${(MEANING[lang]||MEANING.en)[raw.id]}</p>` : ''}
         <p class="subtitle">${p.subtitle}</p>
         <div class="benefits">${p.benefits.map(b => `<span>${b}</span>`).join('')}</div>
         <div class="gallery-wrap"><div class="gallery preview">${(PREVIEW[raw.id] || ['shots/'+raw.id+'.png']).map(src => `<div class="pshot"><img src="${src}" alt="${raw.name}" loading="lazy" /></div>`).join('')}</div></div>`;
@@ -466,6 +485,7 @@ if (csEl) {
       ${LOGOS[raw.id] ? `<div class="cs-icon cs-icon-img"><img src="${LOGOS[raw.id]}" alt="${raw.name}" /></div>` : `<div class="cs-icon" style="background:linear-gradient(135deg, ${raw.accent}, ${raw.accent}bb)">${raw.icon}</div>`}
       <p class="cs-eyebrow">${raw.name} · ${p.kind} — ${raw.yr}</p>
       <h1 class="cs-title">${p.title || p.subtitle}</h1>
+      ${(MEANING[lang]||MEANING.en)[raw.id] ? `<p class="cs-meaning">${(MEANING[lang]||MEANING.en)[raw.id]}</p>` : ''}
       <div class="cs-grid">
         <div class="cs-intro"><p class="cs-label">${t('cs.intro')}</p>${paras(p.intro) || `<p>${p.subtitle}</p>`}</div>
         <div class="cs-meta">
