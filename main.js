@@ -357,8 +357,8 @@ const MEANING = {
 const PREVIEW = {
   'aml': ['shots/aml.png', 'shots/aml-1.png', 'shots/aml-2.png', 'shots/aml-3.png'],
   'speakup': ['shots/speakup.png', 'shots/speakup-landing.png', 'shots/speakup-admin2.png', 'shots/speakup-admin1.png', 'shots/speakup-kanban.png'],
-  'ai-landings': ['shots/ai-landings.png', 'shots/compliance.png'],
-  'compliance': ['shots/compliance.png'],
+  'ai-landings': ['shots/ai-landings.png', 'shots/compliance.png', 'shots/landing-dark.png'],
+  'compliance': ['shots/compliance.png', 'shots/landing-light.png', 'shots/landing-dark.png'],
   'digital-office': ['shots/do-messenger.png', 'shots/do-news.png', 'shots/do-knowledge.png', 'shots/do-compliance.png', 'shots/digital-office-screens.png'],
   'spk': ['shots/spk.png', 'shots/ean-dossier.png', 'shots/ean-zakupki.png', 'shots/ean-vypiski.png', 'shots/ean-esf.png', 'shots/ean-ved.png']
 };
@@ -366,7 +366,8 @@ const LOGOS = { 'digital-office': 'shots/logo-do.png', 'spk': 'shots/logo-ean.pn
 const SCREENS = {
   'speakup': ['shots/speakup-landing.png', 'shots/speakup-admin2.png', 'shots/speakup-admin1.png', 'shots/speakup-kanban.png'],
   'aml': ['shots/aml-1.png', 'shots/aml-2.png', 'shots/aml-3.png'],
-  'ai-landings': ['shots/compliance.png'],
+  'ai-landings': ['shots/compliance.png', 'shots/landing-dark.png'],
+  'compliance': ['shots/landing-light.png', 'shots/landing-dark.png'],
   'digital-office': ['shots/do-messenger.png', 'shots/do-news.png', 'shots/do-knowledge.png', 'shots/do-compliance.png', 'shots/digital-office-screens.png'],
   'spk': ['shots/ean-dossier.png', 'shots/ean-zakupki.png', 'shots/ean-vypiski.png', 'shots/ean-esf.png', 'shots/ean-ved.png']
 };
