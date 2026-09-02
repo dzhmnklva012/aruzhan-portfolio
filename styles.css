@@ -333,7 +333,7 @@ footer { padding: 96px 0 40px; }
 .preview .pshot img { width: 100%; height: 100%; object-fit: cover; object-position: top left; display: block; }
 
 /* project name meaning line */
-.proj-meaning { font-size: 13.5px; color: var(--soft); margin: 6px 0 0; }
-.proj-meaning b { color: var(--ink); font-weight: 600; }
+.proj-meaning { font-size: clamp(15px, 1.7vw, 17px); color: var(--soft); margin: 10px 0 2px; line-height: 1.4; }
+.proj-meaning b { color: var(--accent); font-weight: 600; }
 .cs-meaning { font-size: 15px; color: var(--soft); margin: 14px auto 0; max-width: 62ch; line-height: 1.5; }
 .cs-meaning b { color: var(--ink); font-weight: 600; }
