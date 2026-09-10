@@ -343,7 +343,7 @@ const SCREENS = {
   'aml': ['shots/aegis-1.png', 'shots/aegis-2.png', 'shots/aegis-3.png', 'shots/aegis-4.png', 'shots/aegis-5.png'],
   'ai-landings': ['shots/prism-1.png', 'shots/prism-2.png', 'shots/prism-3.png', 'shots/prism-4.png', 'shots/prism-5.png'],
   'digital-office': ['shots/cadence-1.png', 'shots/cadence-2.png', 'shots/cadence-3.png', 'shots/cadence-4.png', 'shots/cadence-5.png'],
-  'spk': ['shots/ean-person.png', 'shots/ean-esf.png', 'shots/ean-proc.png']
+  'spk': ['shots/ean-login.png', 'shots/ean-person.png', 'shots/ean-esf.png', 'shots/ean-proc.png']
 };
 
 function mock(kind, a) {
@@ -434,12 +434,14 @@ if (list) {
       const el = document.createElement('a');
       el.href = 'casestudy.html?id=' + raw.id;
       el.className = 'proj proj-link-card reveal' + (animate ? '' : ' in');
+      el.draggable = false;                                   // stop native link-drag hijacking strip scroll
+      el.addEventListener('dragstart', e => e.preventDefault());
       const btn = `<span class="cs-btn"><span>${t('cs.viewcase')}</span> <span>→</span></span>`;
       el.innerHTML = `
         <div class="proj-head-row">
           <div class="proj-head-left">
             ${LOGOS[raw.id] ? `<img class="proj-logo" src="${LOGOS[raw.id]}" alt="" />` : ''}
-            <div class="proj-meta"><span class="name">${raw.name}</span>${BADGES[raw.id] ? `<span class="proj-badge">${BADGES[raw.id]}</span>` : ''}<span class="kind">${p.kind}</span><span class="yr">${raw.yr}</span></div>
+            <div class="proj-meta"><span class="name">${raw.name}</span>${BADGES[raw.id] ? `<span class="proj-badge">${BADGES[raw.id]}</span>` : ''}<span class="kind">${p.kind}</span></div>
           </div>
           ${btn}
         </div>
@@ -471,7 +473,7 @@ if (csEl) {
     csEl.innerHTML = `
       <a class="cs-back" href="index.html">${t('cs.back')}</a>
       ${LOGOS[raw.id] ? `<div class="cs-icon cs-icon-img"><img src="${LOGOS[raw.id]}" alt="${raw.name}" /></div>` : `<div class="cs-icon" style="background:linear-gradient(135deg, ${raw.accent}, ${raw.accent}bb)">${raw.icon}</div>`}
-      <p class="cs-eyebrow">${raw.name}${BADGES[raw.id] ? ` <span class="proj-badge">${BADGES[raw.id]}</span>` : ''} · ${p.kind} — ${raw.yr}</p>
+      <p class="cs-eyebrow">${raw.name}${BADGES[raw.id] ? ` <span class="proj-badge">${BADGES[raw.id]}</span>` : ''} · ${p.kind}</p>
       <h1 class="cs-title">${p.title || p.subtitle}</h1>
       ${(MEANING[lang]||MEANING.en)[raw.id] ? `<p class="cs-meaning">${(MEANING[lang]||MEANING.en)[raw.id]}</p>` : ''}
       ${LINKS[raw.id] ? `<a class="cs-live" href="${LINKS[raw.id]}" target="_blank" rel="noopener">${t('cs.viewlive')} ↗</a>` : ''}
@@ -484,7 +486,6 @@ if (csEl) {
         </div>
       </div>
       ${(function(){var x=(PSR[lang]||PSR.en)[raw.id];return x?`<div class="psr"><div class="psr-card"><h3>${t('cs.problems')}</h3><p>${x.problem}</p></div><div class="psr-card"><h3>${t('cs.solution')}</h3><p>${x.solution}</p></div><div class="psr-card"><h3>${t('cs.results')}</h3><p>${x.result}</p></div></div>`:'';})()}
-      <div class="cs-cover"><img src="shots/${raw.id}.png" alt="${raw.name}" /></div>
       ${(SCREENS[raw.id]||[]).length ? `<div class="cs-gallery-label"><span>${t('cs.gallery')}</span></div>` + (SCREENS[raw.id]).map(src => `<div class="cs-shot"><img src="${src}" alt="${raw.name}" loading="lazy" /></div>`).join('') : ''}
       <div class="cs-next"><span>${t('cs.next')}</span><a href="casestudy.html?id=${nextRaw.id}">${nextRaw.name} →</a></div>`;
     const g = csEl.querySelector('.gallery');
