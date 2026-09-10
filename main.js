@@ -501,7 +501,7 @@ if (pillField) {
     { en: 'UX Research', ru: 'UX-исследования', c: '#ff9fb2' },
     { en: 'UI Design', ru: 'UI-дизайн', c: '#b9a3ff' },
     { en: 'Design Systems', ru: 'Дизайн-системы', c: '#8fdc9b' },
-    { en: 'Friendly Design', ru: 'Дружелюбный дизайн', c: '#7fb8ff' },
+    { en: 'Friendly Design', ru: 'Friendly Design', c: '#7fb8ff' },
     { en: 'Prototyping', ru: 'Прототипирование', c: '#ffb27a' },
     { en: 'Wireframing', ru: 'Вайрфреймы', c: '#76dcc9' },
     { en: 'B2B', ru: 'B2B', c: '#f0b6ff' },
