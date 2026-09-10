@@ -182,6 +182,30 @@ if (intro) {
 /* ---------- WORK: case studies (EN base + RU overrides) ---------- */
 const caseStudies = [
   {
+    id: 'ai-landings', name: 'Compliance', kind: 'Landing · Marketing', yr: '2024', accent: '#e8552f', icon: '✨', url: '',
+    subtitle: 'A set of marketing landing pages for an AI product suite.',
+    benefits: ['Landing pages', 'Marketing', 'Conversion', 'Visual system'],
+    gallery: ['cards', 'grid', 'cards', 'dashboard', 'cards'],
+    title: 'Marketing landings for an AI product line',
+    role: ['Product Designer', 'Visual Design'], status: ['Shipped', '2024'], type: ['Landing', 'Marketing', 'Web'],
+    intro: [
+      'A family of landing pages that explain an AI product simply and get people to try it. Each page has to sell a fairly abstract idea in a few scrolls.',
+      'I built a flexible visual system — sections, type, and components — so new landings ship fast while staying on-brand, in both light and dark.'
+    ]
+  },
+  {
+    id: 'spk', name: 'Argus', kind: 'Analytics · B2G', yr: '2025', accent: '#38b6ff', icon: '🔎', url: '',
+    subtitle: 'An analytics platform for due diligence — global search across companies and people.',
+    benefits: ['Analytics', 'Global search', 'Dossiers', 'Data-dense UI'],
+    gallery: ['dashboard', 'grid', 'dashboard', 'cards', 'dashboard'],
+    title: 'An analytics platform for fast due diligence',
+    role: ['Product Designer', 'UX + UI'], status: ['Live demo', '2025'], type: ['Analytics', 'B2G', 'Web'],
+    intro: [
+      'The platform pulls scattered public data — registries, filings, procurement, foreign trade — into one place, so analysts can vet a company or a person in minutes instead of hours.',
+      'I designed the search-first experience and the dossier views, with matching light and dark themes for long analytical sessions.'
+    ]
+  },
+  {
     id: 'aml', name: 'Aegis', kind: 'Compliance · Fintech', yr: '2025', accent: '#3f5bbb', icon: '🛡️', url: '',
     subtitle: 'Anti-money-laundering platform — client screening, risk scoring, and case investigation.',
     benefits: ['Compliance', 'Risk scoring', 'Case workflows', 'Data-dense UI'],
@@ -206,18 +230,6 @@ const caseStudies = [
     ]
   },
   {
-    id: 'ai-landings', name: 'Compliance', kind: 'Landing · Marketing', yr: '2024', accent: '#e8552f', icon: '✨', url: '',
-    subtitle: 'A set of marketing landing pages for an AI product suite.',
-    benefits: ['Landing pages', 'Marketing', 'Conversion', 'Visual system'],
-    gallery: ['cards', 'grid', 'cards', 'dashboard', 'cards'],
-    title: 'Marketing landings for an AI product line',
-    role: ['Product Designer', 'Visual Design'], status: ['Shipped', '2024'], type: ['Landing', 'Marketing', 'Web'],
-    intro: [
-      'A family of landing pages that explain an AI product simply and get people to try it. Each page has to sell a fairly abstract idea in a few scrolls.',
-      'I built a flexible visual system — sections, type, and components — so new landings ship fast while staying on-brand, in both light and dark.'
-    ]
-  },
-  {
     id: 'digital-office', name: 'Cadence', kind: 'Enterprise product', yr: '2024—25', accent: '#d99a16', icon: '🗂️', url: '',
     subtitle: 'A digital workplace for tasks, documents, and team collaboration.',
     benefits: ['Enterprise', 'Task management', 'Dashboards', 'Design system'],
@@ -228,20 +240,8 @@ const caseStudies = [
       'Digital Office brings tasks, documents, and team collaboration into one place, so people stop jumping between tools all day.',
       'I work on the core flows and a reusable component set, keeping a dense enterprise product organised, consistent, and easy to learn.'
     ]
-  },
-
-  {
-    id: 'spk', name: 'Argus', kind: 'Analytics · B2G', yr: '2025', accent: '#38b6ff', icon: '🔎', url: '',
-    subtitle: 'An analytics platform for due diligence — global search across companies and people.',
-    benefits: ['Analytics', 'Global search', 'Dossiers', 'Data-dense UI'],
-    gallery: ['dashboard', 'grid', 'dashboard', 'cards', 'dashboard'],
-    title: 'An analytics platform for fast due diligence',
-    role: ['Product Designer', 'UX + UI'], status: ['Live demo', '2025'], type: ['Analytics', 'B2G', 'Web'],
-    intro: [
-      'The platform pulls scattered public data — registries, filings, procurement, foreign trade — into one place, so analysts can vet a company or a person in minutes instead of hours.',
-      'I designed the search-first experience and the dossier views, with matching light and dark themes for long analytical sessions.'
-    ]
   }
+
 ];
 const CS_RU = {
   aml: {
