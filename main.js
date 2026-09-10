@@ -496,19 +496,23 @@ if (csEl) {
 /* HERO: falling skill pills (mini physics) */
 const pillField = document.getElementById('pillField');
 if (pillField) {
+  const PILL_BG = '#2e323a';
   const pills = [
-    { en: 'Prototyping', ru: 'Прототипы', e: '🔁', c: '#ffd166' },
-    { en: 'User research', ru: 'Исследования', e: '🔍', c: '#ff9fb2' },
-    { en: 'Pushing pixels', ru: 'Двигаю пиксели', e: '🎯', c: '#b9a3ff' },
-    { en: 'Killing modals', ru: 'Убираю модалки', e: '🗡️', c: '#8fdc9b' },
-    { en: 'Naming things', ru: 'Придумываю названия', e: '🏷️', c: '#7fb8ff' },
-    { en: 'Reducing clicks', ru: 'Меньше кликов', e: '⚡', c: '#ffb27a' },
-    { en: 'Design tokens', ru: 'Токены', e: '🎨', c: '#76dcc9' },
-    { en: 'Sweating details', ru: 'Детали', e: '💧', c: '#ff8f6b' },
-    { en: 'Asking “why?”', ru: 'Спрашиваю «зачем?»', e: '❓', c: '#f0b6ff' },
-    { en: 'Shipping it', ru: 'Релизы', e: '🚀', c: '#ffe08a' }
+    { en: 'Product Design', ru: 'Продуктовый дизайн' },
+    { en: 'UX Research', ru: 'UX-исследования' },
+    { en: 'UI Design', ru: 'UI-дизайн' },
+    { en: 'Design Systems', ru: 'Дизайн-системы' },
+    { en: 'Friendly Design', ru: 'Дружелюбный дизайн' },
+    { en: 'Prototyping', ru: 'Прототипирование' },
+    { en: 'Wireframing', ru: 'Вайрфреймы' },
+    { en: 'B2B', ru: 'B2B' },
+    { en: 'B2C', ru: 'B2C' },
+    { en: 'SaaS', ru: 'SaaS' },
+    { en: 'Claude Code', ru: 'Claude Code' },
+    { en: 'Claude Design', ru: 'Claude Design' },
+    { en: 'AI Design', ru: 'AI-дизайн' }
   ];
-  const label = i => `<span class="pi">${pills[i].e}</span>${lang === 'ru' ? pills[i].ru : pills[i].en}`;
+  const label = i => lang === 'ru' ? pills[i].ru : pills[i].en;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   // slow, gentle physics: light gravity, capped fall speed, minimal bounce
   const GRAV = 0.28, MAXV = 6, REST = 0.14, AIR = 0.99, GROUND = 0.9, STAGGER = 20;
@@ -527,7 +531,7 @@ if (pillField) {
     pills.forEach((p, i) => {
       const el = document.createElement('div');
       el.className = 'pill';
-      el.style.background = p.c; el.style.left = '0'; el.style.top = '0'; el.style.opacity = '1';
+      el.style.background = PILL_BG; el.style.left = '0'; el.style.top = '0'; el.style.opacity = '1';
       el.innerHTML = label(i);
       pillField.appendChild(el);
       const w = el.offsetWidth, h = el.offsetHeight;
