@@ -103,10 +103,11 @@ header.hero > .wrap { position: relative; z-index: 3; pointer-events: none; }
 
 /* horizontal draggable gallery */
 .gallery-wrap { position: relative; }
-.gallery { display: flex; gap: 18px; overflow-x: auto; padding: 6px 2px 16px; cursor: grab; scroll-snap-type: x proximity; scrollbar-width: none; }
+.gallery { display: flex; gap: 18px; overflow-x: auto; padding: 6px 2px 16px; cursor: grab; scroll-snap-type: x proximity; scrollbar-width: none; user-select: none; -webkit-user-select: none; touch-action: pan-x; }
 .gallery::-webkit-scrollbar { height: 0; display: none; }
 .gallery.dragging { cursor: grabbing; scroll-snap-type: none; }
-.gallery.dragging .shot { pointer-events: none; }
+.gallery.dragging .shot, .gallery.dragging .pshot { pointer-events: none; }
+.gallery img { -webkit-user-drag: none; user-drag: none; }
 .shot { flex: 0 0 auto; width: clamp(280px, 42vw, 470px); aspect-ratio: 16/10; border-radius: var(--radius); border: 1px solid var(--line); overflow: hidden; display: grid; place-items: center; scroll-snap-align: start; }
 .shot .mock { max-width: 78%; height: auto; pointer-events: none; }
 .drag-badge { position: absolute; left: 0; top: 0; transform: translate(-50%, -50%) scale(.6); background: var(--ink); color: var(--bg); font-size: 13px; font-weight: 600; padding: 9px 15px; border-radius: 999px; pointer-events: none; opacity: 0; transition: opacity .2s, transform .2s; z-index: 5; display: inline-flex; gap: 6px; white-space: nowrap; }

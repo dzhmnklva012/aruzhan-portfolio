@@ -388,11 +388,24 @@ function shot(kind, accent, i) {
   return `<div class="shot" style="background:linear-gradient(135deg, ${tints[i % 3]}, ${accent}26)">${mock(kind, accent)}</div>`;
 }
 function enableDragScroll(g) {
-  let down = false, startX = 0, sl = 0, moved = false;
-  g.addEventListener('mousedown', e => { down = true; moved = false; g.classList.add('dragging'); startX = e.pageX; sl = g.scrollLeft; });
-  addEventListener('mouseup', () => { down = false; g.classList.remove('dragging'); });
-  g.addEventListener('mouseleave', () => { down = false; g.classList.remove('dragging'); });
-  g.addEventListener('mousemove', e => { if (!down) return; e.preventDefault(); if (Math.abs(e.pageX - startX) > 3) moved = true; g.scrollLeft = sl - (e.pageX - startX); });
+  let down = false, startX = 0, sl = 0, moved = false, pid = null;
+  // kill native image / link drag so grab-to-scroll wins
+  g.addEventListener('dragstart', e => e.preventDefault());
+  g.addEventListener('pointerdown', e => {
+    if (e.pointerType === 'touch') return;        // let native scroll handle touch
+    if (e.button !== 0) return;
+    down = true; moved = false; pid = e.pointerId; startX = e.pageX; sl = g.scrollLeft;
+    g.classList.add('dragging');
+  });
+  g.addEventListener('pointermove', e => {
+    if (!down) return;
+    const dx = e.pageX - startX;
+    if (!moved && Math.abs(dx) > 3) { moved = true; try { g.setPointerCapture(pid); } catch (_) {} }
+    if (moved) { e.preventDefault(); g.scrollLeft = sl - dx; }
+  });
+  const end = () => { if (!down) return; down = false; g.classList.remove('dragging'); };
+  g.addEventListener('pointerup', end);
+  g.addEventListener('pointercancel', end);
   g.addEventListener('click', e => { if (moved) { e.preventDefault(); e.stopPropagation(); } }, true);
 }
 function attachDragBadge(wrap, g) {
@@ -433,7 +446,7 @@ if (list) {
         ${(MEANING[lang]||MEANING.en)[raw.id] ? `<p class="proj-meaning">${(MEANING[lang]||MEANING.en)[raw.id]}</p>` : ''}
         <p class="subtitle">${p.subtitle}</p>
         <div class="benefits">${p.benefits.map(b => `<span>${b}</span>`).join('')}</div>
-        <div class="gallery-wrap"><div class="gallery preview">${(PREVIEW[raw.id] || ['shots/'+raw.id+'.png']).map(src => `<div class="pshot"><img src="${src}" alt="${raw.name}" loading="lazy" /></div>`).join('')}</div></div>`;
+        <div class="gallery-wrap"><div class="gallery preview">${(PREVIEW[raw.id] || ['shots/'+raw.id+'.png']).map(src => `<div class="pshot"><img src="${src}" alt="${raw.name}" loading="lazy" draggable="false" /></div>`).join('')}</div></div>`;
       list.appendChild(el);
       if (animate) io.observe(el);
       const g = el.querySelector('.gallery');
@@ -499,6 +512,7 @@ if (pillField) {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   // slow, gentle physics: light gravity, capped fall speed, minimal bounce
   const GRAV = 0.28, MAXV = 6, REST = 0.14, AIR = 0.99, GROUND = 0.9, STAGGER = 20;
+  const ANG_DAMP = 0.86, TORQUE = 1.1, ANG_MAX = 9;   // marshmallow settle + edge topple
   let bodies = [], raf = 0, zTop = 20, W = 0, H = 0, order = [];
 
   function build() {
@@ -523,7 +537,7 @@ if (pillField) {
       const y = -h - 20 - (i % 3) * 24;
       // staggered release: each chip waits its turn before gravity kicks in
       const wait = reduce ? 0 : order.indexOf(i) * STAGGER;
-      const b = { el, w, h, x, y, vx: ((i % 2) ? -1 : 1) * (0.15 + (i % 3) * 0.2), vy: 0, rot: 0, held: false, wait };
+      const b = { el, w, h, x, y, vx: ((i % 2) ? -1 : 1) * (0.15 + (i % 3) * 0.2), vy: 0, rot: 0, va: 0, rest: ((i * 13) % 7 - 3) * 0.8, held: false, wait };
       bodies.push(b); addDrag(b); render(b);
     });
     if (reduce) { settleStatic(); return; }
@@ -537,11 +551,45 @@ if (pillField) {
       b.vy += GRAV; if (b.vy > MAXV) b.vy = MAXV; b.x += b.vx; b.y += b.vy; b.vx *= AIR;
       if (b.x < 0) { b.x = 0; b.vx = -b.vx * REST; }
       if (b.x + b.w > W) { b.x = W - b.w; b.vx = -b.vx * REST; }
-      if (b.y + b.h > H) { b.y = H - b.h; b.vy = -b.vy * REST; b.vx *= GROUND; if (Math.abs(b.vy) < 1.0) b.vy = 0; }
+      if (b.y + b.h > H) { const hit = b.vy; b.y = H - b.h; b.vy = -b.vy * REST; b.vx *= GROUND; if (Math.abs(b.vy) < 1.0) b.vy = 0; if (hit > 2.5) b.va += b.vx * 0.4 + b.rest * 0.4; }
     }
     for (let i = 0; i < bodies.length; i++) for (let j = i + 1; j < bodies.length; j++) collide(bodies[i], bodies[j]);
-    for (const b of bodies) { const tr = Math.max(-14, Math.min(14, b.vx * 1.6)); b.rot += (tr - b.rot) * 0.12; render(b); }
+    for (const b of bodies) { updateAngle(b); render(b); }
     raf = requestAnimationFrame(step);
+  }
+  // marshmallow rotation: soft wobble-settle when resting, slide off when perched on an edge
+  function updateAngle(b) {
+    if (b.held) { b.va += (0 - b.rot) * 0.2; b.va *= 0.6; b.rot += b.va; return; }
+    const bottom = b.y + b.h;
+    const onGround = bottom >= H - 1;
+    let supL = Infinity, supR = -Infinity, onPill = false;
+    for (const o of bodies) {
+      if (o === b) continue;
+      if (Math.abs(o.y - bottom) < 6 && o.y >= b.y) {   // o sits directly under b
+        const l = Math.max(b.x, o.x), r = Math.min(b.x + b.w, o.x + o.w);
+        if (r > l) { supL = Math.min(supL, l); supR = Math.max(supR, r); onPill = true; }
+      }
+    }
+    const com = b.x + b.w / 2;
+    const slow = Math.abs(b.vx) < 0.7 && Math.abs(b.vy) < 1.3;
+    // perched on another pill with its centre of mass past the edge, and room to slide → tip off
+    const overL = onPill && com < supL - 2, overR = onPill && com > supR + 2;
+    const canL = b.x > 2, canR = b.x + b.w < W - 2;
+    if (!onGround && (overL && canL || overR && canR)) {
+      const dir = overL ? -1 : 1;
+      b.vx += dir * 0.45; b.vy += 0.15;                 // slide off the edge, then gravity takes over
+      b.va += dir * 0.5;                                // a little tip for feedback
+    } else if ((onGround || onPill) && slow) {
+      b.va += (b.rest - b.rot) * 0.06;                  // settle to a soft, casual lean
+    } else {
+      const target = Math.max(-14, Math.min(14, b.vx * 1.6));
+      b.va += (target - b.rot) * 0.09;                  // airborne / sliding: lean into motion
+    }
+    b.va *= ANG_DAMP;
+    b.va = Math.max(-ANG_MAX, Math.min(ANG_MAX, b.va));
+    b.rot += b.va;
+    if (b.rot > 22) { b.rot = 22; if (b.va > 0) b.va = 0; }     // lean/tip, never spin
+    if (b.rot < -22) { b.rot = -22; if (b.va < 0) b.va = 0; }
   }
   function collide(a, b) {
     if (a.wait > 0 || b.wait > 0) return;
