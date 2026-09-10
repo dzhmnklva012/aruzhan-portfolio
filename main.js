@@ -218,18 +218,6 @@ const caseStudies = [
     ]
   },
   {
-    id: 'compliance', name: 'Verity', kind: 'Landing', yr: '2025', accent: '#068DFF', icon: '✅', url: '',
-    subtitle: 'Landing page for a compliance suite — clear, trustworthy, product-led.',
-    benefits: ['Landing', 'Product marketing', 'B2B', 'Brand'],
-    gallery: ['dashboard', 'cards', 'grid', 'cards', 'dashboard'],
-    title: 'A product-led landing for a compliance suite',
-    role: ['Product Designer', 'Visual Design'], status: ['Shipped', '2025'], type: ['Landing', 'B2B', 'Brand'],
-    intro: [
-      'The landing for a compliance suite has to make a dense, eleven-module product feel simple and trustworthy at a glance.',
-      'I structured the page around what teams actually need to know, and designed matching light and dark versions with clear trust cues and calls to action.'
-    ]
-  },
-  {
     id: 'digital-office', name: 'Cadence', kind: 'Enterprise product', yr: '2024—25', accent: '#d99a16', icon: '🗂️', url: '',
     subtitle: 'A digital workplace for tasks, documents, and team collaboration.',
     benefits: ['Enterprise', 'Task management', 'Dashboards', 'Design system'],
@@ -286,16 +274,6 @@ const CS_RU = {
       'Я собрала гибкую визуальную систему — секции, типографику и компоненты, — чтобы новые лендинги выходили быстро и оставались в стиле, в светлой и тёмной темах.'
     ]
   },
-  compliance: {
-    kind: 'Лендинг', subtitle: 'Лендинг комплаенс-продукта — ясный и вызывающий доверие.',
-    benefits: ['Лендинг', 'Продуктовый маркетинг', 'B2B', 'Бренд'],
-    title: 'Продуктовый лендинг для a compliance suite',
-    role: ['Продуктовый дизайнер', 'Визуальный дизайн'], status: ['Запущено', '2025'], type: ['Лендинг', 'B2B', 'Бренд'],
-    intro: [
-      'Лендинг комплаенс-продукта должен с первого взгляда делать плотный продукт из одиннадцати модулей простым и вызывающим доверие.',
-      'Я выстроила страницу вокруг того, что действительно важно командам, и сделала согласованные светлую и тёмную версии с понятными сигналами доверия и призывами к действию.'
-    ]
-  },
   'digital-office': {
     kind: 'Корпоративный продукт', subtitle: 'Цифровой офис для задач, документов и командной работы.',
     benefits: ['Enterprise', 'Задачи', 'Дашборды', 'Дизайн-система'],
@@ -324,14 +302,12 @@ const PSR = {
     aml: { problem: 'Analysts had to make risk decisions from scattered, dense data — easy to miss a signal, slow to investigate.', solution: 'I mapped the review journey and designed clear screening, scoring, and case-investigation flows that surface the right information at each step.', result: 'Complex regulatory logic turned into interfaces analysts can move through quickly and confidently.' },
     speakup: { problem: 'People won\'t report concerns unless the channel feels genuinely safe and private.', solution: 'I designed anonymous-first reporting flows and a clear reviewer side, keeping the tone calm and reassuring throughout.', result: 'A reporting experience that earns trust — simple for employees, structured for the teams handling cases.' },
     'ai-landings': { problem: 'An abstract AI product is hard to explain and easy to scroll past.', solution: 'I built a flexible section-and-component system so each landing tells a clear story and converts, in light and dark.', result: 'New landings ship fast and stay on-brand, with a consistent, modern look across the suite.' },
-    compliance: { problem: 'An eleven-module compliance product risked feeling overwhelming on a single page.', solution: 'I structured the landing around what teams actually need to know, with trust cues and matching light and dark versions.', result: 'A clear, product-led page that makes a dense product feel approachable and credible.' },
     'digital-office': { problem: 'Teams lost time switching between disconnected tools for tasks, documents, and communication.', solution: 'I designed the core flows and a reusable component set that bring everyday work into one consistent workspace.', result: 'A dense enterprise product that stays organised and easy to learn as it grows.' },
   },
   ru: {
     aml: { problem: 'Аналитикам приходилось принимать решения о риске по разрозненным, плотным данным — легко пропустить сигнал и долго расследовать.', solution: 'Я разложила путь проверки и спроектировала понятные сценарии скрининга, скоринга и расследования кейсов, которые показывают нужное на каждом шаге.', result: 'Сложная регуляторная логика превратилась в интерфейсы, по которым аналитик движется быстро и уверенно.' },
     speakup: { problem: 'Люди не сообщают о проблемах, пока канал не ощущается по-настоящему безопасным и приватным.', solution: 'Я спроектировала сценарии с анонимностью по умолчанию и понятную сторону для проверяющих, сохраняя спокойный, располагающий тон.', result: 'Опыт обращений, который вызывает доверие — простой для сотрудников и структурированный для команд, обрабатывающих кейсы.' },
     'ai-landings': { problem: 'Абстрактный AI-продукт сложно объяснить, и его легко пролистать.', solution: 'Я собрала гибкую систему секций и компонентов, чтобы каждый лендинг рассказывал ясную историю и конвертил — в светлой и тёмной теме.', result: 'Новые лендинги выходят быстро и остаются в стиле, с единым современным видом по всей линейке.' },
-    compliance: { problem: 'Продукт из одиннадцати модулей рисковал выглядеть перегруженным на одной странице.', solution: 'Я выстроила лендинг вокруг того, что важно командам, с сигналами доверия и согласованными светлой и тёмной версиями.', result: 'Ясная, продуктовая страница, которая делает плотный продукт понятным и вызывающим доверие.' },
     'digital-office': { problem: 'Команды теряли время, переключаясь между разрозненными инструментами для задач, документов и общения.', solution: 'Я спроектировала ключевые сценарии и переиспользуемый набор компонентов, объединяющие ежедневную работу в одном пространстве.', result: 'Плотный корпоративный продукт, который остаётся организованным и понятным по мере роста.' },
     spk: { problem: 'Проверка контрагента означала прыжки между множеством отдельных реестров и источников — медленно и легко что-то упустить.', solution: 'Я спроектировала глобальный поиск, объединяющий людей, компании, выписки и данные о торговле, с досье, собирающими всё вместе.', result: 'Быстрый способ проверки через поиск, со спокойным тёмным интерфейсом для долгих сессий.' }
   }
@@ -341,7 +317,6 @@ const MEANING = {
     'aml': '<b>Aegis</b> — the shield of the gods · protection from financial-crime risk',
     'speakup': '<b>Speak Up</b> — a safe, honest channel to raise concerns',
     'ai-landings': '<b>Compliance</b> — AI-powered checks, all in one window',
-    'compliance': '<b>Verity</b> — truth · compliance you can trust',
     'digital-office': '<b>Cadence</b> — a steady rhythm · the flow of everyday work',
     'spk': '<b>Argus</b> — the hundred-eyed watchman · all-seeing anti-corruption oversight'
   },
@@ -349,7 +324,6 @@ const MEANING = {
     'aml': '<b>Aegis</b> — эгида, щит богов · защита от рисков финансовых преступлений',
     'speakup': '<b>Speak Up</b> — безопасный и честный канал, чтобы высказаться',
     'ai-landings': '<b>Compliance</b> — ИИ-проверки в одном окне',
-    'compliance': '<b>Verity</b> — истина · комплаенс, которому доверяют',
     'digital-office': '<b>Cadence</b> — ровный ритм · поток ежедневной работы',
     'spk': '<b>Argus</b> — стоокий страж · всевидящий антикоррупционный надзор'
   }
@@ -358,7 +332,6 @@ const PREVIEW = {
   'aml': ['shots/aml.png', 'shots/aegis-1.png', 'shots/aegis-2.png', 'shots/aegis-3.png', 'shots/aegis-4.png', 'shots/aegis-5.png'],
   'speakup': ['shots/speakup.png', 'shots/candor-1.png', 'shots/candor-2.png', 'shots/candor-3.png', 'shots/candor-4.png', 'shots/candor-5.png'],
   'ai-landings': ['shots/prism-1.png', 'shots/prism-2.png', 'shots/prism-3.png', 'shots/prism-4.png', 'shots/prism-5.png'],
-  'compliance': ['shots/compliance.png', 'shots/landing-light.png', 'shots/landing-dark.png'],
   'digital-office': ['shots/digital-office.png', 'shots/cadence-1.png', 'shots/cadence-2.png', 'shots/cadence-3.png', 'shots/cadence-4.png', 'shots/cadence-5.png'],
   'spk': ['shots/spk.png', 'shots/ean-person.png', 'shots/ean-esf.png', 'shots/ean-proc.png']
 };
@@ -369,7 +342,6 @@ const SCREENS = {
   'speakup': ['shots/candor-1.png', 'shots/candor-2.png', 'shots/candor-3.png', 'shots/candor-4.png', 'shots/candor-5.png'],
   'aml': ['shots/aegis-1.png', 'shots/aegis-2.png', 'shots/aegis-3.png', 'shots/aegis-4.png', 'shots/aegis-5.png'],
   'ai-landings': ['shots/prism-1.png', 'shots/prism-2.png', 'shots/prism-3.png', 'shots/prism-4.png', 'shots/prism-5.png'],
-  'compliance': ['shots/landing-light.png', 'shots/landing-dark.png'],
   'digital-office': ['shots/cadence-1.png', 'shots/cadence-2.png', 'shots/cadence-3.png', 'shots/cadence-4.png', 'shots/cadence-5.png'],
   'spk': ['shots/ean-person.png', 'shots/ean-esf.png', 'shots/ean-proc.png']
 };
