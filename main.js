@@ -496,21 +496,21 @@ if (csEl) {
 /* HERO: falling skill pills (mini physics) */
 const pillField = document.getElementById('pillField');
 if (pillField) {
-  const PILL_BG = '#2e323a';
   const pills = [
-    { en: 'Product Design', ru: 'Продуктовый дизайн' },
-    { en: 'UX Research', ru: 'UX-исследования' },
-    { en: 'UI Design', ru: 'UI-дизайн' },
-    { en: 'Design Systems', ru: 'Дизайн-системы' },
-    { en: 'Friendly Design', ru: 'Дружелюбный дизайн' },
-    { en: 'Prototyping', ru: 'Прототипирование' },
-    { en: 'Wireframing', ru: 'Вайрфреймы' },
-    { en: 'B2B', ru: 'B2B' },
-    { en: 'B2C', ru: 'B2C' },
-    { en: 'SaaS', ru: 'SaaS' },
-    { en: 'Claude Code', ru: 'Claude Code' },
-    { en: 'Claude Design', ru: 'Claude Design' },
-    { en: 'AI Design', ru: 'AI-дизайн' }
+    { en: 'Product Design', ru: 'Продуктовый дизайн', c: '#ffd166' },
+    { en: 'UX Research', ru: 'UX-исследования', c: '#ff9fb2' },
+    { en: 'UI Design', ru: 'UI-дизайн', c: '#b9a3ff' },
+    { en: 'Design Systems', ru: 'Дизайн-системы', c: '#8fdc9b' },
+    { en: 'Friendly Design', ru: 'Дружелюбный дизайн', c: '#7fb8ff' },
+    { en: 'Prototyping', ru: 'Прототипирование', c: '#ffb27a' },
+    { en: 'Wireframing', ru: 'Вайрфреймы', c: '#76dcc9' },
+    { en: 'B2B', ru: 'B2B', c: '#f0b6ff' },
+    { en: 'B2C', ru: 'B2C', c: '#ffe08a' },
+    { en: 'B2G', ru: 'B2G', c: '#9ad0ff' },
+    { en: 'SaaS', ru: 'SaaS', c: '#ff8f6b' },
+    { en: 'Claude Code', ru: 'Claude Code', c: '#e6926b' },
+    { en: 'Claude Design', ru: 'Claude Design', c: '#cbb2ff' },
+    { en: 'AI Design', ru: 'AI-дизайн', c: '#8fe0cb' }
   ];
   const label = i => lang === 'ru' ? pills[i].ru : pills[i].en;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -531,7 +531,7 @@ if (pillField) {
     pills.forEach((p, i) => {
       const el = document.createElement('div');
       el.className = 'pill';
-      el.style.background = PILL_BG; el.style.left = '0'; el.style.top = '0'; el.style.opacity = '1';
+      el.style.background = p.c; el.style.left = '0'; el.style.top = '0'; el.style.opacity = '1';
       el.innerHTML = label(i);
       pillField.appendChild(el);
       const w = el.offsetWidth, h = el.offsetHeight;
@@ -616,7 +616,7 @@ if (pillField) {
     let lx = 0, ly = 0, ox = 0, oy = 0;
     const down = e => { b.held = true; b.el.classList.add('dragging'); b.el.style.zIndex = ++zTop; const r = pillField.getBoundingClientRect(), p = pt(e); ox = p.clientX - r.left - b.x; oy = p.clientY - r.top - b.y; lx = p.clientX; ly = p.clientY; e.preventDefault(); };
     const move = e => { if (!b.held) return; const r = pillField.getBoundingClientRect(), p = pt(e); b.x = Math.max(0, Math.min(p.clientX - r.left - ox, W - b.w)); b.y = Math.max(-b.h, Math.min(p.clientY - r.top - oy, H - b.h)); b.vx = p.clientX - lx; b.vy = p.clientY - ly; lx = p.clientX; ly = p.clientY; if (reduce) render(b); };
-    const up = () => { if (b.held) { b.held = false; b.el.classList.remove('dragging'); } };
+    const up = () => { if (b.held) { b.held = false; b.el.classList.remove('dragging'); const cap = 24; b.vx = Math.max(-cap, Math.min(cap, b.vx)); b.vy = Math.max(-cap, Math.min(cap, b.vy)); } };
     b.el.addEventListener('mousedown', down); b.el.addEventListener('touchstart', down, { passive: false });
     addEventListener('mousemove', move); addEventListener('touchmove', move, { passive: false });
     addEventListener('mouseup', up); addEventListener('touchend', up);
