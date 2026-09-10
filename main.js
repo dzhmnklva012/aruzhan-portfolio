@@ -194,7 +194,7 @@ const caseStudies = [
     ]
   },
   {
-    id: 'speakup', name: 'Candor', kind: 'Ethics · HR', yr: '2025', accent: '#2faa5e', icon: '📣', url: '',
+    id: 'speakup', name: 'Speak Up', kind: 'Ethics · HR', yr: '2025', accent: '#2faa5e', icon: '📣', url: '',
     subtitle: 'A safe whistleblowing and feedback platform for employees to raise concerns.',
     benefits: ['Whistleblowing', 'Trust & safety', 'Anonymous reports', 'Case tracking'],
     gallery: ['phone', 'cards', 'phone', 'grid', 'phone'],
@@ -206,7 +206,7 @@ const caseStudies = [
     ]
   },
   {
-    id: 'ai-landings', name: 'Prism', kind: 'Landing · Marketing', yr: '2024', accent: '#e8552f', icon: '✨', url: '',
+    id: 'ai-landings', name: 'Compliance', kind: 'Landing · Marketing', yr: '2024', accent: '#e8552f', icon: '✨', url: '',
     subtitle: 'A set of marketing landing pages for an AI product suite.',
     benefits: ['Landing pages', 'Marketing', 'Conversion', 'Visual system'],
     gallery: ['cards', 'grid', 'cards', 'dashboard', 'cards'],
@@ -339,16 +339,16 @@ const PSR = {
 const MEANING = {
   en: {
     'aml': '<b>Aegis</b> — the shield of the gods · protection from financial-crime risk',
-    'speakup': '<b>Candor</b> — openness and honesty · a safe channel to speak up',
-    'ai-landings': '<b>Prism</b> — light split into a spectrum · landings that show an AI product from every angle',
+    'speakup': '<b>Speak Up</b> — a safe, honest channel to raise concerns',
+    'ai-landings': '<b>Compliance</b> — AI-powered checks, all in one window',
     'compliance': '<b>Verity</b> — truth · compliance you can trust',
     'digital-office': '<b>Cadence</b> — a steady rhythm · the flow of everyday work',
     'spk': '<b>Argus</b> — the hundred-eyed watchman · all-seeing anti-corruption oversight'
   },
   ru: {
     'aml': '<b>Aegis</b> — эгида, щит богов · защита от рисков финансовых преступлений',
-    'speakup': '<b>Candor</b> — откровенность и честность · безопасный канал, чтобы высказаться',
-    'ai-landings': '<b>Prism</b> — призма, спектр · лендинги, раскрывающие AI-продукт со всех сторон',
+    'speakup': '<b>Speak Up</b> — безопасный и честный канал, чтобы высказаться',
+    'ai-landings': '<b>Compliance</b> — ИИ-проверки в одном окне',
     'compliance': '<b>Verity</b> — истина · комплаенс, которому доверяют',
     'digital-office': '<b>Cadence</b> — ровный ритм · поток ежедневной работы',
     'spk': '<b>Argus</b> — стоокий страж · всевидящий антикоррупционный надзор'
