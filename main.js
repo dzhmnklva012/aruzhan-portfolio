@@ -360,7 +360,7 @@ const PREVIEW = {
   'ai-landings': ['shots/prism-1.png', 'shots/prism-2.png', 'shots/prism-3.png', 'shots/prism-4.png', 'shots/prism-5.png'],
   'compliance': ['shots/compliance.png', 'shots/landing-light.png', 'shots/landing-dark.png'],
   'digital-office': ['shots/digital-office.png', 'shots/cadence-1.png', 'shots/cadence-2.png', 'shots/cadence-3.png', 'shots/cadence-4.png', 'shots/cadence-5.png'],
-  'spk': ['shots/spk.png', 'shots/ean-dossier.png', 'shots/ean-person.png', 'shots/ean-zakupki.png', 'shots/ean-participants.png', 'shots/ean-network.png']
+  'spk': ['shots/spk.png', 'shots/ean-person.png', 'shots/ean-esf.png', 'shots/ean-proc.png']
 };
 const LOGOS = { 'digital-office': 'shots/logo-do.png', 'spk': 'shots/logo-ean.png' };
 const LINKS = { 'ai-landings': 'https://ac.adata.kz/compliance' };
@@ -371,7 +371,7 @@ const SCREENS = {
   'ai-landings': ['shots/prism-1.png', 'shots/prism-2.png', 'shots/prism-3.png', 'shots/prism-4.png', 'shots/prism-5.png'],
   'compliance': ['shots/landing-light.png', 'shots/landing-dark.png'],
   'digital-office': ['shots/cadence-1.png', 'shots/cadence-2.png', 'shots/cadence-3.png', 'shots/cadence-4.png', 'shots/cadence-5.png'],
-  'spk': ['shots/ean-dossier.png', 'shots/ean-person.png', 'shots/ean-zakupki.png', 'shots/ean-participants.png', 'shots/ean-network.png', 'shots/ean-vypiski.png', 'shots/ean-esf.png', 'shots/ean-ved.png']
+  'spk': ['shots/ean-person.png', 'shots/ean-esf.png', 'shots/ean-proc.png']
 };
 
 function mock(kind, a) {
