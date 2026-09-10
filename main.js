@@ -107,7 +107,7 @@ const I18N = {
     'pg.h1': 'Experiments, <em>off the clock</em>.', 'pg.p': 'Loose explorations, color studies, and interface ideas that didn\'t fit anywhere else. Grab a piece and drag it around — it\'s a playground, after all.', 'pg.hint': '✋ Drag the pieces around',
     'cs.back': '← All work', 'cs.intro': 'Intro', 'cs.role': 'Role', 'cs.status': 'Status', 'cs.type': 'Type',
     'cs.problems': 'The challenge', 'cs.solution': 'The solution', 'cs.results': 'The outcome', 'cs.gallery': 'Screenshot gallery',
-    'cs.next': 'Next up', 'cs.viewcase': 'View case study', 'cs.viewproj': 'View project', 'cs.soon': 'Coming soon', 'drag': 'Drag',
+    'cs.next': 'Next up', 'cs.viewcase': 'View case study', 'cs.viewproj': 'View project', 'cs.viewlive': 'View live site', 'cs.soon': 'Coming soon', 'drag': 'Drag',
     spk: { problem: 'Checking a counterparty meant jumping between many separate registries and sources — slow, and easy to miss something.', solution: 'I designed a global search that unifies people, companies, filings, and trade data, with dossiers that pull it all together.', result: 'A fast, search-first way to run due diligence, in a calm dark UI built for long sessions.' }
   },
   ru: {
@@ -145,7 +145,7 @@ const I18N = {
     'pg.h1': 'Эксперименты <em>в свободное время</em>.', 'pg.p': 'Свободные исследования, цветовые этюды и идеи интерфейсов, которым не нашлось места. Возьмите элемент и потяните — это же лаборатория.', 'pg.hint': '✋ Перетаскивайте элементы',
     'cs.back': '← Все работы', 'cs.intro': 'Вступление', 'cs.role': 'Роль', 'cs.status': 'Статус', 'cs.type': 'Тип',
     'cs.problems': 'Задача', 'cs.solution': 'Решение', 'cs.results': 'Результат', 'cs.gallery': 'Галерея скриншотов',
-    'cs.next': 'Далее', 'cs.viewcase': 'Смотреть кейс', 'cs.viewproj': 'Смотреть проект', 'cs.soon': 'Скоро', 'drag': 'Тяни'
+    'cs.next': 'Далее', 'cs.viewcase': 'Смотреть кейс', 'cs.viewproj': 'Смотреть проект', 'cs.viewlive': 'Открыть сайт', 'cs.soon': 'Скоро', 'drag': 'Тяни'
   }
 };
 
@@ -355,18 +355,20 @@ const MEANING = {
   }
 };
 const PREVIEW = {
-  'aml': ['shots/aml.png', 'shots/aml-1.png', 'shots/aml-2.png', 'shots/aml-3.png'],
-  'speakup': ['shots/speakup.png', 'shots/speakup-landing.png', 'shots/speakup-admin2.png', 'shots/speakup-admin1.png', 'shots/speakup-kanban.png'],
-  'ai-landings': ['shots/ai-landings.png', 'shots/compliance.png', 'shots/landing-dark.png'],
+  'aml': ['shots/aml.png', 'shots/aegis-1.png', 'shots/aegis-2.png', 'shots/aegis-3.png', 'shots/aegis-4.png', 'shots/aegis-5.png'],
+  'speakup': ['shots/speakup.png', 'shots/candor-1.png', 'shots/candor-2.png', 'shots/candor-3.png', 'shots/candor-4.png', 'shots/candor-5.png'],
+  'ai-landings': ['shots/prism-1.png', 'shots/prism-2.png', 'shots/prism-3.png', 'shots/prism-4.png', 'shots/prism-5.png'],
   'compliance': ['shots/compliance.png', 'shots/landing-light.png', 'shots/landing-dark.png'],
   'digital-office': ['shots/do-messenger.png', 'shots/do-news.png', 'shots/do-knowledge.png', 'shots/do-compliance.png', 'shots/digital-office-screens.png'],
   'spk': ['shots/spk.png', 'shots/ean-dossier.png', 'shots/ean-zakupki.png', 'shots/ean-vypiski.png', 'shots/ean-esf.png', 'shots/ean-ved.png']
 };
 const LOGOS = { 'digital-office': 'shots/logo-do.png', 'spk': 'shots/logo-ean.png' };
+const LINKS = { 'ai-landings': 'https://ac.adata.kz/compliance' };
+const BADGES = { 'ai-landings': 'AI' };
 const SCREENS = {
-  'speakup': ['shots/speakup-landing.png', 'shots/speakup-admin2.png', 'shots/speakup-admin1.png', 'shots/speakup-kanban.png'],
-  'aml': ['shots/aml-1.png', 'shots/aml-2.png', 'shots/aml-3.png'],
-  'ai-landings': ['shots/compliance.png', 'shots/landing-dark.png'],
+  'speakup': ['shots/candor-1.png', 'shots/candor-2.png', 'shots/candor-3.png', 'shots/candor-4.png', 'shots/candor-5.png'],
+  'aml': ['shots/aegis-1.png', 'shots/aegis-2.png', 'shots/aegis-3.png', 'shots/aegis-4.png', 'shots/aegis-5.png'],
+  'ai-landings': ['shots/prism-1.png', 'shots/prism-2.png', 'shots/prism-3.png', 'shots/prism-4.png', 'shots/prism-5.png'],
   'compliance': ['shots/landing-light.png', 'shots/landing-dark.png'],
   'digital-office': ['shots/do-messenger.png', 'shots/do-news.png', 'shots/do-knowledge.png', 'shots/do-compliance.png', 'shots/digital-office-screens.png'],
   'spk': ['shots/ean-dossier.png', 'shots/ean-zakupki.png', 'shots/ean-vypiski.png', 'shots/ean-esf.png', 'shots/ean-ved.png']
@@ -452,7 +454,7 @@ if (list) {
         <div class="proj-head-row">
           <div class="proj-head-left">
             ${LOGOS[raw.id] ? `<img class="proj-logo" src="${LOGOS[raw.id]}" alt="" />` : ''}
-            <div class="proj-meta"><span class="name">${raw.name}</span><span class="kind">${p.kind}</span><span class="yr">${raw.yr}</span></div>
+            <div class="proj-meta"><span class="name">${raw.name}</span>${BADGES[raw.id] ? `<span class="proj-badge">${BADGES[raw.id]}</span>` : ''}<span class="kind">${p.kind}</span><span class="yr">${raw.yr}</span></div>
           </div>
           ${btn}
         </div>
@@ -484,9 +486,10 @@ if (csEl) {
     csEl.innerHTML = `
       <a class="cs-back" href="index.html">${t('cs.back')}</a>
       ${LOGOS[raw.id] ? `<div class="cs-icon cs-icon-img"><img src="${LOGOS[raw.id]}" alt="${raw.name}" /></div>` : `<div class="cs-icon" style="background:linear-gradient(135deg, ${raw.accent}, ${raw.accent}bb)">${raw.icon}</div>`}
-      <p class="cs-eyebrow">${raw.name} · ${p.kind} — ${raw.yr}</p>
+      <p class="cs-eyebrow">${raw.name}${BADGES[raw.id] ? ` <span class="proj-badge">${BADGES[raw.id]}</span>` : ''} · ${p.kind} — ${raw.yr}</p>
       <h1 class="cs-title">${p.title || p.subtitle}</h1>
       ${(MEANING[lang]||MEANING.en)[raw.id] ? `<p class="cs-meaning">${(MEANING[lang]||MEANING.en)[raw.id]}</p>` : ''}
+      ${LINKS[raw.id] ? `<a class="cs-live" href="${LINKS[raw.id]}" target="_blank" rel="noopener">${t('cs.viewlive')} ↗</a>` : ''}
       <div class="cs-grid">
         <div class="cs-intro"><p class="cs-label">${t('cs.intro')}</p>${paras(p.intro) || `<p>${p.subtitle}</p>`}</div>
         <div class="cs-meta">
