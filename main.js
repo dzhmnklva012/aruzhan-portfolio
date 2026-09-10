@@ -335,7 +335,7 @@ const PREVIEW = {
   'digital-office': ['shots/cadence-1.png', 'shots/cadence-2.png', 'shots/cadence-3.png', 'shots/cadence-4.png', 'shots/cadence-5.png'],
   'spk': ['shots/spk.png', 'shots/ean-person.png', 'shots/ean-esf.png', 'shots/ean-proc.png']
 };
-const LOGOS = { 'digital-office': 'shots/logo-do.png', 'spk': 'shots/logo-ean.png' };
+const LOGOS = { 'spk': 'shots/logo-ean.png' };
 const LINKS = { 'ai-landings': 'https://ac.adata.kz/compliance' };
 const BADGES = { 'ai-landings': 'AI', 'spk': 'AI' };
 const SCREENS = {
