@@ -472,7 +472,6 @@ if (csEl) {
     const paras = arr => (arr || []).map(x => `<p>${x}</p>`).join('');
     csEl.innerHTML = `
       <a class="cs-back" href="index.html">${t('cs.back')}</a>
-      ${LOGOS[raw.id] ? `<div class="cs-icon cs-icon-img"><img src="${LOGOS[raw.id]}" alt="${raw.name}" /></div>` : `<div class="cs-icon" style="background:linear-gradient(135deg, ${raw.accent}, ${raw.accent}bb)">${raw.icon}</div>`}
       <p class="cs-eyebrow">${raw.name}${BADGES[raw.id] ? ` <span class="proj-badge">${BADGES[raw.id]}</span>` : ''} · ${p.kind}</p>
       <h1 class="cs-title">${p.title || p.subtitle}</h1>
       ${(MEANING[lang]||MEANING.en)[raw.id] ? `<p class="cs-meaning">${(MEANING[lang]||MEANING.en)[raw.id]}</p>` : ''}
