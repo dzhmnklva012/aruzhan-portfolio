@@ -344,7 +344,7 @@ footer { padding: 96px 0 40px; }
 .cs-meaning b { color: var(--ink); font-weight: 600; }
 
 /* AI badge + live-site link */
-.proj-badge { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .05em; color: #fff; background: var(--accent); padding: 2px 9px; border-radius: 999px; vertical-align: middle; }
+.proj-badge { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .05em; color: #fff; background: #7c3aed; padding: 2px 9px; border-radius: 999px; vertical-align: middle; }
 .cs-eyebrow .proj-badge { font-size: 10px; }
 .cs-live { display: inline-flex; align-items: center; gap: 6px; margin-top: 20px; font-size: 14px; font-weight: 500; color: #fff; background: var(--accent); padding: 11px 20px; border-radius: 999px; transition: filter .2s, transform .2s; }
 .cs-live:hover { transform: translateY(-2px); filter: brightness(1.06); }
