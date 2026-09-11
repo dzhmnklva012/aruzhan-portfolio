@@ -222,9 +222,9 @@ header.hero > .wrap { position: relative; z-index: 3; pointer-events: none; }
 .svc h3 { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 8px; }
 .svc p { font-size: 15px; color: var(--soft); line-height: 1.5; }
 .svc-tag { margin-top: 16px; font-size: 13px; color: var(--accent); font-weight: 600; }
-.cta-band { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; background: var(--ink); color: var(--bg); border-radius: 26px; padding: 40px 44px; }
+.cta-band { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; background: rgba(255,255,255,.055); backdrop-filter: blur(18px) saturate(1.3); -webkit-backdrop-filter: blur(18px) saturate(1.3); border: 1px solid rgba(255,255,255,.13); color: var(--ink); border-radius: 26px; padding: 40px 44px; box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 24px 60px -34px rgba(0,0,0,.7); }
 .cta-band h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(24px, 3.4vw, 36px); letter-spacing: -0.02em; }
-.cta-band p { color: #b1aa9d; margin-top: 10px; font-size: 15px; max-width: 46ch; }
+.cta-band p { color: var(--soft); margin-top: 10px; font-size: 15px; max-width: 46ch; }
 .btn-accent { background: var(--accent); color: #fff; }
 .btn-accent:hover { transform: translateY(-2px); filter: brightness(1.05); }
 
