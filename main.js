@@ -497,9 +497,21 @@ if (csEl) {
 const pillField = document.getElementById('pillField');
 if (pillField) {
   const pills = [
-    { en: 'Product thinking', ru: 'Product thinking', c: '#ffd166' },
+    { en: 'Product Design', ru: 'Продуктовый дизайн', c: '#ffd166' },
     { en: 'UX Research', ru: 'UX Research', c: '#ff9fb2' },
     { en: 'UI Design', ru: 'UI Design', c: '#b9a3ff' },
+    { en: 'Design Systems', ru: 'Дизайн-системы', c: '#8fdc9b' },
+    { en: 'Friendly Design', ru: 'Friendly Design', c: '#7fb8ff' },
+    { en: 'Prototyping', ru: 'Прототипирование', c: '#ffb27a' },
+    { en: 'Wireframing', ru: 'Вайрфреймы', c: '#76dcc9' },
+    { en: 'B2B', ru: 'B2B', c: '#f0b6ff' },
+    { en: 'B2C', ru: 'B2C', c: '#ffe08a' },
+    { en: 'B2G', ru: 'B2G', c: '#9ad0ff' },
+    { en: 'SaaS', ru: 'SaaS', c: '#ff8f6b' },
+    { en: 'Claude Code', ru: 'Claude Code', c: '#e6926b' },
+    { en: 'Claude Design', ru: 'Claude Design', c: '#cbb2ff' },
+    { en: 'AI Design', ru: 'AI-дизайн', c: '#8fe0cb' },
+    { en: 'Product thinking', ru: 'Product thinking', c: '#ffd166' },
     { en: 'Data visualization', ru: 'Data visualization', c: '#8fdc9b' },
     { en: 'AI Product Design', ru: 'AI Product Design', c: '#7fb8ff' },
     { en: 'Communication', ru: 'Communication', c: '#ffb27a' },
