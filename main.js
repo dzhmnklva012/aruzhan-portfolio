@@ -522,7 +522,7 @@ if (pillField) {
   const label = i => lang === 'ru' ? pills[i].ru : pills[i].en;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   // slow, gentle physics: light gravity, capped fall speed, minimal bounce
-  const GRAV = 0.28, MAXV = 6, REST = 0.14, AIR = 0.99, GROUND = 0.9, STAGGER = 20;
+  const GRAV = 0.42, MAXV = 8, REST = 0.14, AIR = 0.99, GROUND = 0.9, STAGGER = 14;
   const ANG_DAMP = 0.86, TORQUE = 1.1, ANG_MAX = 9;   // marshmallow settle + edge topple
   let bodies = [], raf = 0, zTop = 20, W = 0, H = 0, order = [];
 
