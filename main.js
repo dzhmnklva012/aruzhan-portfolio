@@ -74,11 +74,11 @@ document.querySelectorAll('.num').forEach(el => countIO.observe(el));
 const I18N = {
   en: {
     'nav.work': 'Work', 'nav.playground': 'Playground', 'nav.about': 'About', 'nav.cv': 'CV ↗',
-    'hero.hello': 'Hello, I\'m Aruzhan',
-    'hero.h1': 'I turn complex products into experiences that feel <em>effortless</em>.',
+    'hero.hello': 'Hi, I\'m Aruzhan',
+    'hero.h1': 'Product Designer focused on <em>B2B, AI</em> and complex digital products.',
     'hero.current': 'Currently designing <b>complex B2B workflows</b> and a <b>multi-brand design system</b>.',
     'hero.trayLabel': 'How I spend my days — drag them around',
-    'projects.head': 'Projects', 'trusted.label': 'Projects I\'ve worked on',
+    'projects.head': 'Projects', 'trusted.label': 'Selected product work',
     'impact.eyebrow': 'By the numbers', 'stat.years': 'Years designing', 'stat.products': 'Products shipped',
     'stat.faster': 'Faster workflows, avg.', 'stat.satis': 'Team satisfaction',
     'quotes.eyebrow': 'Kind words', 'quotes.head': 'What people say about working with me',
@@ -113,10 +113,10 @@ const I18N = {
   ru: {
     'nav.work': 'Работы', 'nav.playground': 'Эксперименты', 'nav.about': 'Обо мне', 'nav.cv': 'Резюме ↗',
     'hero.hello': 'Привет, я Аружан',
-    'hero.h1': 'Я превращаю сложные продукты в опыт, который ощущается <em>лёгким</em>.',
+    'hero.h1': 'Продуктовый дизайнер — <em>B2B, AI</em> и сложные цифровые продукты.',
     'hero.current': 'Сейчас проектирую <b>сложные B2B-процессы</b> и <b>мультибрендовую дизайн-систему</b>.',
     'hero.trayLabel': 'Чем я занимаюсь — перетаскивайте',
-    'projects.head': 'Проекты', 'trusted.label': 'Проекты, над которыми я работала',
+    'projects.head': 'Проекты', 'trusted.label': 'Избранные проекты',
     'impact.eyebrow': 'В цифрах', 'stat.years': 'Лет в дизайне', 'stat.products': 'Выпущенных продуктов',
     'stat.faster': 'Ускорение процессов, в ср.', 'stat.satis': 'Оценка команд',
     'quotes.eyebrow': 'Отзывы', 'quotes.head': 'Что говорят о работе со мной',
