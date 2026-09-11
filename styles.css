@@ -223,7 +223,7 @@ header.hero > .wrap { position: relative; z-index: 3; pointer-events: none; }
 .svc p { font-size: 15px; color: var(--soft); line-height: 1.5; }
 .svc-tag { margin-top: 16px; font-size: 13px; color: var(--accent); font-weight: 600; }
 .cta-wrap { position: relative; border-radius: 26px; }
-.cta-glow { position: absolute; inset: -6% -2%; z-index: 0; pointer-events: none; filter: blur(18px); opacity: .9;
+.cta-glow { position: absolute; inset: -6% -2%; z-index: 0; pointer-events: none; filter: blur(22px); opacity: .5;
   background:
     radial-gradient(60% 130% at 12% 25%, rgba(255,106,69,.7), transparent 62%),
     radial-gradient(55% 130% at 92% 80%, rgba(120,132,255,.55), transparent 62%),
