@@ -107,8 +107,7 @@ const I18N = {
     'pg.h1': 'Experiments, <em>off the clock</em>.', 'pg.p': 'Loose explorations, color studies, and interface ideas that didn\'t fit anywhere else. Grab a piece and drag it around — it\'s a playground, after all.', 'pg.hint': '✋ Drag the pieces around',
     'cs.back': '← All work', 'cs.intro': 'Intro', 'cs.role': 'Role', 'cs.status': 'Status', 'cs.type': 'Type',
     'cs.problems': 'The challenge', 'cs.solution': 'The solution', 'cs.results': 'The outcome', 'cs.gallery': 'Screenshot gallery',
-    'cs.next': 'Next up', 'cs.viewcase': 'View case study', 'cs.viewproj': 'View project', 'cs.viewlive': 'View live site', 'cs.soon': 'Coming soon', 'drag': 'Drag',
-    spk: { problem: 'Checking a counterparty meant jumping between many separate registries and sources — slow, and easy to miss something.', solution: 'I designed a global search that unifies people, companies, filings, and trade data, with dossiers that pull it all together.', result: 'A fast, search-first way to run due diligence, in a calm dark UI built for long sessions.' }
+    'cs.next': 'Next up', 'cs.viewcase': 'View case study', 'cs.viewproj': 'View project', 'cs.viewlive': 'View live site', 'cs.soon': 'Coming soon', 'drag': 'Drag'
   },
   ru: {
     'nav.work': 'Работы', 'nav.playground': 'Эксперименты', 'nav.about': 'Обо мне', 'nav.cv': 'Резюме ↗',
@@ -186,11 +185,11 @@ const caseStudies = [
     subtitle: 'A set of marketing landing pages for an AI product suite.',
     benefits: ['Landing pages', 'Marketing', 'Conversion', 'Visual system'],
     gallery: ['cards', 'grid', 'cards', 'dashboard', 'cards'],
-    title: 'Marketing landings for an AI product line',
+    title: 'Selling an AI compliance product in three scrolls',
     role: ['Product Designer', 'Visual Design'], status: ['Shipped', '2024'], type: ['Landing', 'Marketing', 'Web'],
     intro: [
-      'A family of landing pages that explain an AI product simply and get people to try it. Each page has to sell a fairly abstract idea in a few scrolls.',
-      'I built a flexible visual system — sections, type, and components — so new landings ship fast while staying on-brand, in both light and dark.'
+      'Compliance runs automated checks on companies and counterparties. The product is easy to use and hard to explain — the value lives in data sources and risk logic nobody wants to read about.',
+      'I built a section-and-component system for the landing family: a few ways to open, a few ways to show the product, a few ways to close. New pages get assembled from those blocks in a day and still look like one brand, in light and dark.'
     ]
   },
   {
@@ -198,11 +197,11 @@ const caseStudies = [
     subtitle: 'An analytics platform for due diligence — global search across companies and people.',
     benefits: ['Analytics', 'Global search', 'Dossiers', 'Data-dense UI'],
     gallery: ['dashboard', 'grid', 'dashboard', 'cards', 'dashboard'],
-    title: 'An analytics platform for fast due diligence',
+    title: 'Due diligence that takes minutes, not days',
     role: ['Product Designer', 'UX + UI'], status: ['Live demo', '2025'], type: ['Analytics', 'B2G', 'Web'],
     intro: [
-      'The platform pulls scattered public data — registries, filings, procurement, foreign trade — into one place, so analysts can vet a company or a person in minutes instead of hours.',
-      'I designed the search-first experience and the dossier views, with matching light and dark themes for long analytical sessions.'
+      'Argus pulls scattered public data — company registries, filings, procurement, foreign trade — into one searchable place. An analyst who used to open eight sources now opens one.',
+      'I designed the search-first experience and the dossier views: what appears the moment you type a name, how connections between people and companies are shown, and how a long analytical session stays readable in dark mode.'
     ]
   },
   {
@@ -210,11 +209,11 @@ const caseStudies = [
     subtitle: 'Anti-money-laundering platform — client screening, risk scoring, and case investigation.',
     benefits: ['Compliance', 'Risk scoring', 'Case workflows', 'Data-dense UI'],
     gallery: ['dashboard', 'grid', 'dashboard', 'cards', 'dashboard'],
-    title: 'Designing an anti-money-laundering platform',
+    title: 'Making anti-money-laundering work readable',
     role: ['Product Designer', 'UX + UI'], status: ['In progress', '2025'], type: ['Compliance', 'Fintech', 'B2B'],
     intro: [
-      'AML is a compliance platform that helps analysts screen clients, score risk, and investigate suspicious activity. The hard part is density — a lot of data, rules, and edge cases on every screen.',
-      'I own the end-to-end design: turning heavy regulatory logic into flows and interfaces analysts can move through quickly and confidently.'
+      'Aegis helps compliance analysts screen clients, score risk, and investigate suspicious activity. Every screen carries a lot: sanctions hits, ownership chains, transaction patterns, and the regulatory rule behind each of them.',
+      'I own the design end to end — turning regulatory logic into flows an analyst can move through under time pressure, and keeping density from turning into noise.'
     ]
   },
   {
@@ -222,11 +221,11 @@ const caseStudies = [
     subtitle: 'A safe whistleblowing and feedback platform for employees to raise concerns.',
     benefits: ['Whistleblowing', 'Trust & safety', 'Anonymous reports', 'Case tracking'],
     gallery: ['phone', 'cards', 'phone', 'grid', 'phone'],
-    title: 'A safe channel for people to speak up',
+    title: 'A channel people actually trust enough to use',
     role: ['Product Designer', 'UX + UI'], status: ['In progress', '2025'], type: ['Ethics', 'HR', 'B2B'],
     intro: [
-      'Speak Up lets employees report concerns and share feedback safely — anonymously when they need to. Trust is the whole product: people only use it if it feels private and fair.',
-      'I designed the reporting flows and the case side for reviewers, keeping the experience calm, clear, and reassuring at every step.'
+      'Speak Up lets employees report concerns and share feedback — anonymously when they need to. Trust is the whole product: a channel people doubt is a channel nobody opens.',
+      'I designed both sides — the reporting flow for employees and the case queue for reviewers — keeping the tone calm and making every privacy promise visible at the moment it matters, not buried in a policy.'
     ]
   },
   {
@@ -234,11 +233,11 @@ const caseStudies = [
     subtitle: 'A digital workplace for tasks, documents, and team collaboration.',
     benefits: ['Enterprise', 'Task management', 'Dashboards', 'Design system'],
     gallery: ['dashboard', 'grid', 'dashboard', 'cards', 'grid'],
-    title: 'A digital workplace for everyday work',
+    title: 'One workspace instead of six tabs',
     role: ['Product Designer', 'Design System'], status: ['In progress', '2024—25'], type: ['Enterprise', 'Productivity', 'B2B'],
     intro: [
-      'Digital Office brings tasks, documents, and team collaboration into one place, so people stop jumping between tools all day.',
-      'I work on the core flows and a reusable component set, keeping a dense enterprise product organised, consistent, and easy to learn.'
+      'Cadence brings tasks, documents and team communication into one workspace, so a working day stops being a loop of switching between tools.',
+      'I work on the core flows and a reusable component set — the part that decides whether a dense enterprise product stays learnable as teams keep adding to it.'
     ]
   }
 
@@ -247,69 +246,70 @@ const CS_RU = {
   aml: {
     kind: 'Комплаенс · Финтех', subtitle: 'Платформа противодействия отмыванию денег — скрининг клиентов, риск-скоринг и расследование кейсов.',
     benefits: ['Комплаенс', 'Риск-скоринг', 'Кейс-процессы', 'Плотный UI'],
-    title: 'Дизайн платформы противодействия отмыванию денег',
+    title: 'Как сделать AML-работу читаемой',
     role: ['Продуктовый дизайнер', 'UX + UI'], status: ['В работе', '2025'], type: ['Комплаенс', 'Финтех', 'B2B'],
     intro: [
-      'AML — комплаенс-платформа, которая помогает аналитикам проверять клиентов, оценивать риск и расследовать подозрительную активность. Главная сложность — плотность: много данных, правил и крайних случаев на каждом экране.',
-      'Я веду дизайн целиком: превращаю тяжёлую регуляторную логику в сценарии и интерфейсы, по которым аналитик движется быстро и уверенно.'
+      'Aegis помогает комплаенс-аналитикам проверять клиентов, оценивать риск и расследовать подозрительную активность. На каждом экране много всего: санкционные совпадения, цепочки владения, паттерны транзакций и регуляторное правило за каждым из них.',
+      'Я веду дизайн целиком — превращаю регуляторную логику в сценарии, по которым аналитик проходит в условиях дедлайна, и слежу, чтобы плотность не превращалась в шум.'
     ]
   },
   speakup: {
     kind: 'Этика · HR', subtitle: 'Безопасная платформа для обращений сотрудников и обратной связи.',
     benefits: ['Обращения', 'Доверие', 'Анонимность', 'Учёт кейсов'],
-    title: 'Безопасный канал, чтобы сотрудники могли высказаться',
+    title: 'Канал, которому доверяют настолько, чтобы им пользоваться',
     role: ['Продуктовый дизайнер', 'UX + UI'], status: ['В работе', '2025'], type: ['Этика', 'HR', 'B2B'],
     intro: [
-      'Speak Up позволяет сотрудникам безопасно сообщать о проблемах и делиться обратной связью — при необходимости анонимно. Доверие здесь и есть продукт: им пользуются, только если это ощущается приватно и честно.',
-      'Я спроектировала сценарии подачи обращений и сторону обработки для проверяющих, сохраняя спокойный, ясный и располагающий опыт на каждом шаге.'
+      'Speak Up позволяет сотрудникам сообщать о проблемах и делиться обратной связью — при необходимости анонимно. Доверие здесь и есть продукт: канал, в котором сомневаются, просто не открывают.',
+      'Я спроектировала обе стороны — подачу обращения для сотрудника и очередь кейсов для проверяющего, — сохраняя спокойный тон и показывая каждое обещание о приватности в тот момент, когда оно важно, а не пряча его в политике.'
     ]
   },
   'ai-landings': {
     kind: 'Лендинг · Маркетинг', subtitle: 'Серия маркетинговых лендингов для линейки AI-продуктов.',
     benefits: ['Лендинги', 'Маркетинг', 'Конверсия', 'Визуальная система'],
-    title: 'Маркетинговые лендинги для линейки AI-продуктов',
+    title: 'Как продать AI-проверки за три экрана',
     role: ['Продуктовый дизайнер', 'Визуальный дизайн'], status: ['Запущено', '2024'], type: ['Лендинг', 'Маркетинг', 'Web'],
     intro: [
-      'Семейство лендингов, которые просто объясняют AI-продукт и подводят к тому, чтобы его попробовали. Каждая страница должна продать довольно абстрактную идею за пару экранов.',
-      'Я собрала гибкую визуальную систему — секции, типографику и компоненты, — чтобы новые лендинги выходили быстро и оставались в стиле, в светлой и тёмной темах.'
+      'Compliance автоматически проверяет компании и контрагентов. Продукт простой в использовании и сложный в объяснении — ценность спрятана в источниках данных и риск-логике, которую никто не хочет читать.',
+      'Я собрала систему секций и компонентов для всей линейки лендингов: несколько способов открыть страницу, несколько — показать продукт, несколько — закрыть на действие. Новая страница собирается из этих блоков за день и остаётся в одном стиле, в светлой и тёмной теме.'
     ]
   },
   'digital-office': {
     kind: 'Корпоративный продукт', subtitle: 'Цифровой офис для задач, документов и командной работы.',
     benefits: ['Enterprise', 'Задачи', 'Дашборды', 'Дизайн-система'],
-    title: 'Цифровой офис для ежедневной работы',
+    title: 'Одно рабочее место вместо шести вкладок',
     role: ['Продуктовый дизайнер', 'Дизайн-система'], status: ['В работе', '2024—25'], type: ['Enterprise', 'Продуктивность', 'B2B'],
     intro: [
-      'Digital Office объединяет задачи, документы и командную работу в одном месте, чтобы люди перестали весь день прыгать между инструментами.',
-      'Я работаю над ключевыми сценариями и переиспользуемым набором компонентов, удерживая плотный корпоративный продукт организованным, консистентным и понятным.'
+      'Cadence объединяет задачи, документы и общение команды в одном пространстве, чтобы рабочий день перестал быть циклом переключений между инструментами.',
+      'Я работаю над ключевыми сценариями и переиспользуемым набором компонентов — тем, от чего зависит, останется ли плотный корпоративный продукт понятным, пока команды продолжают в него что-то добавлять.'
     ]
   },
 
   spk: {
     kind: 'Аналитика · B2G', subtitle: 'Аналитическая платформа для проверки — глобальный поиск по компаниям и людям.',
     benefits: ['Аналитика', 'Глобальный поиск', 'Досье', 'Плотный UI'],
-    title: 'Аналитическая платформа для быстрой проверки контрагентов',
+    title: 'Проверка контрагента за минуты, а не за дни',
     role: ['Продуктовый дизайнер', 'UX + UI'], status: ['Демо', '2025'], type: ['Аналитика', 'B2G', 'Web'],
     intro: [
-      'Платформа собирает разрозненные открытые данные — реестры, выписки, закупки, ВЭД — в одном месте, чтобы аналитик проверял компанию или человека за минуты, а не за часы.',
-      'Я спроектировала опыт «поиск в первую очередь» и экраны досье, со светлой и тёмной темами для долгих аналитических сессий.'
+      'Argus собирает разрозненные открытые данные — реестры, выписки, закупки, ВЭД — в одном месте с общим поиском. Аналитик, который открывал восемь источников, открывает один.',
+      'Я спроектировала поиск как точку входа и экраны досье: что появляется в момент, когда вводишь имя, как показаны связи между людьми и компаниями и как многочасовая сессия остаётся читаемой в тёмной теме.'
     ]
   }
 };
 function loc(p) { return (lang === 'ru' && CS_RU[p.id]) ? Object.assign({}, p, CS_RU[p.id]) : p; }
 const PSR = {
   en: {
-    aml: { problem: 'Analysts had to make risk decisions from scattered, dense data — easy to miss a signal, slow to investigate.', solution: 'I mapped the review journey and designed clear screening, scoring, and case-investigation flows that surface the right information at each step.', result: 'Complex regulatory logic turned into interfaces analysts can move through quickly and confidently.' },
-    speakup: { problem: 'People won\'t report concerns unless the channel feels genuinely safe and private.', solution: 'I designed anonymous-first reporting flows and a clear reviewer side, keeping the tone calm and reassuring throughout.', result: 'A reporting experience that earns trust — simple for employees, structured for the teams handling cases.' },
-    'ai-landings': { problem: 'An abstract AI product is hard to explain and easy to scroll past.', solution: 'I built a flexible section-and-component system so each landing tells a clear story and converts, in light and dark.', result: 'New landings ship fast and stay on-brand, with a consistent, modern look across the suite.' },
-    'digital-office': { problem: 'Teams lost time switching between disconnected tools for tasks, documents, and communication.', solution: 'I designed the core flows and a reusable component set that bring everyday work into one consistent workspace.', result: 'A dense enterprise product that stays organised and easy to learn as it grows.' },
+    'ai-landings': { problem: 'An abstract AI product gets scrolled past. People need to understand what it checks and why it matters before they\'ll click anything.', solution: 'I led with the concrete — real check results on screen instead of promises — and built reusable blocks so every page in the suite argues the same way.', result: 'Shipped and live. New landings go from brief to page in days, without a design round each time.' },
+    spk: { problem: 'Vetting one counterparty meant jumping between separate registries, copying data by hand, and hoping nothing was missed.', solution: 'One global search across people, companies, filings and trade data, with dossiers that assemble the whole picture on a single page.', result: 'A live demo analysts can run a real check in — search to dossier without leaving the product.' },
+    aml: { problem: 'Risk decisions were made from scattered, dense data. A missed signal is a regulatory problem, and an overloaded screen is how signals get missed.', solution: 'I mapped the review journey and designed screening, scoring and case-investigation flows that surface only what the next decision needs.', result: 'In progress — the core review flow is designed and in build, with a component set that keeps new rule types from breaking the layout.' },
+    speakup: { problem: 'People stay silent unless they can see, not just be told, that a report is safe and goes somewhere.', solution: 'Anonymous-first reporting, plain language at every step, and a status the reporter can follow without revealing who they are.', result: 'In progress — a reporting experience that reads as fair to employees and stays structured for the teams handling cases.' },
+    'digital-office': { problem: 'Work lived in disconnected tools. Context was lost in the gaps between them, and every new feature made the product harder to learn.', solution: 'Core flows built on one navigation model, plus a component set and tokens that keep new modules consistent by default.', result: 'In progress — a growing enterprise product where new modules ship without a redesign.' },
   },
   ru: {
-    aml: { problem: 'Аналитикам приходилось принимать решения о риске по разрозненным, плотным данным — легко пропустить сигнал и долго расследовать.', solution: 'Я разложила путь проверки и спроектировала понятные сценарии скрининга, скоринга и расследования кейсов, которые показывают нужное на каждом шаге.', result: 'Сложная регуляторная логика превратилась в интерфейсы, по которым аналитик движется быстро и уверенно.' },
-    speakup: { problem: 'Люди не сообщают о проблемах, пока канал не ощущается по-настоящему безопасным и приватным.', solution: 'Я спроектировала сценарии с анонимностью по умолчанию и понятную сторону для проверяющих, сохраняя спокойный, располагающий тон.', result: 'Опыт обращений, который вызывает доверие — простой для сотрудников и структурированный для команд, обрабатывающих кейсы.' },
-    'ai-landings': { problem: 'Абстрактный AI-продукт сложно объяснить, и его легко пролистать.', solution: 'Я собрала гибкую систему секций и компонентов, чтобы каждый лендинг рассказывал ясную историю и конвертил — в светлой и тёмной теме.', result: 'Новые лендинги выходят быстро и остаются в стиле, с единым современным видом по всей линейке.' },
-    'digital-office': { problem: 'Команды теряли время, переключаясь между разрозненными инструментами для задач, документов и общения.', solution: 'Я спроектировала ключевые сценарии и переиспользуемый набор компонентов, объединяющие ежедневную работу в одном пространстве.', result: 'Плотный корпоративный продукт, который остаётся организованным и понятным по мере роста.' },
-    spk: { problem: 'Проверка контрагента означала прыжки между множеством отдельных реестров и источников — медленно и легко что-то упустить.', solution: 'Я спроектировала глобальный поиск, объединяющий людей, компании, выписки и данные о торговле, с досье, собирающими всё вместе.', result: 'Быстрый способ проверки через поиск, со спокойным тёмным интерфейсом для долгих сессий.' }
+    'ai-landings': { problem: 'Абстрактный AI-продукт просто пролистывают. Человек должен понять, что именно проверяется и зачем, прежде чем нажмёт хоть что-то.', solution: 'Я начинаю с конкретного — на экране настоящие результаты проверки, а не обещания, — и собрала переиспользуемые блоки, чтобы все страницы линейки аргументировали одинаково.', result: 'Запущено. Новый лендинг проходит путь от брифа до страницы за пару дней, без отдельного дизайн-раунда каждый раз.' },
+    spk: { problem: 'Проверка одного контрагента означала прыжки между отдельными реестрами, ручное копирование данных и надежду, что ничего не упущено.', solution: 'Один глобальный поиск по людям, компаниям, выпискам и данным о торговле, с досье, которые собирают всю картину на одной странице.', result: 'Живое демо, в котором аналитик проводит реальную проверку — от поиска до досье, не выходя из продукта.' },
+    aml: { problem: 'Решения о риске принимались по разрозненным плотным данным. Пропущенный сигнал — это регуляторная проблема, а перегруженный экран — то, как сигналы и пропускают.', solution: 'Я разложила путь проверки и спроектировала сценарии скрининга, скоринга и расследования так, чтобы на экране было только то, что нужно для следующего решения.', result: 'В работе — ключевой сценарий проверки спроектирован и в разработке, с набором компонентов, который не ломается от новых типов правил.' },
+    speakup: { problem: 'Люди молчат, пока не увидят — а не услышат — что обращение безопасно и дойдёт до адресата.', solution: 'Анонимность по умолчанию, простой язык на каждом шаге и статус, который заявитель отслеживает, не раскрывая себя.', result: 'В работе — опыт обращений, который ощущается честным для сотрудника и остаётся структурированным для команды, обрабатывающей кейсы.' },
+    'digital-office': { problem: 'Работа жила в разрозненных инструментах. Контекст терялся в зазорах между ними, и каждая новая функция делала продукт сложнее для освоения.', solution: 'Ключевые сценарии на единой модели навигации плюс набор компонентов и токенов, благодаря которым новые модули консистентны по умолчанию.', result: 'В работе — растущий корпоративный продукт, где новые модули выходят без редизайна.' },
   }
 };
 const MEANING = {
