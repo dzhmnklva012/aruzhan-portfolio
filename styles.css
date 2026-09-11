@@ -121,7 +121,7 @@ header.hero > .wrap { position: relative; z-index: 3; pointer-events: none; }
 .about-socials { margin-top: 16px; display: flex; gap: 10px; flex-wrap: wrap; }
 .about-socials a { font-size: 14px; color: var(--soft); border: 1px solid var(--line); padding: 6px 14px; border-radius: 999px; transition: color .2s, border-color .2s; }
 .about-socials a:hover { color: var(--ink); border-color: var(--ink); }
-.about-body { padding: 56px 0; display: grid; grid-template-columns: 1.4fr .9fr; gap: 60px; align-items: start; }
+.about-body { padding: 140px 0 56px; display: grid; grid-template-columns: 1.4fr .9fr; gap: 60px; align-items: start; }
 @media (max-width: 860px) { .about-body { grid-template-columns: 1fr; gap: 40px; } }
 .about-body .lede p { font-size: clamp(17px, 2vw, 21px); line-height: 1.6; }
 .about-body .lede p + p { margin-top: 20px; }
