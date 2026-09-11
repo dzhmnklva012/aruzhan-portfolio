@@ -137,8 +137,8 @@ header.hero > .wrap { position: relative; z-index: 3; pointer-events: none; }
 .tools { display: flex; flex-wrap: wrap; gap: 8px; }
 
 /* ---------- CASE STUDY page ---------- */
-.cs { padding: 138px 0 0; text-align: center; }
-.cs-back { display: inline-block; font-size: 14px; color: var(--soft); margin-bottom: 34px; transition: color .2s; }
+.cs { padding: 96px 0 0; text-align: center; }
+.cs-back { display: block; text-align: left; font-size: 14px; color: var(--soft); margin-bottom: 28px; transition: color .2s; }
 .cs-back:hover { color: var(--ink); }
 .cs-icon { width: 76px; height: 76px; border-radius: 20px; margin: 0 auto 26px; display: grid; place-items: center; font-size: 36px; box-shadow: 0 16px 36px -16px rgba(40,30,15,.4); }
 .cs-eyebrow { font-size: 13px; letter-spacing: .04em; color: var(--soft); font-weight: 500; margin-bottom: 14px; }
