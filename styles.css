@@ -222,7 +222,13 @@ header.hero > .wrap { position: relative; z-index: 3; pointer-events: none; }
 .svc h3 { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 8px; }
 .svc p { font-size: 15px; color: var(--soft); line-height: 1.5; }
 .svc-tag { margin-top: 16px; font-size: 13px; color: var(--accent); font-weight: 600; }
-.cta-band { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; background: rgba(255,255,255,.055); backdrop-filter: blur(18px) saturate(1.3); -webkit-backdrop-filter: blur(18px) saturate(1.3); border: 1px solid rgba(255,255,255,.13); color: var(--ink); border-radius: 26px; padding: 40px 44px; box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 24px 60px -34px rgba(0,0,0,.7); }
+.cta-wrap { position: relative; border-radius: 26px; }
+.cta-glow { position: absolute; inset: -6% -2%; z-index: 0; pointer-events: none; filter: blur(18px); opacity: .9;
+  background:
+    radial-gradient(60% 130% at 12% 25%, rgba(255,106,69,.7), transparent 62%),
+    radial-gradient(55% 130% at 92% 80%, rgba(120,132,255,.55), transparent 62%),
+    radial-gradient(50% 110% at 62% 8%, rgba(255,196,120,.5), transparent 60%); }
+.cta-band { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; background: rgba(255,255,255,.07); backdrop-filter: blur(26px) saturate(1.6); -webkit-backdrop-filter: blur(26px) saturate(1.6); border: 1px solid rgba(255,255,255,.22); color: var(--ink); border-radius: 26px; padding: 40px 44px; box-shadow: inset 0 1px 0 rgba(255,255,255,.14), 0 30px 70px -34px rgba(0,0,0,.75); }
 .cta-band h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(24px, 3.4vw, 36px); letter-spacing: -0.02em; }
 .cta-band p { color: var(--soft); margin-top: 10px; font-size: 15px; max-width: 46ch; }
 .btn-accent { background: var(--accent); color: #fff; }
