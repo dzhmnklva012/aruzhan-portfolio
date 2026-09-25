@@ -205,6 +205,18 @@ const caseStudies = [
     ]
   },
   {
+    id: 'signet', name: 'Signet', kind: 'Document management · B2B', yr: '2026', accent: '#068DFF', icon: '🖋️', url: '',
+    subtitle: 'An AI-first e-document platform — create, sign, and track documents on one screen.',
+    benefits: ['E-documents', 'E-signature', 'AI assistant', 'Templates'],
+    gallery: ['dashboard', 'cards', 'grid', 'cards', 'dashboard'],
+    title: 'Create, sign, and track documents on one screen',
+    role: ['Product Designer', 'UX + UI'], status: ['In progress', '2026'], type: ['EDM', 'B2B', 'Web'],
+    intro: [
+      'Signet handles the full life of a business document — drafting, signing, and tracking — in one place, instead of email threads, scanned PDFs, and a separate signing tool.',
+      'I designed the AI-first creation flow (describe it, the assistant drafts it), the document dashboard, and the inbox and template library — keeping a dense, regulated product calm and readable in dark mode.'
+    ]
+  },
+  {
     id: 'aml', name: 'Aegis', kind: 'Compliance · Fintech', yr: '2025', accent: '#3f5bbb', icon: '🛡️', url: '',
     subtitle: 'Anti-money-laundering platform — client screening, risk scoring, and case investigation.',
     benefits: ['Compliance', 'Risk scoring', 'Case workflows', 'Data-dense UI'],
@@ -293,6 +305,16 @@ const CS_RU = {
       'Argus собирает разрозненные открытые данные — реестры, выписки, закупки, ВЭД — в одном месте с общим поиском. Аналитик, который открывал восемь источников, открывает один.',
       'Я спроектировала поиск как точку входа и экраны досье: что появляется в момент, когда вводишь имя, как показаны связи между людьми и компаниями и как многочасовая сессия остаётся читаемой в тёмной теме.'
     ]
+  },
+  signet: {
+    kind: 'Документооборот · B2B', subtitle: 'AI-платформа электронного документооборота — создание, подписание и контроль документов на одном экране.',
+    benefits: ['ЭДО', 'Э-подпись', 'AI-ассистент', 'Шаблоны'],
+    title: 'Создание, подписание и контроль документов на одном экране',
+    role: ['Продуктовый дизайнер', 'UX + UI'], status: ['В работе', '2026'], type: ['ЭДО', 'B2B', 'Web'],
+    intro: [
+      'Signet ведёт весь жизненный цикл делового документа — создание, подписание и контроль — в одном месте, вместо переписок, сканов PDF и отдельного сервиса подписи.',
+      'Я спроектировала AI-first создание (опиши документ — ассистент составит черновик), дашборд документооборота, входящие и библиотеку шаблонов — удерживая плотный, зарегулированный продукт спокойным и читаемым в тёмной теме.'
+    ]
   }
 };
 function loc(p) { return (lang === 'ru' && CS_RU[p.id]) ? Object.assign({}, p, CS_RU[p.id]) : p; }
@@ -300,6 +322,7 @@ const PSR = {
   en: {
     'ai-landings': { problem: 'An abstract AI product gets scrolled past. People need to understand what it checks and why it matters before they\'ll click anything.', solution: 'I led with the concrete — real check results on screen instead of promises — and built reusable blocks so every page in the suite argues the same way.', result: 'Shipped and live. New landings go from brief to page in days, without a design round each time.' },
     spk: { problem: 'Vetting one counterparty meant jumping between separate registries, copying data by hand, and hoping nothing was missed.', solution: 'One global search across people, companies, filings and trade data, with dossiers that assemble the whole picture on a single page.', result: 'A live demo analysts can run a real check in — search to dossier without leaving the product.' },
+    signet: { problem: 'Business documents lived across email, scanned PDFs, and a separate e-signature tool — slow to send, hard to track, easy to lose in the thread.', solution: 'One flow from draft to signature: an AI assistant that drafts from a plain description, a template library, and a dashboard that shows every document\'s status at a glance.', result: 'In progress — creation, signing, and tracking on a single screen, with a component set that keeps a dense, regulated product readable.' },
     aml: { problem: 'Risk decisions were made from scattered, dense data. A missed signal is a regulatory problem, and an overloaded screen is how signals get missed.', solution: 'I mapped the review journey and designed screening, scoring and case-investigation flows that surface only what the next decision needs.', result: 'In progress — the core review flow is designed and in build, with a component set that keeps new rule types from breaking the layout.' },
     speakup: { problem: 'People stay silent unless they can see, not just be told, that a report is safe and goes somewhere.', solution: 'Anonymous-first reporting, plain language at every step, and a status the reporter can follow without revealing who they are.', result: 'In progress — a reporting experience that reads as fair to employees and stays structured for the teams handling cases.' },
     'digital-office': { problem: 'Work lived in disconnected tools. Context was lost in the gaps between them, and every new feature made the product harder to learn.', solution: 'Core flows built on one navigation model, plus a component set and tokens that keep new modules consistent by default.', result: 'In progress — a growing enterprise product where new modules ship without a redesign.' },
@@ -307,6 +330,7 @@ const PSR = {
   ru: {
     'ai-landings': { problem: 'Абстрактный AI-продукт просто пролистывают. Человек должен понять, что именно проверяется и зачем, прежде чем нажмёт хоть что-то.', solution: 'Я начинаю с конкретного — на экране настоящие результаты проверки, а не обещания, — и собрала переиспользуемые блоки, чтобы все страницы линейки аргументировали одинаково.', result: 'Запущено. Новый лендинг проходит путь от брифа до страницы за пару дней, без отдельного дизайн-раунда каждый раз.' },
     spk: { problem: 'Проверка одного контрагента означала прыжки между отдельными реестрами, ручное копирование данных и надежду, что ничего не упущено.', solution: 'Один глобальный поиск по людям, компаниям, выпискам и данным о торговле, с досье, которые собирают всю картину на одной странице.', result: 'Живое демо, в котором аналитик проводит реальную проверку — от поиска до досье, не выходя из продукта.' },
+    signet: { problem: 'Деловые документы жили в почте, сканах PDF и отдельном сервисе подписи — медленно отправлять, трудно отслеживать, легко потерять в переписке.', solution: 'Один путь от черновика до подписи: AI-ассистент, который составляет документ по короткому описанию, библиотека шаблонов и дашборд, где статус каждого документа виден с одного взгляда.', result: 'В работе — создание, подписание и контроль на одном экране, с набором компонентов, который держит плотный зарегулированный продукт читаемым.' },
     aml: { problem: 'Решения о риске принимались по разрозненным плотным данным. Пропущенный сигнал — это регуляторная проблема, а перегруженный экран — то, как сигналы и пропускают.', solution: 'Я разложила путь проверки и спроектировала сценарии скрининга, скоринга и расследования так, чтобы на экране было только то, что нужно для следующего решения.', result: 'В работе — ключевой сценарий проверки спроектирован и в разработке, с набором компонентов, который не ломается от новых типов правил.' },
     speakup: { problem: 'Люди молчат, пока не увидят — а не услышат — что обращение безопасно и дойдёт до адресата.', solution: 'Анонимность по умолчанию, простой язык на каждом шаге и статус, который заявитель отслеживает, не раскрывая себя.', result: 'В работе — опыт обращений, который ощущается честным для сотрудника и остаётся структурированным для команды, обрабатывающей кейсы.' },
     'digital-office': { problem: 'Работа жила в разрозненных инструментах. Контекст терялся в зазорах между ними, и каждая новая функция делала продукт сложнее для освоения.', solution: 'Ключевые сценарии на единой модели навигации плюс набор компонентов и токенов, благодаря которым новые модули консистентны по умолчанию.', result: 'В работе — растущий корпоративный продукт, где новые модули выходят без редизайна.' },
@@ -318,14 +342,16 @@ const MEANING = {
     'speakup': '<b>Speak Up</b> — a safe, honest channel to raise concerns',
     'ai-landings': '<b>Compliance</b> — AI-powered checks, all in one window',
     'digital-office': '<b>Cadence</b> — a steady rhythm · the flow of everyday work',
-    'spk': '<b>Argus</b> — the hundred-eyed watchman · all-seeing anti-corruption oversight'
+    'spk': '<b>Argus</b> — the hundred-eyed watchman · all-seeing anti-corruption oversight',
+    'signet': '<b>Signet</b> — the seal that makes a document official'
   },
   ru: {
     'aml': '<b>Aegis</b> — эгида, щит богов · защита от рисков финансовых преступлений',
     'speakup': '<b>Speak Up</b> — безопасный и честный канал, чтобы высказаться',
     'ai-landings': '<b>Compliance</b> — ИИ-проверки в одном окне',
     'digital-office': '<b>Cadence</b> — ровный ритм · поток ежедневной работы',
-    'spk': '<b>Argus</b> — стоокий страж · всевидящий антикоррупционный надзор'
+    'spk': '<b>Argus</b> — стоокий страж · всевидящий антикоррупционный надзор',
+    'signet': '<b>Signet</b> — печать, которая делает документ официальным'
   }
 };
 const PREVIEW = {
@@ -333,17 +359,19 @@ const PREVIEW = {
   'speakup': ['shots/candor-1.png', 'shots/candor-2.png', 'shots/candor-3.png', 'shots/candor-4.png', 'shots/candor-5.png'],
   'ai-landings': ['shots/prism-1.png', 'shots/prism-2.png', 'shots/prism-3.png', 'shots/prism-4.png', 'shots/prism-5.png'],
   'digital-office': ['shots/cadence-1.png', 'shots/cadence-2.png', 'shots/cadence-3.png', 'shots/cadence-4.png', 'shots/cadence-5.png'],
-  'spk': ['shots/spk.png', 'shots/ean-person.png', 'shots/ean-esf.png', 'shots/ean-proc.png']
+  'spk': ['shots/spk.png', 'shots/ean-person.png', 'shots/ean-esf.png', 'shots/ean-proc.png'],
+  'signet': ['shots/signet.png', 'shots/signet-template.png', 'shots/signet-create.png', 'shots/signet-inbox.png']
 };
-const LOGOS = { 'spk': 'shots/logo-ean.png' };
+const LOGOS = {};
 const LINKS = { 'ai-landings': 'https://ac.adata.kz/compliance' };
-const BADGES = { 'ai-landings': 'AI', 'spk': 'AI' };
+const BADGES = { 'ai-landings': 'AI', 'spk': 'AI', 'signet': 'AI' };
 const SCREENS = {
   'speakup': ['shots/candor-1.png', 'shots/candor-2.png', 'shots/candor-3.png', 'shots/candor-4.png', 'shots/candor-5.png'],
   'aml': ['shots/aegis-1.png', 'shots/aegis-2.png', 'shots/aegis-3.png', 'shots/aegis-4.png', 'shots/aegis-5.png'],
   'ai-landings': ['shots/prism-1.png', 'shots/prism-2.png', 'shots/prism-3.png', 'shots/prism-4.png', 'shots/prism-5.png'],
   'digital-office': ['shots/cadence-1.png', 'shots/cadence-2.png', 'shots/cadence-3.png', 'shots/cadence-4.png', 'shots/cadence-5.png'],
-  'spk': ['shots/ean-login.png', 'shots/ean-person.png', 'shots/ean-esf.png', 'shots/ean-proc.png']
+  'spk': ['shots/ean-login.png', 'shots/ean-person.png', 'shots/ean-esf.png', 'shots/ean-proc.png'],
+  'signet': ['shots/signet.png', 'shots/signet-template.png', 'shots/signet-create.png', 'shots/signet-inbox.png']
 };
 
 function mock(kind, a) {
