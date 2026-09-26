@@ -394,7 +394,7 @@ const PREVIEW = {
 const MOBILE = { 'foodi': true };
 const LOGOS = {};
 const LINKS = { 'ai-landings': 'https://ac.adata.kz/compliance' };
-const BADGES = { 'ai-landings': 'AI', 'spk': 'AI', 'signet': 'AI' };
+const BADGES = { 'ai-landings': 'AI', 'spk': 'AI', 'signet': 'AI', 'foodi': 'Built with AI · 2h' };
 const SCREENS = {
   'speakup': ['shots/candor-1.png', 'shots/candor-2.png', 'shots/candor-3.png', 'shots/candor-4.png', 'shots/candor-5.png'],
   'aml': ['shots/aegis-1.png', 'shots/aegis-2.png', 'shots/aegis-3.png', 'shots/aegis-4.png', 'shots/aegis-5.png'],
