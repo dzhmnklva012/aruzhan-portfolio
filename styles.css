@@ -343,6 +343,12 @@ footer { padding: 96px 0 40px; }
 .preview { gap: 14px; }
 .preview .pshot { flex: 0 0 auto; width: clamp(230px, 30vw, 330px); aspect-ratio: 16 / 10; border-radius: 14px; border: 1px solid var(--line); overflow: hidden; background: var(--bg-2); scroll-snap-align: start; }
 .preview .pshot img { width: 100%; height: 100%; object-fit: cover; object-position: top left; display: block; }
+/* portrait (mobile) projects — phone-shaped thumbs + gallery grid */
+.preview.preview-mobile .pshot { width: clamp(150px, 21vw, 196px); aspect-ratio: 1080 / 2340; border-radius: 20px; }
+.preview.preview-mobile .pshot img { object-fit: cover; object-position: top center; }
+.cs-mobile-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 20px; margin-top: 6px; }
+.cs-shot.cs-shot-tall { margin-top: 0; border-radius: 22px; }
+.cs-shot.cs-shot-tall img { width: 100%; height: auto; display: block; }
 
 /* project name meaning line */
 .proj-meaning { font-size: clamp(15px, 1.7vw, 17px); color: var(--soft); margin: 10px 0 2px; line-height: 1.4; }

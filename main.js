@@ -217,6 +217,19 @@ const caseStudies = [
     ]
   },
   {
+    id: 'foodi', name: 'Foodi', kind: 'Food delivery · Mobile', yr: '2026', accent: '#ff4d4f', icon: '🍜', url: '',
+    subtitle: 'A food-delivery app built for Kazakhstan — trilingual, tenge-native, offline-first.',
+    benefits: ['iOS & Android', 'Trilingual (KZ/RU/EN)', 'Order tracking', 'Design system'],
+    gallery: ['phone', 'phone', 'phone', 'phone', 'phone'],
+    title: 'A food-delivery app made for Kazakhstan',
+    role: ['Product Designer', 'UX + UI'], status: ['Built with AI', '~2 hours'], type: ['Mobile', 'iOS', 'Android'],
+    intro: [
+      'Foodi is a food-delivery app built specifically for Kazakhstan — not a generic template with tenge prices pasted in. Kazakh comes first, prices read as 2 490 ₸, and everything works offline on mock data.',
+      'I designed the full journey on one codebase for iOS and Android: home and search, restaurant and dish, cart and checkout, and live order tracking — with a trilingual UI (Қазақша / Русский / English) and light and dark themes.',
+      'The whole thing — design and a working app — was built end-to-end with AI in about two hours.'
+    ]
+  },
+  {
     id: 'aml', name: 'Aegis', kind: 'Compliance · Fintech', yr: '2025', accent: '#3f5bbb', icon: '🛡️', url: '',
     subtitle: 'Anti-money-laundering platform — client screening, risk scoring, and case investigation.',
     benefits: ['Compliance', 'Risk scoring', 'Case workflows', 'Data-dense UI'],
@@ -315,6 +328,17 @@ const CS_RU = {
       'Signet ведёт весь жизненный цикл делового документа — создание, подписание и контроль — в одном месте, вместо переписок, сканов PDF и отдельного сервиса подписи.',
       'Я спроектировала AI-first создание (опиши документ — ассистент составит черновик), дашборд документооборота, входящие и библиотеку шаблонов — удерживая плотный, зарегулированный продукт спокойным и читаемым в тёмной теме.'
     ]
+  },
+  foodi: {
+    kind: 'Доставка еды · Мобайл', subtitle: 'Приложение доставки еды для Казахстана — три языка, тенге, работает офлайн.',
+    benefits: ['iOS и Android', 'Три языка (KZ/RU/EN)', 'Трекинг заказа', 'Дизайн-система'],
+    title: 'Приложение доставки еды, сделанное для Казахстана',
+    role: ['Продуктовый дизайнер', 'UX + UI'], status: ['Собрано с ИИ', '~2 часа'], type: ['Мобайл', 'iOS', 'Android'],
+    intro: [
+      'Foodi — приложение доставки еды, сделанное именно под Казахстан, а не шаблон с подставленными тенге. Казахский идёт первым, цены выглядят как 2 490 ₸, всё работает офлайн на мок-данных.',
+      'Я спроектировала весь путь на одной кодовой базе для iOS и Android: главная и поиск, ресторан и блюдо, корзина и оформление, живой трекинг заказа — с интерфейсом на трёх языках (Қазақша / Русский / English) и светлой и тёмной темой.',
+      'Всё это — дизайн и рабочее приложение — собрано целиком с помощью ИИ примерно за два часа.'
+    ]
   }
 };
 function loc(p) { return (lang === 'ru' && CS_RU[p.id]) ? Object.assign({}, p, CS_RU[p.id]) : p; }
@@ -323,6 +347,7 @@ const PSR = {
     'ai-landings': { problem: 'An abstract AI product gets scrolled past. People need to understand what it checks and why it matters before they\'ll click anything.', solution: 'I led with the concrete — real check results on screen instead of promises — and built reusable blocks so every page in the suite argues the same way.', result: 'Shipped and live. New landings go from brief to page in days, without a design round each time.' },
     spk: { problem: 'Vetting one counterparty meant jumping between separate registries, copying data by hand, and hoping nothing was missed.', solution: 'One global search across people, companies, filings and trade data, with dossiers that assemble the whole picture on a single page.', result: 'A live demo analysts can run a real check in — search to dossier without leaving the product.' },
     signet: { problem: 'Business documents lived across email, scanned PDFs, and a separate e-signature tool — slow to send, hard to track, easy to lose in the thread.', solution: 'One flow from draft to signature: an AI assistant that drafts from a plain description, a template library, and a dashboard that shows every document\'s status at a glance.', result: 'In progress — creation, signing, and tracking on a single screen, with a component set that keeps a dense, regulated product readable.' },
+    foodi: { problem: 'Global delivery apps treat Kazakhstan as an afterthought — Kazakh buried, kopecks in prices, fonts that break Ә Ғ Қ Ң Ө Ұ Ү Һ.', solution: 'A trilingual, tenge-native app on one iOS/Android codebase: Kazakh first, a display face that ships the Kazakh Cyrillic, and a full flow from browse to live order tracking.', result: 'A working prototype — the whole order journey runs offline, in three languages and both themes — designed and built with AI in about two hours.' },
     aml: { problem: 'Risk decisions were made from scattered, dense data. A missed signal is a regulatory problem, and an overloaded screen is how signals get missed.', solution: 'I mapped the review journey and designed screening, scoring and case-investigation flows that surface only what the next decision needs.', result: 'In progress — the core review flow is designed and in build, with a component set that keeps new rule types from breaking the layout.' },
     speakup: { problem: 'People stay silent unless they can see, not just be told, that a report is safe and goes somewhere.', solution: 'Anonymous-first reporting, plain language at every step, and a status the reporter can follow without revealing who they are.', result: 'In progress — a reporting experience that reads as fair to employees and stays structured for the teams handling cases.' },
     'digital-office': { problem: 'Work lived in disconnected tools. Context was lost in the gaps between them, and every new feature made the product harder to learn.', solution: 'Core flows built on one navigation model, plus a component set and tokens that keep new modules consistent by default.', result: 'In progress — a growing enterprise product where new modules ship without a redesign.' },
@@ -331,6 +356,7 @@ const PSR = {
     'ai-landings': { problem: 'Абстрактный AI-продукт просто пролистывают. Человек должен понять, что именно проверяется и зачем, прежде чем нажмёт хоть что-то.', solution: 'Я начинаю с конкретного — на экране настоящие результаты проверки, а не обещания, — и собрала переиспользуемые блоки, чтобы все страницы линейки аргументировали одинаково.', result: 'Запущено. Новый лендинг проходит путь от брифа до страницы за пару дней, без отдельного дизайн-раунда каждый раз.' },
     spk: { problem: 'Проверка одного контрагента означала прыжки между отдельными реестрами, ручное копирование данных и надежду, что ничего не упущено.', solution: 'Один глобальный поиск по людям, компаниям, выпискам и данным о торговле, с досье, которые собирают всю картину на одной странице.', result: 'Живое демо, в котором аналитик проводит реальную проверку — от поиска до досье, не выходя из продукта.' },
     signet: { problem: 'Деловые документы жили в почте, сканах PDF и отдельном сервисе подписи — медленно отправлять, трудно отслеживать, легко потерять в переписке.', solution: 'Один путь от черновика до подписи: AI-ассистент, который составляет документ по короткому описанию, библиотека шаблонов и дашборд, где статус каждого документа виден с одного взгляда.', result: 'В работе — создание, подписание и контроль на одном экране, с набором компонентов, который держит плотный зарегулированный продукт читаемым.' },
+    foodi: { problem: 'Глобальные приложения доставки относятся к Казахстану по остаточному принципу — казахский спрятан, копейки в ценах, шрифты ломают Ә Ғ Қ Ң Ө Ұ Ү Һ.', solution: 'Приложение на трёх языках и в тенге на одной кодовой базе iOS/Android: казахский первым, шрифт с казахской кириллицей и полный путь от выбора до живого трекинга заказа.', result: 'Рабочий прототип — весь путь заказа проходит офлайн, на трёх языках и в обеих темах — спроектирован и собран с помощью ИИ примерно за два часа.' },
     aml: { problem: 'Решения о риске принимались по разрозненным плотным данным. Пропущенный сигнал — это регуляторная проблема, а перегруженный экран — то, как сигналы и пропускают.', solution: 'Я разложила путь проверки и спроектировала сценарии скрининга, скоринга и расследования так, чтобы на экране было только то, что нужно для следующего решения.', result: 'В работе — ключевой сценарий проверки спроектирован и в разработке, с набором компонентов, который не ломается от новых типов правил.' },
     speakup: { problem: 'Люди молчат, пока не увидят — а не услышат — что обращение безопасно и дойдёт до адресата.', solution: 'Анонимность по умолчанию, простой язык на каждом шаге и статус, который заявитель отслеживает, не раскрывая себя.', result: 'В работе — опыт обращений, который ощущается честным для сотрудника и остаётся структурированным для команды, обрабатывающей кейсы.' },
     'digital-office': { problem: 'Работа жила в разрозненных инструментах. Контекст терялся в зазорах между ними, и каждая новая функция делала продукт сложнее для освоения.', solution: 'Ключевые сценарии на единой модели навигации плюс набор компонентов и токенов, благодаря которым новые модули консистентны по умолчанию.', result: 'В работе — растущий корпоративный продукт, где новые модули выходят без редизайна.' },
@@ -343,7 +369,8 @@ const MEANING = {
     'ai-landings': '<b>Compliance</b> — AI-powered checks, all in one window',
     'digital-office': '<b>Cadence</b> — a steady rhythm · the flow of everyday work',
     'spk': '<b>Argus</b> — the hundred-eyed watchman · all-seeing anti-corruption oversight',
-    'signet': '<b>Signet</b> — the seal that makes a document official'
+    'signet': '<b>Signet</b> — the seal that makes a document official',
+    'foodi': '<b>Foodi</b> — food delivery that feels local, not translated'
   },
   ru: {
     'aml': '<b>Aegis</b> — эгида, щит богов · защита от рисков финансовых преступлений',
@@ -351,7 +378,8 @@ const MEANING = {
     'ai-landings': '<b>Compliance</b> — ИИ-проверки в одном окне',
     'digital-office': '<b>Cadence</b> — ровный ритм · поток ежедневной работы',
     'spk': '<b>Argus</b> — стоокий страж · всевидящий антикоррупционный надзор',
-    'signet': '<b>Signet</b> — печать, которая делает документ официальным'
+    'signet': '<b>Signet</b> — печать, которая делает документ официальным',
+    'foodi': '<b>Foodi</b> — доставка еды, которая ощущается местной, а не переведённой'
   }
 };
 const PREVIEW = {
@@ -360,8 +388,10 @@ const PREVIEW = {
   'ai-landings': ['shots/prism-1.png', 'shots/prism-2.png', 'shots/prism-3.png', 'shots/prism-4.png', 'shots/prism-5.png'],
   'digital-office': ['shots/cadence-1.png', 'shots/cadence-2.png', 'shots/cadence-3.png', 'shots/cadence-4.png', 'shots/cadence-5.png'],
   'spk': ['shots/spk.png', 'shots/ean-person.png', 'shots/ean-esf.png', 'shots/ean-proc.png'],
-  'signet': ['shots/signet.png', 'shots/signet-template.png', 'shots/signet-create.png', 'shots/signet-inbox.png']
+  'signet': ['shots/signet.png', 'shots/signet-template.png', 'shots/signet-create.png', 'shots/signet-inbox.png'],
+  'foodi': ['shots/foodi.png', 'shots/foodi-restaurant.png', 'shots/foodi-order.png', 'shots/foodi-reviews.png', 'shots/foodi-profile.png']
 };
+const MOBILE = { 'foodi': true };
 const LOGOS = {};
 const LINKS = { 'ai-landings': 'https://ac.adata.kz/compliance' };
 const BADGES = { 'ai-landings': 'AI', 'spk': 'AI', 'signet': 'AI' };
@@ -371,7 +401,8 @@ const SCREENS = {
   'ai-landings': ['shots/prism-1.png', 'shots/prism-2.png', 'shots/prism-3.png', 'shots/prism-4.png', 'shots/prism-5.png'],
   'digital-office': ['shots/cadence-1.png', 'shots/cadence-2.png', 'shots/cadence-3.png', 'shots/cadence-4.png', 'shots/cadence-5.png'],
   'spk': ['shots/ean-login.png', 'shots/ean-person.png', 'shots/ean-esf.png', 'shots/ean-proc.png'],
-  'signet': ['shots/signet.png', 'shots/signet-template.png', 'shots/signet-create.png', 'shots/signet-inbox.png']
+  'signet': ['shots/signet.png', 'shots/signet-template.png', 'shots/signet-create.png', 'shots/signet-inbox.png'],
+  'foodi': ['shots/foodi.png', 'shots/foodi-restaurant.png', 'shots/foodi-order.png', 'shots/foodi-reviews.png', 'shots/foodi-profile.png']
 };
 
 function mock(kind, a) {
@@ -476,7 +507,7 @@ if (list) {
         ${(MEANING[lang]||MEANING.en)[raw.id] ? `<p class="proj-meaning">${(MEANING[lang]||MEANING.en)[raw.id]}</p>` : ''}
         <p class="subtitle">${p.subtitle}</p>
         <div class="benefits">${p.benefits.map(b => `<span>${b}</span>`).join('')}</div>
-        <div class="gallery-wrap"><div class="gallery preview">${(PREVIEW[raw.id] || ['shots/'+raw.id+'.png']).map(src => `<div class="pshot"><img src="${src}?v=hd2" alt="${raw.name}" loading="lazy" draggable="false" /></div>`).join('')}</div></div>`;
+        <div class="gallery-wrap"><div class="gallery preview${MOBILE[raw.id] ? ' preview-mobile' : ''}">${(PREVIEW[raw.id] || ['shots/'+raw.id+'.png']).map(src => `<div class="pshot${MOBILE[raw.id] ? ' pshot-tall' : ''}"><img src="${src}?v=hd2" alt="${raw.name}" loading="lazy" draggable="false" /></div>`).join('')}</div></div>`;
       list.appendChild(el);
       if (animate) io.observe(el);
       const g = el.querySelector('.gallery');
@@ -513,7 +544,7 @@ if (csEl) {
         </div>
       </div>
       ${(function(){var x=(PSR[lang]||PSR.en)[raw.id];return x?`<div class="psr"><div class="psr-card"><h3>${t('cs.problems')}</h3><p>${x.problem}</p></div><div class="psr-card"><h3>${t('cs.solution')}</h3><p>${x.solution}</p></div><div class="psr-card"><h3>${t('cs.results')}</h3><p>${x.result}</p></div></div>`:'';})()}
-      ${(SCREENS[raw.id]||[]).length ? `<div class="cs-gallery-label"><span>${t('cs.gallery')}</span></div>` + (SCREENS[raw.id]).map(src => `<div class="cs-shot"><img src="${src}?v=hd2" alt="${raw.name}" loading="lazy" /></div>`).join('') : ''}
+      ${(SCREENS[raw.id]||[]).length ? `<div class="cs-gallery-label"><span>${t('cs.gallery')}</span></div>` + (MOBILE[raw.id] ? '<div class="cs-mobile-grid">' : '') + (SCREENS[raw.id]).map(src => `<div class="cs-shot${MOBILE[raw.id] ? ' cs-shot-tall' : ''}"><img src="${src}?v=hd2" alt="${raw.name}" loading="lazy" /></div>`).join('') + (MOBILE[raw.id] ? '</div>' : '') : ''}
       <div class="cs-next"><span>${t('cs.next')}</span><a href="casestudy.html?id=${nextRaw.id}">${nextRaw.name} →</a></div>`;
     const g = csEl.querySelector('.gallery');
     if (g) { enableDragScroll(g); attachDragBadge(csEl.querySelector('.gallery-wrap'), g); }
