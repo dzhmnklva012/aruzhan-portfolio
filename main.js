@@ -230,6 +230,18 @@ const caseStudies = [
     ]
   },
   {
+    id: 'sentinel', name: 'Sentinel', kind: 'Compliance · Due diligence', yr: '2026', accent: '#068dff', icon: '🕵️', url: '',
+    subtitle: 'A compliance dossier platform — counterparty due diligence, risk scoring, investigations, and an AI assistant.',
+    benefits: ['Dossiers', 'Risk scoring', 'Investigations', 'AI assistant'],
+    gallery: ['dashboard', 'grid', 'dashboard', 'cards', 'dashboard'],
+    title: 'Every risk on a counterparty, on one card',
+    role: ['Product Designer', 'UX + UI'], status: ['In progress'], type: ['Compliance', 'B2B', 'Web'],
+    intro: [
+      'Sentinel is the compliance product behind the checks: a registry of counterparties and employees, a company dossier with a reliability score and nine tabs, a hotline, investigations, and sanctions screening — the work a security or compliance team does every day.',
+      'I designed the dense screens so a reviewer sees the whole picture without drowning in it — what the risk is and where it comes from, surfaced the moment a company opens — with an AI assistant that runs a check or drafts a conclusion from a plain request.'
+    ]
+  },
+  {
     id: 'aml', name: 'Aegis', kind: 'Compliance · Fintech', yr: '2025', accent: '#3f5bbb', icon: '🛡️', url: '',
     subtitle: 'Anti-money-laundering platform — client screening, risk scoring, and case investigation.',
     benefits: ['Compliance', 'Risk scoring', 'Case workflows', 'Data-dense UI'],
@@ -268,6 +280,17 @@ const caseStudies = [
 
 ];
 const CS_RU = {
+  sentinel: {
+    kind: 'Комплаенс · Проверка контрагентов',
+    subtitle: 'Платформа комплаенс-досье — проверка контрагентов, риск-скоринг, расследования и ИИ-ассистент.',
+    benefits: ['Досье', 'Риск-скоринг', 'Расследования', 'ИИ-ассистент'],
+    title: 'Все риски по контрагенту — на одной карточке',
+    role: ['Продуктовый дизайнер', 'UX + UI'], status: ['В работе'], type: ['Комплаенс', 'B2B', 'Web'],
+    intro: [
+      'Sentinel — это сам комплаенс-продукт за проверками: реестр контрагентов и сотрудников, досье компании с оценкой благонадёжности и девятью вкладками, горячая линия, расследования и проверка по санкциям — то, чем служба безопасности и комплаенс занимаются каждый день.',
+      'Я спроектировала плотные экраны так, чтобы проверяющий видел всю картину и не тонул в ней — какой риск и откуда он берётся, сразу при открытии компании, — с ИИ-ассистентом, который проводит проверку или составляет заключение по короткому запросу.'
+    ]
+  },
   aml: {
     kind: 'Комплаенс · Финтех', subtitle: 'Платформа противодействия отмыванию денег — скрининг клиентов, риск-скоринг и расследование кейсов.',
     benefits: ['Комплаенс', 'Риск-скоринг', 'Кейс-процессы', 'Плотный UI'],
@@ -348,6 +371,7 @@ const PSR = {
     spk: { problem: 'Vetting one counterparty meant jumping between separate registries, copying data by hand, and hoping nothing was missed.', solution: 'One global search across people, companies, filings and trade data, with dossiers that assemble the whole picture on a single page.', result: 'A live demo analysts can run a real check in — search to dossier without leaving the product.' },
     signet: { problem: 'Business documents lived across email, scanned PDFs, and a separate e-signature tool — slow to send, hard to track, easy to lose in the thread.', solution: 'One flow from draft to signature: an AI assistant that drafts from a plain description, a template library, and a dashboard that shows every document\'s status at a glance.', result: 'In progress — creation, signing, and tracking on a single screen, with a component set that keeps a dense, regulated product readable.' },
     foodi: { problem: 'Global delivery apps treat Kazakhstan as an afterthought — Kazakh buried, kopecks in prices, fonts that break Ә Ғ Қ Ң Ө Ұ Ү Һ.', solution: 'A trilingual, tenge-native app on one iOS/Android codebase: Kazakh first, a display face that ships the Kazakh Cyrillic, and a full flow from browse to live order tracking.', result: 'A working prototype — the whole order journey runs offline, in three languages and both themes — designed and built with AI in about two hours.' },
+    sentinel: { problem: 'A compliance team pulls counterparty risk from a dozen registries and spreadsheets — slow, easy to miss a signal, and impossible to see the whole picture of one company at once.', solution: 'One dossier per counterparty: a reliability score, ownership, licenses, procurement, connections and check history on tabbed cards, plus an AI assistant that runs the check and drafts the conclusion.', result: 'In progress — a dense compliance product where a reviewer opens one card and sees the risk, its source, and what to do next.' },
     aml: { problem: 'Risk decisions were made from scattered, dense data. A missed signal is a regulatory problem, and an overloaded screen is how signals get missed.', solution: 'I mapped the review journey and designed screening, scoring and case-investigation flows that surface only what the next decision needs.', result: 'In progress — the core review flow is designed and in build, with a component set that keeps new rule types from breaking the layout.' },
     speakup: { problem: 'People stay silent unless they can see, not just be told, that a report is safe and goes somewhere.', solution: 'Anonymous-first reporting, plain language at every step, and a status the reporter can follow without revealing who they are.', result: 'In progress — a reporting experience that reads as fair to employees and stays structured for the teams handling cases.' },
     'digital-office': { problem: 'Work lived in disconnected tools. Context was lost in the gaps between them, and every new feature made the product harder to learn.', solution: 'Core flows built on one navigation model, plus a component set and tokens that keep new modules consistent by default.', result: 'In progress — a growing enterprise product where new modules ship without a redesign.' },
@@ -357,6 +381,7 @@ const PSR = {
     spk: { problem: 'Проверка одного контрагента означала прыжки между отдельными реестрами, ручное копирование данных и надежду, что ничего не упущено.', solution: 'Один глобальный поиск по людям, компаниям, выпискам и данным о торговле, с досье, которые собирают всю картину на одной странице.', result: 'Живое демо, в котором аналитик проводит реальную проверку — от поиска до досье, не выходя из продукта.' },
     signet: { problem: 'Деловые документы жили в почте, сканах PDF и отдельном сервисе подписи — медленно отправлять, трудно отслеживать, легко потерять в переписке.', solution: 'Один путь от черновика до подписи: AI-ассистент, который составляет документ по короткому описанию, библиотека шаблонов и дашборд, где статус каждого документа виден с одного взгляда.', result: 'В работе — создание, подписание и контроль на одном экране, с набором компонентов, который держит плотный зарегулированный продукт читаемым.' },
     foodi: { problem: 'Глобальные приложения доставки относятся к Казахстану по остаточному принципу — казахский спрятан, копейки в ценах, шрифты ломают Ә Ғ Қ Ң Ө Ұ Ү Һ.', solution: 'Приложение на трёх языках и в тенге на одной кодовой базе iOS/Android: казахский первым, шрифт с казахской кириллицей и полный путь от выбора до живого трекинга заказа.', result: 'Рабочий прототип — весь путь заказа проходит офлайн, на трёх языках и в обеих темах — спроектирован и собран с помощью ИИ примерно за два часа.' },
+    sentinel: { problem: 'Комплаенс-команда собирает риск по контрагенту из десятка реестров и таблиц — медленно, легко пропустить сигнал и невозможно увидеть всю картину компании сразу.', solution: 'Одно досье на контрагента: оценка благонадёжности, структура владения, лицензии, закупки, связи и история проверок на вкладках, плюс ИИ-ассистент, который проводит проверку и составляет заключение.', result: 'В работе — плотный комплаенс-продукт, где проверяющий открывает одну карточку и видит риск, его источник и что делать дальше.' },
     aml: { problem: 'Решения о риске принимались по разрозненным плотным данным. Пропущенный сигнал — это регуляторная проблема, а перегруженный экран — то, как сигналы и пропускают.', solution: 'Я разложила путь проверки и спроектировала сценарии скрининга, скоринга и расследования так, чтобы на экране было только то, что нужно для следующего решения.', result: 'В работе — ключевой сценарий проверки спроектирован и в разработке, с набором компонентов, который не ломается от новых типов правил.' },
     speakup: { problem: 'Люди молчат, пока не увидят — а не услышат — что обращение безопасно и дойдёт до адресата.', solution: 'Анонимность по умолчанию, простой язык на каждом шаге и статус, который заявитель отслеживает, не раскрывая себя.', result: 'В работе — опыт обращений, который ощущается честным для сотрудника и остаётся структурированным для команды, обрабатывающей кейсы.' },
     'digital-office': { problem: 'Работа жила в разрозненных инструментах. Контекст терялся в зазорах между ними, и каждая новая функция делала продукт сложнее для освоения.', solution: 'Ключевые сценарии на единой модели навигации плюс набор компонентов и токенов, благодаря которым новые модули консистентны по умолчанию.', result: 'В работе — растущий корпоративный продукт, где новые модули выходят без редизайна.' },
@@ -364,6 +389,7 @@ const PSR = {
 };
 const MEANING = {
   en: {
+    'sentinel': '<b>Sentinel</b> — the ever-watchful guard · continuous compliance oversight',
     'aml': '<b>Aegis</b> — the shield of the gods · protection from financial-crime risk',
     'speakup': '<b>Speak Up</b> — a safe, honest channel to raise concerns',
     'ai-landings': '<b>Compliance</b> — AI-powered checks, all in one window',
@@ -373,6 +399,7 @@ const MEANING = {
     'foodi': '<b>Foodi</b> — food delivery that feels local, not translated'
   },
   ru: {
+    'sentinel': '<b>Sentinel</b> — неусыпный страж · непрерывный комплаенс-контроль',
     'aml': '<b>Aegis</b> — эгида, щит богов · защита от рисков финансовых преступлений',
     'speakup': '<b>Speak Up</b> — безопасный и честный канал, чтобы высказаться',
     'ai-landings': '<b>Compliance</b> — ИИ-проверки в одном окне',
@@ -384,11 +411,12 @@ const MEANING = {
 };
 const PREVIEW = {
   'aml': ['shots/aegis-1.png', 'shots/aegis-2.png', 'shots/aegis-3.png', 'shots/aegis-4.png', 'shots/aegis-5.png'],
+  'sentinel': ['shots/sentinel-dossier.png', 'shots/sentinel-home.png', 'shots/sentinel-statistics.png', 'shots/sentinel-assistant.png', 'shots/sentinel-investigations.png'],
   'speakup': ['shots/speakup-auth-1.png', 'shots/candor-1.png', 'shots/candor-2.png', 'shots/candor-3.png', 'shots/candor-4.png', 'shots/candor-5.png'],
   'ai-landings': ['shots/prism-1.png', 'shots/prism-2.png', 'shots/prism-3.png', 'shots/prism-4.png', 'shots/prism-5.png'],
   'digital-office': ['shots/cadence-1.png', 'shots/cadence-2.png', 'shots/cadence-3.png', 'shots/cadence-4.png', 'shots/cadence-5.png'],
   'spk': ['shots/spk.png', 'shots/ean-company.png', 'shots/ean-person.png', 'shots/ean-esf.png', 'shots/ean-proc.png', 'shots/ean-network.png', 'shots/ean-vypiski.png', 'shots/ean-ved.png'],
-  'signet': ['shots/signet.png', 'shots/signet-template.png', 'shots/signet-create.png', 'shots/signet-inbox.png'],
+  'signet': ['shots/signet-home.png', 'shots/signet.png', 'shots/signet-create.png', 'shots/signet-template.png', 'shots/signet-newtemplate.png', 'shots/signet-document.png', 'shots/signet-inbox.png'],
   'foodi': ['shots/foodi.png', 'shots/foodi-search.png', 'shots/foodi-restaurant.png', 'shots/foodi-dish.png', 'shots/foodi-cart.png', 'shots/foodi-checkout.png', 'shots/foodi-order.png', 'shots/foodi-reviews.png', 'shots/foodi-profile.png']
 };
 const METRICS = {
@@ -397,6 +425,7 @@ const METRICS = {
     'spk': [{n:'8→1',l:'sources in one search'},{n:'−70%',l:'time per check'},{n:'100+',l:'data points per dossier'},{n:'0',l:'manual copy-paste'}],
     'signet': [{n:'3→1',l:'tools in one place'},{n:'−50%',l:'time to send a document'},{n:'100%',l:'status visible at a glance'},{n:'1',l:'screen, draft to signature'}],
     'foodi': [{n:'~2h',l:'design + working app'},{n:'3',l:'languages (KZ / RU / EN)'},{n:'1',l:'codebase, iOS + Android'},{n:'100%',l:'works offline'}],
+    'sentinel': [{n:'8→1',l:'sources in one dossier'},{n:'9',l:'tabs per company card'},{n:'−60%',l:'time per counterparty check'},{n:'100%',l:'risk visible at a glance'}],
     'aml': [{n:'−40%',l:'time per case review'},{n:'100+',l:'risk signals per client'},{n:'1',l:'unified review flow'},{n:'2',l:'sides: analyst + audit'}],
     'speakup': [{n:'100%',l:'anonymous by default'},{n:'3',l:'steps to file a report'},{n:'1',l:'status the reporter can follow'},{n:'2',l:'sides: employee + reviewer'}],
     'digital-office': [{n:'6→1',l:'tabs into one workspace'},{n:'−45%',l:'context-switching'},{n:'1',l:'component set across modules'},{n:'100%',l:'consistent new modules'}]
@@ -406,6 +435,7 @@ const METRICS = {
     'spk': [{n:'8→1',l:'источников в одном поиске'},{n:'−70%',l:'времени на проверку'},{n:'100+',l:'параметров в досье'},{n:'0',l:'ручного копирования'}],
     'signet': [{n:'3→1',l:'инструмента в одном месте'},{n:'−50%',l:'времени на отправку'},{n:'100%',l:'статус виден сразу'},{n:'1',l:'экран: от черновика до подписи'}],
     'foodi': [{n:'~2ч',l:'дизайн и рабочее приложение'},{n:'3',l:'языка (KZ / RU / EN)'},{n:'1',l:'кодовая база на iOS + Android'},{n:'100%',l:'работает офлайн'}],
+    'sentinel': [{n:'8→1',l:'источников в одном досье'},{n:'9',l:'вкладок в карточке компании'},{n:'−60%',l:'времени на проверку контрагента'},{n:'100%',l:'риск виден сразу'}],
     'aml': [{n:'−40%',l:'времени на кейс'},{n:'100+',l:'риск-сигналов на клиента'},{n:'1',l:'единый сценарий проверки'},{n:'2',l:'стороны: аналитик и аудит'}],
     'speakup': [{n:'100%',l:'анонимно по умолчанию'},{n:'3',l:'шага до обращения'},{n:'1',l:'статус, который видит заявитель'},{n:'2',l:'стороны: сотрудник и проверяющий'}],
     'digital-office': [{n:'6→1',l:'вкладок в одном месте'},{n:'−45%',l:'переключений между инструментами'},{n:'1',l:'набор компонентов на все модули'},{n:'100%',l:'консистентных модулей'}]
@@ -414,14 +444,15 @@ const METRICS = {
 const MOBILE = { 'foodi': true };
 const LOGOS = {};
 const LINKS = { 'ai-landings': 'https://ac.adata.kz/compliance' };
-const BADGES = { 'ai-landings': 'AI', 'spk': 'AI', 'signet': 'AI', 'foodi': 'Built with AI · 2h' };
+const BADGES = { 'ai-landings': 'AI', 'spk': 'AI', 'signet': 'AI', 'sentinel': 'AI', 'foodi': 'Built with AI · 2h' };
 const SCREENS = {
   'speakup': ['shots/speakup-auth-1.png', 'shots/speakup-auth-3.png', 'shots/candor-1.png', 'shots/candor-2.png', 'shots/candor-3.png', 'shots/candor-4.png', 'shots/candor-5.png'],
   'aml': ['shots/aegis-1.png', 'shots/aegis-2.png', 'shots/aegis-3.png', 'shots/aegis-4.png', 'shots/aegis-5.png'],
+  'sentinel': ['shots/sentinel-home.png', 'shots/sentinel-dossier.png', 'shots/sentinel-statistics.png', 'shots/sentinel-assistant.png', 'shots/sentinel-investigations.png', 'shots/sentinel-sanctions.png'],
   'ai-landings': ['shots/prism-1.png', 'shots/prism-2.png', 'shots/prism-3.png', 'shots/prism-4.png', 'shots/prism-5.png'],
   'digital-office': ['shots/cadence-1.png', 'shots/cadence-2.png', 'shots/cadence-3.png', 'shots/cadence-4.png', 'shots/cadence-5.png'],
   'spk': ['shots/ean-login.png', 'shots/ean-company.png', 'shots/ean-person.png', 'shots/ean-esf.png', 'shots/ean-proc.png', 'shots/ean-network.png', 'shots/ean-vypiski.png', 'shots/ean-ved.png'],
-  'signet': ['shots/signet.png', 'shots/signet-template.png', 'shots/signet-create.png', 'shots/signet-inbox.png'],
+  'signet': ['shots/signet-home.png', 'shots/signet.png', 'shots/signet-create.png', 'shots/signet-template.png', 'shots/signet-newtemplate.png', 'shots/signet-document.png', 'shots/signet-inbox.png'],
   'foodi': ['shots/foodi.png', 'shots/foodi-search.png', 'shots/foodi-restaurant.png', 'shots/foodi-dish.png', 'shots/foodi-cart.png', 'shots/foodi-checkout.png', 'shots/foodi-order.png', 'shots/foodi-reviews.png', 'shots/foodi-profile.png']
 };
 
