@@ -411,12 +411,12 @@ const MEANING = {
 };
 const PREVIEW = {
   'aml': ['shots/aegis-1.png', 'shots/aegis-2.png', 'shots/aegis-3.png', 'shots/aegis-4.png', 'shots/aegis-5.png'],
-  'sentinel': ['shots/sentinel-dossier.png', 'shots/sentinel-home.png', 'shots/sentinel-statistics.png', 'shots/sentinel-assistant.png', 'shots/sentinel-investigations.png'],
+  'sentinel': ['shots/sentinel-dossier.png', 'shots/sentinel-statistics.png', 'shots/sentinel-coi.png', 'shots/sentinel-sb-result.png', 'shots/sentinel-pep-graph.png'],
   'speakup': ['shots/speakup-auth-1.png', 'shots/candor-1.png', 'shots/candor-2.png', 'shots/candor-3.png', 'shots/candor-4.png', 'shots/candor-5.png'],
   'ai-landings': ['shots/prism-1.png', 'shots/prism-2.png', 'shots/prism-3.png', 'shots/prism-4.png', 'shots/prism-5.png'],
   'digital-office': ['shots/cadence-1.png', 'shots/cadence-2.png', 'shots/cadence-3.png', 'shots/cadence-4.png', 'shots/cadence-5.png'],
   'spk': ['shots/spk.png', 'shots/ean-company.png', 'shots/ean-person.png', 'shots/ean-esf.png', 'shots/ean-proc.png', 'shots/ean-network.png', 'shots/ean-vypiski.png', 'shots/ean-ved.png'],
-  'signet': ['shots/signet-home.png', 'shots/signet.png', 'shots/signet-create.png', 'shots/signet-template.png', 'shots/signet-newtemplate.png', 'shots/signet-document.png', 'shots/signet-inbox.png'],
+  'signet': ['shots/signet-home.png', 'shots/signet-inbox.png', 'shots/signet-document.png', 'shots/signet-template.png', 'shots/signet-newtemplate.png', 'shots/signet.png', 'shots/signet-create.png'],
   'foodi': ['shots/foodi.png', 'shots/foodi-search.png', 'shots/foodi-restaurant.png', 'shots/foodi-dish.png', 'shots/foodi-cart.png', 'shots/foodi-checkout.png', 'shots/foodi-order.png', 'shots/foodi-reviews.png', 'shots/foodi-profile.png']
 };
 const METRICS = {
@@ -448,11 +448,11 @@ const BADGES = { 'ai-landings': 'AI', 'spk': 'AI', 'signet': 'AI', 'sentinel': '
 const SCREENS = {
   'speakup': ['shots/speakup-auth-1.png', 'shots/speakup-auth-3.png', 'shots/candor-1.png', 'shots/candor-2.png', 'shots/candor-3.png', 'shots/candor-4.png', 'shots/candor-5.png'],
   'aml': ['shots/aegis-1.png', 'shots/aegis-2.png', 'shots/aegis-3.png', 'shots/aegis-4.png', 'shots/aegis-5.png'],
-  'sentinel': ['shots/sentinel-home.png', 'shots/sentinel-dossier.png', 'shots/sentinel-statistics.png', 'shots/sentinel-assistant.png', 'shots/sentinel-investigations.png', 'shots/sentinel-sanctions.png'],
+  'sentinel': ['shots/sentinel-statistics.png', 'shots/sentinel-assistant.png', 'shots/sentinel-tasks.png', 'shots/sentinel-dossier.png', 'shots/sentinel-sb-analyze.png', 'shots/sentinel-sb-result.png', 'shots/sentinel-sanctions.png', 'shots/sentinel-coi.png', 'shots/sentinel-pep.png', 'shots/sentinel-pep-graph.png'],
   'ai-landings': ['shots/prism-1.png', 'shots/prism-2.png', 'shots/prism-3.png', 'shots/prism-4.png', 'shots/prism-5.png'],
   'digital-office': ['shots/cadence-1.png', 'shots/cadence-2.png', 'shots/cadence-3.png', 'shots/cadence-4.png', 'shots/cadence-5.png'],
   'spk': ['shots/ean-login.png', 'shots/ean-company.png', 'shots/ean-person.png', 'shots/ean-esf.png', 'shots/ean-proc.png', 'shots/ean-network.png', 'shots/ean-vypiski.png', 'shots/ean-ved.png'],
-  'signet': ['shots/signet-home.png', 'shots/signet.png', 'shots/signet-create.png', 'shots/signet-template.png', 'shots/signet-newtemplate.png', 'shots/signet-document.png', 'shots/signet-inbox.png'],
+  'signet': ['shots/signet-home.png', 'shots/signet-inbox.png', 'shots/signet-document.png', 'shots/signet-template.png', 'shots/signet-newtemplate.png', 'shots/signet.png', 'shots/signet-create.png'],
   'foodi': ['shots/foodi.png', 'shots/foodi-search.png', 'shots/foodi-restaurant.png', 'shots/foodi-dish.png', 'shots/foodi-cart.png', 'shots/foodi-checkout.png', 'shots/foodi-order.png', 'shots/foodi-reviews.png', 'shots/foodi-profile.png']
 };
 
