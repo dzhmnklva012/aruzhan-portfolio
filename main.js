@@ -185,7 +185,7 @@ const caseStudies = [
     subtitle: 'A set of marketing landing pages for an AI product suite.',
     benefits: ['Landing pages', 'Marketing', 'Conversion', 'Visual system'],
     gallery: ['cards', 'grid', 'cards', 'dashboard', 'cards'],
-    title: 'Selling an AI compliance product in three scrolls',
+    title: 'AI-powered checks on any company, in one window',
     role: ['Product Designer', 'Visual Design'], status: ['Shipped'], type: ['Landing', 'Marketing', 'Web'],
     intro: [
       'Compliance runs automated checks on companies and counterparties. The product is easy to use and hard to explain — the value lives in data sources and risk logic nobody wants to read about.',
@@ -193,15 +193,15 @@ const caseStudies = [
     ]
   },
   {
-    id: 'spk', name: 'Argus', kind: 'Analytics · B2G', yr: '2025', accent: '#38b6ff', icon: '🔎', url: '',
-    subtitle: 'An analytics platform for due diligence — global search across companies and people.',
-    benefits: ['Analytics', 'Global search', 'Dossiers', 'Data-dense UI'],
+    id: 'sentinel', name: 'Sentinel', kind: 'Compliance · Due diligence', yr: '2026', accent: '#068dff', icon: '🕵️', url: '',
+    subtitle: 'A compliance dossier platform — counterparty due diligence, risk scoring, investigations, and an AI assistant.',
+    benefits: ['Dossiers', 'Risk scoring', 'Investigations', 'AI assistant'],
     gallery: ['dashboard', 'grid', 'dashboard', 'cards', 'dashboard'],
-    title: 'Due diligence that takes minutes, not days',
-    role: ['Product Designer', 'UX + UI'], status: ['Live demo'], type: ['Analytics', 'B2G', 'Web'],
+    title: 'Every risk on a counterparty, on one card',
+    role: ['Product Designer', 'UX + UI'], status: ['In progress'], type: ['Compliance', 'B2B', 'Web'],
     intro: [
-      'Argus pulls scattered public data — company registries, filings, procurement, foreign trade — into one searchable place. An analyst who used to open eight sources now opens one.',
-      'I designed the search-first experience and the dossier views: what appears the moment you type a name, how connections between people and companies are shown, and how a long analytical session stays readable in dark mode.'
+      'Sentinel is the compliance product behind the checks: a registry of counterparties and employees, a company dossier with a reliability score and nine tabs, a hotline, investigations, and sanctions screening — the work a security or compliance team does every day.',
+      'I designed the dense screens so a reviewer sees the whole picture without drowning in it — what the risk is and where it comes from, surfaced the moment a company opens — with an AI assistant that runs a check or drafts a conclusion from a plain request.'
     ]
   },
   {
@@ -230,15 +230,15 @@ const caseStudies = [
     ]
   },
   {
-    id: 'sentinel', name: 'Sentinel', kind: 'Compliance · Due diligence', yr: '2026', accent: '#068dff', icon: '🕵️', url: '',
-    subtitle: 'A compliance dossier platform — counterparty due diligence, risk scoring, investigations, and an AI assistant.',
-    benefits: ['Dossiers', 'Risk scoring', 'Investigations', 'AI assistant'],
-    gallery: ['dashboard', 'grid', 'dashboard', 'cards', 'dashboard'],
-    title: 'Every risk on a counterparty, on one card',
-    role: ['Product Designer', 'UX + UI'], status: ['In progress'], type: ['Compliance', 'B2B', 'Web'],
+    id: 'speakup', name: 'Speak Up', kind: 'Ethics · HR', yr: '2025', accent: '#2faa5e', icon: '📣', url: '',
+    subtitle: 'A safe whistleblowing and feedback platform for employees to raise concerns.',
+    benefits: ['Whistleblowing', 'Trust & safety', 'Anonymous reports', 'Case tracking'],
+    gallery: ['phone', 'cards', 'phone', 'grid', 'phone'],
+    title: 'A channel people actually trust enough to use',
+    role: ['Product Designer', 'UX + UI'], status: ['In progress'], type: ['Ethics', 'HR', 'B2B'],
     intro: [
-      'Sentinel is the compliance product behind the checks: a registry of counterparties and employees, a company dossier with a reliability score and nine tabs, a hotline, investigations, and sanctions screening — the work a security or compliance team does every day.',
-      'I designed the dense screens so a reviewer sees the whole picture without drowning in it — what the risk is and where it comes from, surfaced the moment a company opens — with an AI assistant that runs a check or drafts a conclusion from a plain request.'
+      'Speak Up lets employees report concerns and share feedback — anonymously when they need to. Trust is the whole product: a channel people doubt is a channel nobody opens.',
+      'I designed both sides — the reporting flow for employees and the case queue for reviewers — keeping the tone calm and making every privacy promise visible at the moment it matters, not buried in a policy.'
     ]
   },
   {
@@ -254,18 +254,6 @@ const caseStudies = [
     ]
   },
   {
-    id: 'speakup', name: 'Speak Up', kind: 'Ethics · HR', yr: '2025', accent: '#2faa5e', icon: '📣', url: '',
-    subtitle: 'A safe whistleblowing and feedback platform for employees to raise concerns.',
-    benefits: ['Whistleblowing', 'Trust & safety', 'Anonymous reports', 'Case tracking'],
-    gallery: ['phone', 'cards', 'phone', 'grid', 'phone'],
-    title: 'A channel people actually trust enough to use',
-    role: ['Product Designer', 'UX + UI'], status: ['In progress'], type: ['Ethics', 'HR', 'B2B'],
-    intro: [
-      'Speak Up lets employees report concerns and share feedback — anonymously when they need to. Trust is the whole product: a channel people doubt is a channel nobody opens.',
-      'I designed both sides — the reporting flow for employees and the case queue for reviewers — keeping the tone calm and making every privacy promise visible at the moment it matters, not buried in a policy.'
-    ]
-  },
-  {
     id: 'digital-office', name: 'Cadence', kind: 'Enterprise product', yr: '2024—25', accent: '#d99a16', icon: '🗂️', url: '',
     subtitle: 'A digital workplace for tasks, documents, and team collaboration.',
     benefits: ['Enterprise', 'Task management', 'Dashboards', 'Design system'],
@@ -275,6 +263,18 @@ const caseStudies = [
     intro: [
       'Cadence brings tasks, documents and team communication into one workspace, so a working day stops being a loop of switching between tools.',
       'I work on the core flows and a reusable component set — the part that decides whether a dense enterprise product stays learnable as teams keep adding to it.'
+    ]
+  },
+  {
+    id: 'spk', name: 'Argus', kind: 'Analytics · B2G', yr: '2025', accent: '#38b6ff', icon: '🔎', url: '',
+    subtitle: 'An analytics platform for due diligence — global search across companies and people.',
+    benefits: ['Analytics', 'Global search', 'Dossiers', 'Data-dense UI'],
+    gallery: ['dashboard', 'grid', 'dashboard', 'cards', 'dashboard'],
+    title: 'Due diligence that takes minutes, not days',
+    role: ['Product Designer', 'UX + UI'], status: ['Live demo'], type: ['Analytics', 'B2G', 'Web'],
+    intro: [
+      'Argus pulls scattered public data — company registries, filings, procurement, foreign trade — into one searchable place. An analyst who used to open eight sources now opens one.',
+      'I designed the search-first experience and the dossier views: what appears the moment you type a name, how connections between people and companies are shown, and how a long analytical session stays readable in dark mode.'
     ]
   }
 
@@ -314,7 +314,7 @@ const CS_RU = {
   'ai-landings': {
     kind: 'Лендинг · Маркетинг', subtitle: 'Серия маркетинговых лендингов для линейки AI-продуктов.',
     benefits: ['Лендинги', 'Маркетинг', 'Конверсия', 'Визуальная система'],
-    title: 'Как продать AI-проверки за три экрана',
+    title: 'ИИ-проверки любой компании — в одном окне',
     role: ['Продуктовый дизайнер', 'Визуальный дизайн'], status: ['Запущено'], type: ['Лендинг', 'Маркетинг', 'Web'],
     intro: [
       'Compliance автоматически проверяет компании и контрагентов. Продукт простой в использовании и сложный в объяснении — ценность спрятана в источниках данных и риск-логике, которую никто не хочет читать.',
