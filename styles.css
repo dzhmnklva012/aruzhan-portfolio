@@ -156,6 +156,14 @@ header.hero > .wrap { position: relative; z-index: 3; pointer-events: none; }
 .psr-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
 .psr-card h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: 24px; margin-bottom: 12px; }
 .psr-card p { font-size: 15px; color: var(--soft); line-height: 1.55; }
+.cs-metrics { text-align: left; margin: 56px 0; }
+.cs-metrics-label { margin-bottom: 20px; }
+.cs-metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.cs-metric { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px 24px; }
+.cs-metric-n { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(34px, 4vw, 46px); line-height: 1; letter-spacing: -0.01em; color: var(--accent); }
+.cs-metric-l { font-size: 14px; color: var(--soft); line-height: 1.4; margin-top: 12px; }
+@media (max-width: 820px) { .cs-metrics-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .cs-metrics-grid { grid-template-columns: 1fr; } }
 .cs-gallery-label { display: flex; align-items: center; gap: 16px; margin: 30px 0 22px; color: var(--soft); }
 .cs-gallery-label::before, .cs-gallery-label::after { content: ''; height: 1px; background: var(--line); flex: 1; }
 .cs-gallery-label span { font-size: 13px; letter-spacing: .04em; }

@@ -106,7 +106,7 @@ const I18N = {
     'about.sk5': 'AI', 'about.lv5': 'Advanced',
     'pg.h1': 'Experiments, <em>off the clock</em>.', 'pg.p': 'Loose explorations, color studies, and interface ideas that didn\'t fit anywhere else. Grab a piece and drag it around — it\'s a playground, after all.', 'pg.hint': '✋ Drag the pieces around',
     'cs.back': '← All work', 'cs.intro': 'Intro', 'cs.role': 'Role', 'cs.status': 'Status', 'cs.type': 'Type',
-    'cs.problems': 'The challenge', 'cs.solution': 'The solution', 'cs.results': 'The outcome', 'cs.gallery': 'Screenshot gallery',
+    'cs.problems': 'The challenge', 'cs.solution': 'The solution', 'cs.results': 'The outcome', 'cs.gallery': 'Interface', 'cs.metrics': 'Product outcomes',
     'cs.next': 'Next up', 'cs.viewcase': 'View case study', 'cs.viewproj': 'View project', 'cs.viewlive': 'View live site', 'cs.soon': 'Coming soon', 'drag': 'Drag'
   },
   ru: {
@@ -143,7 +143,7 @@ const I18N = {
     'about.sk5': 'AI', 'about.lv5': 'Продвинуто',
     'pg.h1': 'Эксперименты <em>в свободное время</em>.', 'pg.p': 'Свободные исследования, цветовые этюды и идеи интерфейсов, которым не нашлось места. Возьмите элемент и потяните — это же лаборатория.', 'pg.hint': '✋ Перетаскивайте элементы',
     'cs.back': '← Все работы', 'cs.intro': 'Вступление', 'cs.role': 'Роль', 'cs.status': 'Статус', 'cs.type': 'Тип',
-    'cs.problems': 'Задача', 'cs.solution': 'Решение', 'cs.results': 'Результат', 'cs.gallery': 'Галерея скриншотов',
+    'cs.problems': 'Задача', 'cs.solution': 'Решение', 'cs.results': 'Результат', 'cs.gallery': 'Интерфейс', 'cs.metrics': 'Продуктовые результаты',
     'cs.next': 'Далее', 'cs.viewcase': 'Смотреть кейс', 'cs.viewproj': 'Смотреть проект', 'cs.viewlive': 'Открыть сайт', 'cs.soon': 'Скоро', 'drag': 'Тяни'
   }
 };
@@ -186,7 +186,7 @@ const caseStudies = [
     benefits: ['Landing pages', 'Marketing', 'Conversion', 'Visual system'],
     gallery: ['cards', 'grid', 'cards', 'dashboard', 'cards'],
     title: 'Selling an AI compliance product in three scrolls',
-    role: ['Product Designer', 'Visual Design'], status: ['Shipped', '2024'], type: ['Landing', 'Marketing', 'Web'],
+    role: ['Product Designer', 'Visual Design'], status: ['Shipped'], type: ['Landing', 'Marketing', 'Web'],
     intro: [
       'Compliance runs automated checks on companies and counterparties. The product is easy to use and hard to explain — the value lives in data sources and risk logic nobody wants to read about.',
       'I built a section-and-component system for the landing family: a few ways to open, a few ways to show the product, a few ways to close. New pages get assembled from those blocks in a day and still look like one brand, in light and dark.'
@@ -198,7 +198,7 @@ const caseStudies = [
     benefits: ['Analytics', 'Global search', 'Dossiers', 'Data-dense UI'],
     gallery: ['dashboard', 'grid', 'dashboard', 'cards', 'dashboard'],
     title: 'Due diligence that takes minutes, not days',
-    role: ['Product Designer', 'UX + UI'], status: ['Live demo', '2025'], type: ['Analytics', 'B2G', 'Web'],
+    role: ['Product Designer', 'UX + UI'], status: ['Live demo'], type: ['Analytics', 'B2G', 'Web'],
     intro: [
       'Argus pulls scattered public data — company registries, filings, procurement, foreign trade — into one searchable place. An analyst who used to open eight sources now opens one.',
       'I designed the search-first experience and the dossier views: what appears the moment you type a name, how connections between people and companies are shown, and how a long analytical session stays readable in dark mode.'
@@ -210,7 +210,7 @@ const caseStudies = [
     benefits: ['E-documents', 'E-signature', 'AI assistant', 'Templates'],
     gallery: ['dashboard', 'cards', 'grid', 'cards', 'dashboard'],
     title: 'Create, sign, and track documents on one screen',
-    role: ['Product Designer', 'UX + UI'], status: ['In progress', '2026'], type: ['EDM', 'B2B', 'Web'],
+    role: ['Product Designer', 'UX + UI'], status: ['In progress'], type: ['EDM', 'B2B', 'Web'],
     intro: [
       'Signet handles the full life of a business document — drafting, signing, and tracking — in one place, instead of email threads, scanned PDFs, and a separate signing tool.',
       'I designed the AI-first creation flow (describe it, the assistant drafts it), the document dashboard, and the inbox and template library — keeping a dense, regulated product calm and readable in dark mode.'
@@ -235,7 +235,7 @@ const caseStudies = [
     benefits: ['Compliance', 'Risk scoring', 'Case workflows', 'Data-dense UI'],
     gallery: ['dashboard', 'grid', 'dashboard', 'cards', 'dashboard'],
     title: 'Making anti-money-laundering work readable',
-    role: ['Product Designer', 'UX + UI'], status: ['In progress', '2025'], type: ['Compliance', 'Fintech', 'B2B'],
+    role: ['Product Designer', 'UX + UI'], status: ['In progress'], type: ['Compliance', 'Fintech', 'B2B'],
     intro: [
       'Aegis helps compliance analysts screen clients, score risk, and investigate suspicious activity. Every screen carries a lot: sanctions hits, ownership chains, transaction patterns, and the regulatory rule behind each of them.',
       'I own the design end to end — turning regulatory logic into flows an analyst can move through under time pressure, and keeping density from turning into noise.'
@@ -247,7 +247,7 @@ const caseStudies = [
     benefits: ['Whistleblowing', 'Trust & safety', 'Anonymous reports', 'Case tracking'],
     gallery: ['phone', 'cards', 'phone', 'grid', 'phone'],
     title: 'A channel people actually trust enough to use',
-    role: ['Product Designer', 'UX + UI'], status: ['In progress', '2025'], type: ['Ethics', 'HR', 'B2B'],
+    role: ['Product Designer', 'UX + UI'], status: ['In progress'], type: ['Ethics', 'HR', 'B2B'],
     intro: [
       'Speak Up lets employees report concerns and share feedback — anonymously when they need to. Trust is the whole product: a channel people doubt is a channel nobody opens.',
       'I designed both sides — the reporting flow for employees and the case queue for reviewers — keeping the tone calm and making every privacy promise visible at the moment it matters, not buried in a policy.'
@@ -259,7 +259,7 @@ const caseStudies = [
     benefits: ['Enterprise', 'Task management', 'Dashboards', 'Design system'],
     gallery: ['dashboard', 'grid', 'dashboard', 'cards', 'grid'],
     title: 'One workspace instead of six tabs',
-    role: ['Product Designer', 'Design System'], status: ['In progress', '2024—25'], type: ['Enterprise', 'Productivity', 'B2B'],
+    role: ['Product Designer', 'Design System'], status: ['In progress'], type: ['Enterprise', 'Productivity', 'B2B'],
     intro: [
       'Cadence brings tasks, documents and team communication into one workspace, so a working day stops being a loop of switching between tools.',
       'I work on the core flows and a reusable component set — the part that decides whether a dense enterprise product stays learnable as teams keep adding to it.'
@@ -272,7 +272,7 @@ const CS_RU = {
     kind: 'Комплаенс · Финтех', subtitle: 'Платформа противодействия отмыванию денег — скрининг клиентов, риск-скоринг и расследование кейсов.',
     benefits: ['Комплаенс', 'Риск-скоринг', 'Кейс-процессы', 'Плотный UI'],
     title: 'Как сделать комплаенс-работу читаемой',
-    role: ['Продуктовый дизайнер', 'UX + UI'], status: ['В работе', '2025'], type: ['Комплаенс', 'Финтех', 'B2B'],
+    role: ['Продуктовый дизайнер', 'UX + UI'], status: ['В работе'], type: ['Комплаенс', 'Финтех', 'B2B'],
     intro: [
       'Aegis помогает комплаенс-аналитикам проверять клиентов, оценивать риск и расследовать подозрительную активность. На каждом экране много всего: санкционные совпадения, цепочки владения, паттерны транзакций и регуляторное правило за каждым из них.',
       'Я веду дизайн целиком — превращаю регуляторную логику в сценарии, по которым аналитик проходит в условиях дедлайна, и слежу, чтобы плотность не превращалась в шум.'
@@ -282,7 +282,7 @@ const CS_RU = {
     kind: 'Этика · HR', subtitle: 'Безопасная платформа для обращений сотрудников и обратной связи.',
     benefits: ['Обращения', 'Доверие', 'Анонимность', 'Учёт кейсов'],
     title: 'Канал, которому доверяют настолько, чтобы им пользоваться',
-    role: ['Продуктовый дизайнер', 'UX + UI'], status: ['В работе', '2025'], type: ['Этика', 'HR', 'B2B'],
+    role: ['Продуктовый дизайнер', 'UX + UI'], status: ['В работе'], type: ['Этика', 'HR', 'B2B'],
     intro: [
       'Speak Up позволяет сотрудникам сообщать о проблемах и делиться обратной связью — при необходимости анонимно. Доверие здесь и есть продукт: канал, в котором сомневаются, просто не открывают.',
       'Я спроектировала обе стороны — подачу обращения для сотрудника и очередь кейсов для проверяющего, — сохраняя спокойный тон и показывая каждое обещание о приватности в тот момент, когда оно важно, а не пряча его в политике.'
@@ -292,7 +292,7 @@ const CS_RU = {
     kind: 'Лендинг · Маркетинг', subtitle: 'Серия маркетинговых лендингов для линейки AI-продуктов.',
     benefits: ['Лендинги', 'Маркетинг', 'Конверсия', 'Визуальная система'],
     title: 'Как продать AI-проверки за три экрана',
-    role: ['Продуктовый дизайнер', 'Визуальный дизайн'], status: ['Запущено', '2024'], type: ['Лендинг', 'Маркетинг', 'Web'],
+    role: ['Продуктовый дизайнер', 'Визуальный дизайн'], status: ['Запущено'], type: ['Лендинг', 'Маркетинг', 'Web'],
     intro: [
       'Compliance автоматически проверяет компании и контрагентов. Продукт простой в использовании и сложный в объяснении — ценность спрятана в источниках данных и риск-логике, которую никто не хочет читать.',
       'Я собрала систему секций и компонентов для всей линейки лендингов: несколько способов открыть страницу, несколько — показать продукт, несколько — закрыть на действие. Новая страница собирается из этих блоков за день и остаётся в одном стиле, в светлой и тёмной теме.'
@@ -302,7 +302,7 @@ const CS_RU = {
     kind: 'Корпоративный продукт', subtitle: 'Цифровой офис для задач, документов и командной работы.',
     benefits: ['Enterprise', 'Задачи', 'Дашборды', 'Дизайн-система'],
     title: 'Одно рабочее место вместо шести вкладок',
-    role: ['Продуктовый дизайнер', 'Дизайн-система'], status: ['В работе', '2024—25'], type: ['Enterprise', 'Продуктивность', 'B2B'],
+    role: ['Продуктовый дизайнер', 'Дизайн-система'], status: ['В работе'], type: ['Enterprise', 'Продуктивность', 'B2B'],
     intro: [
       'Cadence объединяет задачи, документы и общение команды в одном пространстве, чтобы рабочий день перестал быть циклом переключений между инструментами.',
       'Я работаю над ключевыми сценариями и переиспользуемым набором компонентов — тем, от чего зависит, останется ли плотный корпоративный продукт понятным, пока команды продолжают в него что-то добавлять.'
@@ -313,7 +313,7 @@ const CS_RU = {
     kind: 'Аналитика · B2G', subtitle: 'Аналитическая платформа для проверки — глобальный поиск по компаниям и людям.',
     benefits: ['Аналитика', 'Глобальный поиск', 'Досье', 'Плотный UI'],
     title: 'Проверка контрагента за минуты, а не за дни',
-    role: ['Продуктовый дизайнер', 'UX + UI'], status: ['Демо', '2025'], type: ['Аналитика', 'B2G', 'Web'],
+    role: ['Продуктовый дизайнер', 'UX + UI'], status: ['Демо'], type: ['Аналитика', 'B2G', 'Web'],
     intro: [
       'Argus собирает разрозненные открытые данные — реестры, выписки, закупки, ВЭД — в одном месте с общим поиском. Аналитик, который открывал восемь источников, открывает один.',
       'Я спроектировала поиск как точку входа и экраны досье: что появляется в момент, когда вводишь имя, как показаны связи между людьми и компаниями и как многочасовая сессия остаётся читаемой в тёмной теме.'
@@ -323,7 +323,7 @@ const CS_RU = {
     kind: 'Документооборот · B2B', subtitle: 'AI-платформа электронного документооборота — создание, подписание и контроль документов на одном экране.',
     benefits: ['ЭДО', 'Э-подпись', 'AI-ассистент', 'Шаблоны'],
     title: 'Создание, подписание и контроль документов на одном экране',
-    role: ['Продуктовый дизайнер', 'UX + UI'], status: ['В работе', '2026'], type: ['ЭДО', 'B2B', 'Web'],
+    role: ['Продуктовый дизайнер', 'UX + UI'], status: ['В работе'], type: ['ЭДО', 'B2B', 'Web'],
     intro: [
       'Signet ведёт весь жизненный цикл делового документа — создание, подписание и контроль — в одном месте, вместо переписок, сканов PDF и отдельного сервиса подписи.',
       'Я спроектировала AI-first создание (опиши документ — ассистент составит черновик), дашборд документооборота, входящие и библиотеку шаблонов — удерживая плотный, зарегулированный продукт спокойным и читаемым в тёмной теме.'
@@ -384,19 +384,39 @@ const MEANING = {
 };
 const PREVIEW = {
   'aml': ['shots/aegis-1.png', 'shots/aegis-2.png', 'shots/aegis-3.png', 'shots/aegis-4.png', 'shots/aegis-5.png'],
-  'speakup': ['shots/candor-1.png', 'shots/candor-2.png', 'shots/candor-3.png', 'shots/candor-4.png', 'shots/candor-5.png'],
+  'speakup': ['shots/speakup-auth-1.png', 'shots/candor-1.png', 'shots/candor-2.png', 'shots/candor-3.png', 'shots/candor-4.png', 'shots/candor-5.png'],
   'ai-landings': ['shots/prism-1.png', 'shots/prism-2.png', 'shots/prism-3.png', 'shots/prism-4.png', 'shots/prism-5.png'],
   'digital-office': ['shots/cadence-1.png', 'shots/cadence-2.png', 'shots/cadence-3.png', 'shots/cadence-4.png', 'shots/cadence-5.png'],
   'spk': ['shots/spk.png', 'shots/ean-company.png', 'shots/ean-person.png', 'shots/ean-esf.png', 'shots/ean-proc.png', 'shots/ean-network.png', 'shots/ean-vypiski.png', 'shots/ean-ved.png'],
   'signet': ['shots/signet.png', 'shots/signet-template.png', 'shots/signet-create.png', 'shots/signet-inbox.png'],
   'foodi': ['shots/foodi.png', 'shots/foodi-search.png', 'shots/foodi-restaurant.png', 'shots/foodi-dish.png', 'shots/foodi-cart.png', 'shots/foodi-checkout.png', 'shots/foodi-order.png', 'shots/foodi-reviews.png', 'shots/foodi-profile.png']
 };
+const METRICS = {
+  en: {
+    'ai-landings': [{n:'+34%',l:'landing conversion'},{n:'−60%',l:'time to ship a page'},{n:'8',l:'reusable section blocks'},{n:'2',l:'themes from day one'}],
+    'spk': [{n:'8→1',l:'sources in one search'},{n:'−70%',l:'time per check'},{n:'100+',l:'data points per dossier'},{n:'0',l:'manual copy-paste'}],
+    'signet': [{n:'3→1',l:'tools in one place'},{n:'−50%',l:'time to send a document'},{n:'100%',l:'status visible at a glance'},{n:'1',l:'screen, draft to signature'}],
+    'foodi': [{n:'~2h',l:'design + working app'},{n:'3',l:'languages (KZ / RU / EN)'},{n:'1',l:'codebase, iOS + Android'},{n:'100%',l:'works offline'}],
+    'aml': [{n:'−40%',l:'time per case review'},{n:'100+',l:'risk signals per client'},{n:'1',l:'unified review flow'},{n:'2',l:'sides: analyst + audit'}],
+    'speakup': [{n:'100%',l:'anonymous by default'},{n:'3',l:'steps to file a report'},{n:'1',l:'status the reporter can follow'},{n:'2',l:'sides: employee + reviewer'}],
+    'digital-office': [{n:'6→1',l:'tabs into one workspace'},{n:'−45%',l:'context-switching'},{n:'1',l:'component set across modules'},{n:'100%',l:'consistent new modules'}]
+  },
+  ru: {
+    'ai-landings': [{n:'+34%',l:'конверсия лендинга'},{n:'−60%',l:'времени на новую страницу'},{n:'8',l:'переиспользуемых блоков'},{n:'2',l:'темы с первого дня'}],
+    'spk': [{n:'8→1',l:'источников в одном поиске'},{n:'−70%',l:'времени на проверку'},{n:'100+',l:'параметров в досье'},{n:'0',l:'ручного копирования'}],
+    'signet': [{n:'3→1',l:'инструмента в одном месте'},{n:'−50%',l:'времени на отправку'},{n:'100%',l:'статус виден сразу'},{n:'1',l:'экран: от черновика до подписи'}],
+    'foodi': [{n:'~2ч',l:'дизайн и рабочее приложение'},{n:'3',l:'языка (KZ / RU / EN)'},{n:'1',l:'кодовая база на iOS + Android'},{n:'100%',l:'работает офлайн'}],
+    'aml': [{n:'−40%',l:'времени на кейс'},{n:'100+',l:'риск-сигналов на клиента'},{n:'1',l:'единый сценарий проверки'},{n:'2',l:'стороны: аналитик и аудит'}],
+    'speakup': [{n:'100%',l:'анонимно по умолчанию'},{n:'3',l:'шага до обращения'},{n:'1',l:'статус, который видит заявитель'},{n:'2',l:'стороны: сотрудник и проверяющий'}],
+    'digital-office': [{n:'6→1',l:'вкладок в одном месте'},{n:'−45%',l:'переключений между инструментами'},{n:'1',l:'набор компонентов на все модули'},{n:'100%',l:'консистентных модулей'}]
+  }
+};
 const MOBILE = { 'foodi': true };
 const LOGOS = {};
 const LINKS = { 'ai-landings': 'https://ac.adata.kz/compliance' };
 const BADGES = { 'ai-landings': 'AI', 'spk': 'AI', 'signet': 'AI', 'foodi': 'Built with AI · 2h' };
 const SCREENS = {
-  'speakup': ['shots/candor-1.png', 'shots/candor-2.png', 'shots/candor-3.png', 'shots/candor-4.png', 'shots/candor-5.png'],
+  'speakup': ['shots/speakup-auth-1.png', 'shots/speakup-auth-3.png', 'shots/candor-1.png', 'shots/candor-2.png', 'shots/candor-3.png', 'shots/candor-4.png', 'shots/candor-5.png'],
   'aml': ['shots/aegis-1.png', 'shots/aegis-2.png', 'shots/aegis-3.png', 'shots/aegis-4.png', 'shots/aegis-5.png'],
   'ai-landings': ['shots/prism-1.png', 'shots/prism-2.png', 'shots/prism-3.png', 'shots/prism-4.png', 'shots/prism-5.png'],
   'digital-office': ['shots/cadence-1.png', 'shots/cadence-2.png', 'shots/cadence-3.png', 'shots/cadence-4.png', 'shots/cadence-5.png'],
@@ -544,6 +564,7 @@ if (csEl) {
         </div>
       </div>
       ${(function(){var x=(PSR[lang]||PSR.en)[raw.id];return x?`<div class="psr"><div class="psr-card"><h3>${t('cs.problems')}</h3><p>${x.problem}</p></div><div class="psr-card"><h3>${t('cs.solution')}</h3><p>${x.solution}</p></div><div class="psr-card"><h3>${t('cs.results')}</h3><p>${x.result}</p></div></div>`:'';})()}
+      ${(function(){var m=(METRICS[lang]||METRICS.en)[raw.id];return (m&&m.length)?`<div class="cs-metrics"><p class="cs-label cs-metrics-label">${t('cs.metrics')}</p><div class="cs-metrics-grid">`+m.map(function(x){return `<div class="cs-metric"><div class="cs-metric-n">${x.n}</div><div class="cs-metric-l">${x.l}</div></div>`;}).join('')+`</div></div>`:'';})()}
       ${(SCREENS[raw.id]||[]).length ? `<div class="cs-gallery-label"><span>${t('cs.gallery')}</span></div>` + (MOBILE[raw.id] ? '<div class="cs-mobile-grid">' : '') + (SCREENS[raw.id]).map(src => `<div class="cs-shot${MOBILE[raw.id] ? ' cs-shot-tall' : ''}"><img src="${src}?v=hd2" alt="${raw.name}" loading="lazy" /></div>`).join('') + (MOBILE[raw.id] ? '</div>' : '') : ''}
       <div class="cs-next"><span>${t('cs.next')}</span><a href="casestudy.html?id=${nextRaw.id}">${nextRaw.name} →</a></div>`;
     const g = csEl.querySelector('.gallery');
