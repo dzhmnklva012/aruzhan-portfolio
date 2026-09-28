@@ -362,7 +362,7 @@ const PREVIEW = {
   'ai-landings': ['shots/prism-1.png', 'shots/prism-2.png', 'shots/prism-3.png', 'shots/prism-4.png', 'shots/prism-5.png'],
   'digital-office': ['shots/cadence-1.png', 'shots/cadence-2.png', 'shots/cadence-3.png', 'shots/cadence-4.png', 'shots/cadence-5.png'],
   'spk': ['shots/spk.png', 'shots/ean-person.png', 'shots/ean-esf.png', 'shots/ean-proc.png'],
-  'foodi': ['shots/foodi.png', 'shots/foodi-restaurant.png', 'shots/foodi-order.png', 'shots/foodi-reviews.png', 'shots/foodi-profile.png']
+  'foodi': ['shots/foodi.png', 'shots/foodi-search.png', 'shots/foodi-restaurant.png', 'shots/foodi-dish.png', 'shots/foodi-cart.png', 'shots/foodi-checkout.png', 'shots/foodi-order.png', 'shots/foodi-reviews.png', 'shots/foodi-profile.png']
 };
 const MOBILE = { 'foodi': true };
 const LOGOS = {};
@@ -374,7 +374,7 @@ const SCREENS = {
   'ai-landings': ['shots/prism-1.png', 'shots/prism-2.png', 'shots/prism-3.png', 'shots/prism-4.png', 'shots/prism-5.png'],
   'digital-office': ['shots/cadence-1.png', 'shots/cadence-2.png', 'shots/cadence-3.png', 'shots/cadence-4.png', 'shots/cadence-5.png'],
   'spk': ['shots/ean-login.png', 'shots/ean-person.png', 'shots/ean-esf.png', 'shots/ean-proc.png'],
-  'foodi': ['shots/foodi.png', 'shots/foodi-restaurant.png', 'shots/foodi-order.png', 'shots/foodi-reviews.png', 'shots/foodi-profile.png']
+  'foodi': ['shots/foodi.png', 'shots/foodi-search.png', 'shots/foodi-restaurant.png', 'shots/foodi-dish.png', 'shots/foodi-cart.png', 'shots/foodi-checkout.png', 'shots/foodi-order.png', 'shots/foodi-reviews.png', 'shots/foodi-profile.png']
 };
 
 function mock(kind, a) {
