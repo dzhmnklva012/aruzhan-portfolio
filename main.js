@@ -75,7 +75,7 @@ const I18N = {
   en: {
     'nav.work': 'Work', 'nav.playground': 'Playground', 'nav.about': 'About', 'nav.cv': 'CV ↗',
     'hero.hello': 'Hi, I\'m Aruzhan',
-    'hero.h1': 'Product Designer focused on <em>B2B, AI</em> and complex digital products.',
+    'hero.h1': 'Product Designer focused on <em>B2B, B2C, AI</em> and complex digital products.',
     'hero.current': 'Currently designing <b>complex B2B workflows</b> and a <b>multi-brand design system</b>.',
     'hero.trayLabel': 'How I spend my days — drag them around',
     'projects.head': 'Projects', 'trusted.label': 'Selected product work',
@@ -112,7 +112,7 @@ const I18N = {
   ru: {
     'nav.work': 'Работы', 'nav.playground': 'Эксперименты', 'nav.about': 'Обо мне', 'nav.cv': 'Резюме ↗',
     'hero.hello': 'Привет, я Аружан',
-    'hero.h1': 'Продуктовый дизайнер с фокусом на <em>B2B, AI</em> и сложных цифровых продуктах.',
+    'hero.h1': 'Продуктовый дизайнер с фокусом на <em>B2B, B2C, AI</em> и сложных цифровых продуктах.',
     'hero.current': 'Сейчас проектирую <b>сложные B2B-процессы</b> и <b>мультибрендовую дизайн-систему</b>.',
     'hero.trayLabel': 'Чем я занимаюсь — перетаскивайте',
     'projects.head': 'Проекты', 'trusted.label': 'Мои проекты',
