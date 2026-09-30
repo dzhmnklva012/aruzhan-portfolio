@@ -591,7 +591,7 @@ if (list) {
         ${(MEANING[lang]||MEANING.en)[raw.id] ? `<p class="proj-meaning">${(MEANING[lang]||MEANING.en)[raw.id]}</p>` : ''}
         <p class="subtitle">${p.subtitle}</p>
         <div class="benefits">${p.benefits.map(b => `<span>${b}</span>`).join('')}</div>
-        <div class="gallery-wrap"><div class="gallery preview${MOBILE[raw.id] ? ' preview-mobile' : ''}">${(PREVIEW[raw.id] || ['shots/'+raw.id+'.png']).map(src => `<div class="pshot${MOBILE[raw.id] ? ' pshot-tall' : ''}"><img src="${src}?v=hd2" alt="${raw.name}" loading="lazy" draggable="false" /></div>`).join('')}</div></div>`;
+        <div class="gallery-wrap"><div class="gallery preview${MOBILE[raw.id] ? ' preview-mobile' : ''}">${(PREVIEW[raw.id] || ['shots/'+raw.id+'.png']).map(src => `<div class="pshot${MOBILE[raw.id] ? ' pshot-tall' : ''}"><img src="${src}?v=hd3" alt="${raw.name}" loading="lazy" draggable="false" /></div>`).join('')}</div></div>`;
       list.appendChild(el);
       if (animate) io.observe(el);
       const g = el.querySelector('.gallery');
@@ -629,7 +629,7 @@ if (csEl) {
       </div>
       ${(function(){var x=(PSR[lang]||PSR.en)[raw.id];return x?`<div class="psr"><div class="psr-card"><h3>${t('cs.problems')}</h3><p>${x.problem}</p></div><div class="psr-card"><h3>${t('cs.solution')}</h3><p>${x.solution}</p></div><div class="psr-card"><h3>${t('cs.results')}</h3><p>${x.result}</p></div></div>`:'';})()}
       ${(function(){var m=(METRICS[lang]||METRICS.en)[raw.id];return (m&&m.length)?`<div class="cs-metrics"><p class="cs-label cs-metrics-label">${t('cs.metrics')}</p><div class="cs-metrics-grid">`+m.map(function(x){return `<div class="cs-metric"><div class="cs-metric-n">${x.n}</div><div class="cs-metric-l">${x.l}</div></div>`;}).join('')+`</div></div>`:'';})()}
-      ${(SCREENS[raw.id]||[]).length ? `<div class="cs-gallery-label"><span>${t('cs.gallery')}</span></div>` + (MOBILE[raw.id] ? '<div class="cs-mobile-grid">' : '') + (SCREENS[raw.id]).map(src => `<div class="cs-shot${MOBILE[raw.id] ? ' cs-shot-tall' : ''}"><img src="${src}?v=hd2" alt="${raw.name}" loading="lazy" /></div>`).join('') + (MOBILE[raw.id] ? '</div>' : '') : ''}
+      ${(SCREENS[raw.id]||[]).length ? `<div class="cs-gallery-label"><span>${t('cs.gallery')}</span></div>` + (MOBILE[raw.id] ? '<div class="cs-mobile-grid">' : '') + (SCREENS[raw.id]).map(src => `<div class="cs-shot${MOBILE[raw.id] ? ' cs-shot-tall' : ''}"><img src="${src}?v=hd3" alt="${raw.name}" loading="lazy" /></div>`).join('') + (MOBILE[raw.id] ? '</div>' : '') : ''}
       <div class="cs-next"><span>${t('cs.next')}</span><a href="casestudy.html?id=${nextRaw.id}">${nextRaw.name} →</a></div>`;
     const g = csEl.querySelector('.gallery');
     if (g) { enableDragScroll(g); attachDragBadge(csEl.querySelector('.gallery-wrap'), g); }
