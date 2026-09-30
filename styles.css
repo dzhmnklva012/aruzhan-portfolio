@@ -358,6 +358,20 @@ footer { padding: 96px 0 40px; }
 .cs-shot.cs-shot-tall { margin-top: 0; border-radius: 22px; }
 .cs-shot.cs-shot-tall img { width: 100%; height: auto; display: block; }
 
+/* mobile "showcase": a web-sized banner holding three phones per row */
+.cs-showcase { margin-top: 18px; border-radius: var(--radius); border: 1px solid var(--line); overflow: hidden;
+  background:
+    radial-gradient(120% 90% at 50% -20%, color-mix(in srgb, var(--acc, #6a4fe0) 30%, transparent), transparent 60%),
+    linear-gradient(160deg, color-mix(in srgb, var(--acc, #6a4fe0) 16%, var(--bg-2)) 0%, var(--bg-2) 65%); }
+.cs-showcase + .cs-showcase { margin-top: 22px; }
+.cs-showcase-row { display: flex; gap: clamp(14px, 3.4vw, 44px); justify-content: center; align-items: flex-end;
+  padding: clamp(26px, 5vw, 60px) clamp(16px, 4vw, 44px) 0; }
+.cs-phone { flex: 0 1 30%; max-width: 30%; border-radius: 24px 24px 0 0; overflow: hidden;
+  box-shadow: 0 30px 70px -24px rgba(0,0,0,.65), 0 2px 0 rgba(255,255,255,.05) inset;
+  border: 1px solid rgba(255,255,255,.07); border-bottom: none; }
+.cs-phone img { width: 100%; height: auto; display: block; }
+@media (max-width: 560px) { .cs-showcase-row { gap: 8px; padding: 20px 10px 0; } .cs-phone { border-radius: 14px 14px 0 0; } }
+
 /* project name meaning line */
 .proj-meaning { font-size: clamp(15px, 1.7vw, 17px); color: var(--soft); margin: 10px 0 2px; line-height: 1.4; }
 .proj-meaning b { color: var(--accent); font-weight: 600; }
