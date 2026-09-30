@@ -476,7 +476,7 @@ const METRICS = {
 const MOBILE = { 'foodi': true, 'voyage': true };
 const LOGOS = {};
 const LINKS = { 'ai-landings': 'https://ac.adata.kz/compliance' };
-const BADGES = { 'ai-landings': 'Built with AI', 'spk': 'Built with AI', 'signet': 'Built with AI', 'sentinel': 'Built with AI', 'foodi': 'Built with AI · 2h', 'voyage': 'Built with AI' };
+const BADGES = { 'ai-landings': 'AI', 'spk': 'Built with AI', 'signet': 'AI', 'sentinel': 'AI', 'foodi': 'Built with AI · 2h', 'voyage': 'Built with AI' };
 const SCREENS = {
   'speakup': ['shots/speakup-auth-1.png', 'shots/speakup-auth-3.png', 'shots/candor-1.png', 'shots/candor-2.png', 'shots/candor-3.png', 'shots/candor-4.png', 'shots/candor-5.png'],
   'aml': ['shots/aegis-1.png', 'shots/aegis-2.png', 'shots/aegis-3.png', 'shots/aegis-4.png', 'shots/aegis-5.png'],
