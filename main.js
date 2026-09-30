@@ -230,6 +230,19 @@ const caseStudies = [
     ]
   },
   {
+    id: 'voyage', name: 'Voyage', kind: 'Travel · Mobile', yr: '2026', accent: '#5a4fe0', icon: '🧭', url: '',
+    subtitle: 'A premium digital travel pass — one QR for a whole purchased tour: itinerary, entry, flights and an AI concierge.',
+    benefits: ['One-QR access', 'Itinerary & flights', 'AI concierge', 'Light & dark'],
+    gallery: ['phone', 'phone', 'phone', 'phone', 'phone'],
+    title: 'One QR for the whole trip',
+    role: ['Product Designer', 'UX + UI'], status: ['Built with AI'], type: ['Mobile', 'Travel', 'iOS'],
+    intro: [
+      'Voyage turns a purchased tour into one digital pass. Instead of a folder of PDFs, vouchers and separate tickets, the whole trip lives behind a single QR — identity, tour and access verified in one scan at any included venue.',
+      'I designed the full journey: a home that shows the trip happening now, a Travel Pass with reservations and add-ons, in-app directions with transport modes, flights and boarding passes, and an AI assistant that knows the itinerary and answers in action cards.',
+      'Fully bilingual (RU / EN) with light and dark themes, on a twilight design system — built end-to-end with AI.'
+    ]
+  },
+  {
     id: 'speakup', name: 'Speak Up', kind: 'Ethics · HR', yr: '2025', accent: '#2faa5e', icon: '📣', url: '',
     subtitle: 'A safe whistleblowing and feedback platform for employees to raise concerns.',
     benefits: ['Whistleblowing', 'Trust & safety', 'Anonymous reports', 'Case tracking'],
@@ -362,6 +375,18 @@ const CS_RU = {
       'Я спроектировала весь путь на одной кодовой базе для iOS и Android: главная и поиск, ресторан и блюдо, корзина и оформление, живой трекинг заказа — с интерфейсом на трёх языках (Қазақша / Русский / English) и светлой и тёмной темой.',
       'Всё это — дизайн и рабочее приложение — собрано целиком с помощью ИИ примерно за два часа.'
     ]
+  },
+  voyage: {
+    kind: 'Путешествия · Мобайл',
+    subtitle: 'Премиальный цифровой проездной путешественника — один QR на весь купленный тур: программа, вход, рейсы и ИИ-консьерж.',
+    benefits: ['Вход по одному QR', 'Программа и рейсы', 'ИИ-консьерж', 'Светлая и тёмная'],
+    title: 'Один QR на всё путешествие',
+    role: ['Продуктовый дизайнер', 'UX + UI'], status: ['Собрано с ИИ'], type: ['Мобайл', 'Путешествия', 'iOS'],
+    intro: [
+      'Voyage превращает купленный тур в один цифровой пропуск. Вместо папки из PDF, ваучеров и отдельных билетов вся поездка живёт за единым QR — личность, тур и доступ подтверждаются одним сканированием в любом включённом месте.',
+      'Я спроектировала весь путь: главную, где поездка идёт прямо сейчас, проездной с бронями и доп-опциями, маршруты с видами транспорта внутри приложения, рейсы и посадочные, и ИИ-ассистента, который знает программу и отвечает карточками-действиями.',
+      'Полностью на двух языках (RU / EN), со светлой и тёмной темой, на «сумеречной» дизайн-системе — собрано целиком с помощью ИИ.'
+    ]
   }
 };
 function loc(p) { return (lang === 'ru' && CS_RU[p.id]) ? Object.assign({}, p, CS_RU[p.id]) : p; }
@@ -371,6 +396,7 @@ const PSR = {
     spk: { problem: 'Vetting one counterparty meant jumping between separate registries, copying data by hand, and hoping nothing was missed.', solution: 'One global search across people, companies, filings and trade data, with dossiers that assemble the whole picture on a single page.', result: 'A live demo analysts can run a real check in — search to dossier without leaving the product.' },
     signet: { problem: 'Business documents lived across email, scanned PDFs, and a separate e-signature tool — slow to send, hard to track, easy to lose in the thread.', solution: 'One flow from draft to signature: an AI assistant that drafts from a plain description, a template library, and a dashboard that shows every document\'s status at a glance.', result: 'In progress — creation, signing, and tracking on a single screen, with a component set that keeps a dense, regulated product readable.' },
     foodi: { problem: 'Global delivery apps treat Kazakhstan as an afterthought — Kazakh buried, kopecks in prices, fonts that break Ә Ғ Қ Ң Ө Ұ Ү Һ.', solution: 'A trilingual, tenge-native app on one iOS/Android codebase: Kazakh first, a display face that ships the Kazakh Cyrillic, and a full flow from browse to live order tracking.', result: 'A working prototype — the whole order journey runs offline, in three languages and both themes — designed and built with AI in about two hours.' },
+    voyage: { problem: 'A bought tour arrives as a mess of PDFs, vouchers and separate tickets. At each venue you dig for the right one, and nothing knows what the rest of your day looks like.', solution: 'One digital pass for the entire trip: a single QR that verifies identity, tour and access, plus itinerary, reservations, flights and an AI concierge — all in one app.', result: 'A working prototype where the whole trip runs from one screen — pass, QR entry, reservations, directions and boarding passes — in two languages and both themes.' },
     sentinel: { problem: 'A compliance team pulls counterparty risk from a dozen registries and spreadsheets — slow, easy to miss a signal, and impossible to see the whole picture of one company at once.', solution: 'One dossier per counterparty: a reliability score, ownership, licenses, procurement, connections and check history on tabbed cards, plus an AI assistant that runs the check and drafts the conclusion.', result: 'In progress — a dense compliance product where a reviewer opens one card and sees the risk, its source, and what to do next.' },
     aml: { problem: 'Risk decisions were made from scattered, dense data. A missed signal is a regulatory problem, and an overloaded screen is how signals get missed.', solution: 'I mapped the review journey and designed screening, scoring and case-investigation flows that surface only what the next decision needs.', result: 'In progress — the core review flow is designed and in build, with a component set that keeps new rule types from breaking the layout.' },
     speakup: { problem: 'People stay silent unless they can see, not just be told, that a report is safe and goes somewhere.', solution: 'Anonymous-first reporting, plain language at every step, and a status the reporter can follow without revealing who they are.', result: 'In progress — a reporting experience that reads as fair to employees and stays structured for the teams handling cases.' },
@@ -381,6 +407,7 @@ const PSR = {
     spk: { problem: 'Проверка одного контрагента означала прыжки между отдельными реестрами, ручное копирование данных и надежду, что ничего не упущено.', solution: 'Один глобальный поиск по людям, компаниям, выпискам и данным о торговле, с досье, которые собирают всю картину на одной странице.', result: 'Живое демо, в котором аналитик проводит реальную проверку — от поиска до досье, не выходя из продукта.' },
     signet: { problem: 'Деловые документы жили в почте, сканах PDF и отдельном сервисе подписи — медленно отправлять, трудно отслеживать, легко потерять в переписке.', solution: 'Один путь от черновика до подписи: AI-ассистент, который составляет документ по короткому описанию, библиотека шаблонов и дашборд, где статус каждого документа виден с одного взгляда.', result: 'В работе — создание, подписание и контроль на одном экране, с набором компонентов, который держит плотный зарегулированный продукт читаемым.' },
     foodi: { problem: 'Глобальные приложения доставки относятся к Казахстану по остаточному принципу — казахский спрятан, копейки в ценах, шрифты ломают Ә Ғ Қ Ң Ө Ұ Ү Һ.', solution: 'Приложение на трёх языках и в тенге на одной кодовой базе iOS/Android: казахский первым, шрифт с казахской кириллицей и полный путь от выбора до живого трекинга заказа.', result: 'Рабочий прототип — весь путь заказа проходит офлайн, на трёх языках и в обеих темах — спроектирован и собран с помощью ИИ примерно за два часа.' },
+    voyage: { problem: 'Купленный тур приходит грудой PDF, ваучеров и отдельных билетов. У каждого места ищешь нужный, и ничто не знает, как выглядит остальной день.', solution: 'Один цифровой пропуск на всю поездку: единый QR, подтверждающий личность, тур и доступ, плюс программа, брони, рейсы и ИИ-консьерж — всё в одном приложении.', result: 'Рабочий прототип, где вся поездка живёт на одном экране — проездной, вход по QR, брони, маршруты и посадочные — на двух языках и в обеих темах.' },
     sentinel: { problem: 'Комплаенс-команда собирает риск по контрагенту из десятка реестров и таблиц — медленно, легко пропустить сигнал и невозможно увидеть всю картину компании сразу.', solution: 'Одно досье на контрагента: оценка благонадёжности, структура владения, лицензии, закупки, связи и история проверок на вкладках, плюс ИИ-ассистент, который проводит проверку и составляет заключение.', result: 'В работе — плотный комплаенс-продукт, где проверяющий открывает одну карточку и видит риск, его источник и что делать дальше.' },
     aml: { problem: 'Решения о риске принимались по разрозненным плотным данным. Пропущенный сигнал — это регуляторная проблема, а перегруженный экран — то, как сигналы и пропускают.', solution: 'Я разложила путь проверки и спроектировала сценарии скрининга, скоринга и расследования так, чтобы на экране было только то, что нужно для следующего решения.', result: 'В работе — ключевой сценарий проверки спроектирован и в разработке, с набором компонентов, который не ломается от новых типов правил.' },
     speakup: { problem: 'Люди молчат, пока не увидят — а не услышат — что обращение безопасно и дойдёт до адресата.', solution: 'Анонимность по умолчанию, простой язык на каждом шаге и статус, который заявитель отслеживает, не раскрывая себя.', result: 'В работе — опыт обращений, который ощущается честным для сотрудника и остаётся структурированным для команды, обрабатывающей кейсы.' },
@@ -396,7 +423,8 @@ const MEANING = {
     'digital-office': '<b>Cadence</b> — a steady rhythm · the flow of everyday work',
     'spk': '<b>Argus</b> — the hundred-eyed watchman · all-seeing anti-corruption oversight',
     'signet': '<b>Signet</b> — the seal that makes a document official',
-    'foodi': '<b>Foodi</b> — food delivery that feels local, not translated'
+    'foodi': '<b>Foodi</b> — food delivery that feels local, not translated',
+    'voyage': '<b>Voyage</b> — the whole journey behind a single pass'
   },
   ru: {
     'sentinel': '<b>Sentinel</b> — неусыпный страж · непрерывный комплаенс-контроль',
@@ -406,7 +434,8 @@ const MEANING = {
     'digital-office': '<b>Cadence</b> — ровный ритм · поток ежедневной работы',
     'spk': '<b>Argus</b> — стоокий страж · всевидящий антикоррупционный надзор',
     'signet': '<b>Signet</b> — печать, которая делает документ официальным',
-    'foodi': '<b>Foodi</b> — доставка еды, которая ощущается местной, а не переведённой'
+    'foodi': '<b>Foodi</b> — доставка еды, которая ощущается местной, а не переведённой',
+    'voyage': '<b>Voyage</b> — всё путешествие за одним пропуском'
   }
 };
 const PREVIEW = {
@@ -417,7 +446,8 @@ const PREVIEW = {
   'digital-office': ['shots/cadence-1.png', 'shots/cadence-2.png', 'shots/cadence-3.png', 'shots/cadence-4.png', 'shots/cadence-5.png'],
   'spk': ['shots/spk.png', 'shots/ean-company.png', 'shots/ean-person.png', 'shots/ean-esf.png', 'shots/ean-proc.png', 'shots/ean-network.png', 'shots/ean-vypiski.png', 'shots/ean-ved.png'],
   'signet': ['shots/signet-home.png', 'shots/signet-inbox.png', 'shots/signet-document.png', 'shots/signet-template.png', 'shots/signet-newtemplate.png', 'shots/signet.png', 'shots/signet-create.png'],
-  'foodi': ['shots/foodi.png', 'shots/foodi-search.png', 'shots/foodi-restaurant.png', 'shots/foodi-dish.png', 'shots/foodi-cart.png', 'shots/foodi-checkout.png', 'shots/foodi-order.png', 'shots/foodi-reviews.png', 'shots/foodi-profile.png']
+  'foodi': ['shots/foodi.png', 'shots/foodi-search.png', 'shots/foodi-restaurant.png', 'shots/foodi-dish.png', 'shots/foodi-cart.png', 'shots/foodi-checkout.png', 'shots/foodi-order.png', 'shots/foodi-reviews.png', 'shots/foodi-profile.png'],
+  'voyage': ['shots/voyage-home.png', 'shots/voyage-pass.png', 'shots/voyage-qr.png', 'shots/voyage-route.png', 'shots/voyage-boarding.png', 'shots/voyage-explore.png']
 };
 const METRICS = {
   en: {
@@ -425,6 +455,7 @@ const METRICS = {
     'spk': [{n:'8→1',l:'sources in one search'},{n:'−70%',l:'time per check'},{n:'100+',l:'data points per dossier'},{n:'0',l:'manual copy-paste'}],
     'signet': [{n:'3→1',l:'tools in one place'},{n:'−50%',l:'time to send a document'},{n:'100%',l:'status visible at a glance'},{n:'1',l:'screen, draft to signature'}],
     'foodi': [{n:'~2h',l:'design + working app'},{n:'3',l:'languages (KZ / RU / EN)'},{n:'1',l:'codebase, iOS + Android'},{n:'100%',l:'works offline'}],
+    'voyage': [{n:'1',l:'QR for the whole trip'},{n:'6',l:'core flows'},{n:'2',l:'languages (RU / EN)'},{n:'2',l:'themes, light + dark'}],
     'sentinel': [{n:'8→1',l:'sources in one dossier'},{n:'9',l:'tabs per company card'},{n:'−60%',l:'time per counterparty check'},{n:'100%',l:'risk visible at a glance'}],
     'aml': [{n:'−40%',l:'time per case review'},{n:'100+',l:'risk signals per client'},{n:'1',l:'unified review flow'},{n:'2',l:'sides: analyst + audit'}],
     'speakup': [{n:'100%',l:'anonymous by default'},{n:'3',l:'steps to file a report'},{n:'1',l:'status the reporter can follow'},{n:'2',l:'sides: employee + reviewer'}],
@@ -435,16 +466,17 @@ const METRICS = {
     'spk': [{n:'8→1',l:'источников в одном поиске'},{n:'−70%',l:'времени на проверку'},{n:'100+',l:'параметров в досье'},{n:'0',l:'ручного копирования'}],
     'signet': [{n:'3→1',l:'инструмента в одном месте'},{n:'−50%',l:'времени на отправку'},{n:'100%',l:'статус виден сразу'},{n:'1',l:'экран: от черновика до подписи'}],
     'foodi': [{n:'~2ч',l:'дизайн и рабочее приложение'},{n:'3',l:'языка (KZ / RU / EN)'},{n:'1',l:'кодовая база на iOS + Android'},{n:'100%',l:'работает офлайн'}],
+    'voyage': [{n:'1',l:'QR на всю поездку'},{n:'6',l:'ключевых сценариев'},{n:'2',l:'языка (RU / EN)'},{n:'2',l:'темы: светлая и тёмная'}],
     'sentinel': [{n:'8→1',l:'источников в одном досье'},{n:'9',l:'вкладок в карточке компании'},{n:'−60%',l:'времени на проверку контрагента'},{n:'100%',l:'риск виден сразу'}],
     'aml': [{n:'−40%',l:'времени на кейс'},{n:'100+',l:'риск-сигналов на клиента'},{n:'1',l:'единый сценарий проверки'},{n:'2',l:'стороны: аналитик и аудит'}],
     'speakup': [{n:'100%',l:'анонимно по умолчанию'},{n:'3',l:'шага до обращения'},{n:'1',l:'статус, который видит заявитель'},{n:'2',l:'стороны: сотрудник и проверяющий'}],
     'digital-office': [{n:'6→1',l:'вкладок в одном месте'},{n:'−45%',l:'переключений между инструментами'},{n:'1',l:'набор компонентов на все модули'},{n:'100%',l:'консистентных модулей'}]
   }
 };
-const MOBILE = { 'foodi': true };
+const MOBILE = { 'foodi': true, 'voyage': true };
 const LOGOS = {};
 const LINKS = { 'ai-landings': 'https://ac.adata.kz/compliance' };
-const BADGES = { 'ai-landings': 'AI', 'spk': 'AI', 'signet': 'AI', 'sentinel': 'AI', 'foodi': 'Built with AI · 2h' };
+const BADGES = { 'ai-landings': 'AI', 'spk': 'AI', 'signet': 'AI', 'sentinel': 'AI', 'foodi': 'Built with AI · 2h', 'voyage': 'Built with AI' };
 const SCREENS = {
   'speakup': ['shots/speakup-auth-1.png', 'shots/speakup-auth-3.png', 'shots/candor-1.png', 'shots/candor-2.png', 'shots/candor-3.png', 'shots/candor-4.png', 'shots/candor-5.png'],
   'aml': ['shots/aegis-1.png', 'shots/aegis-2.png', 'shots/aegis-3.png', 'shots/aegis-4.png', 'shots/aegis-5.png'],
@@ -453,7 +485,8 @@ const SCREENS = {
   'digital-office': ['shots/cadence-1.png', 'shots/cadence-2.png', 'shots/cadence-3.png', 'shots/cadence-4.png', 'shots/cadence-5.png'],
   'spk': ['shots/ean-login.png', 'shots/ean-company.png', 'shots/ean-person.png', 'shots/ean-esf.png', 'shots/ean-proc.png', 'shots/ean-network.png', 'shots/ean-vypiski.png', 'shots/ean-ved.png'],
   'signet': ['shots/signet-home.png', 'shots/signet-inbox.png', 'shots/signet-document.png', 'shots/signet-template.png', 'shots/signet-newtemplate.png', 'shots/signet.png', 'shots/signet-create.png'],
-  'foodi': ['shots/foodi.png', 'shots/foodi-search.png', 'shots/foodi-restaurant.png', 'shots/foodi-dish.png', 'shots/foodi-cart.png', 'shots/foodi-checkout.png', 'shots/foodi-order.png', 'shots/foodi-reviews.png', 'shots/foodi-profile.png']
+  'foodi': ['shots/foodi.png', 'shots/foodi-search.png', 'shots/foodi-restaurant.png', 'shots/foodi-dish.png', 'shots/foodi-cart.png', 'shots/foodi-checkout.png', 'shots/foodi-order.png', 'shots/foodi-reviews.png', 'shots/foodi-profile.png'],
+  'voyage': ['shots/voyage-home.png', 'shots/voyage-pass.png', 'shots/voyage-qr.png', 'shots/voyage-reserve.png', 'shots/voyage-route.png', 'shots/voyage-explore.png', 'shots/voyage-assistant.png', 'shots/voyage-profile.png', 'shots/voyage-boarding.png']
 };
 
 function mock(kind, a) {
